@@ -73,6 +73,11 @@ on init
 on early-fs
     start vold
 
+    # Set default schedTune value for foreground/top-app
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
 on fs
     start hwservicemanager
     chown media audio /mnt/vendor/persist/audio
