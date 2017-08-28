@@ -531,4 +531,7 @@
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
          specified -->
     <string name="default_wallpaper_component" translatable="false">com.breel.wallpapers18/com.breel.wallpapers18.soundviz.wallpaper.variations.SoundVizWallpaperV2</string>
+
+    <!-- Enable dual LTE capability support-->
+    <bool name="config_dual_LTE_capability">true</bool>
 </resources>
