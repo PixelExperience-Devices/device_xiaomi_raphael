@@ -103,6 +103,10 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
+# Offmode charging
+PRODUCT_PACKAGES += \
+    chargeonlymode
+
 # Parts
 PRODUCT_PACKAGES += \
     XiaomiParts
