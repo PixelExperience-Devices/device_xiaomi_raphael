@@ -52,6 +52,9 @@ on init && property:ro.boot.hwc=CN
 on property:ro.boot.product.hardware.sku=raphael
     enable vendor.nfc_hal_service
 
+on property:sys.boot_completed=1
+    setprop vendor.powerhal.init 1
+
 on post-fs-data
     mkdir /data/vendor/mac_addr 0770 system wifi
     mkdir /data/vendor/nfc 0770 nfc nfc
