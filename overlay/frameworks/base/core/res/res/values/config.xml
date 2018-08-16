@@ -365,6 +365,7 @@
          backlight values for LUX levels between these control points.
 
          Must be overridden in platform specific overlays -->
+    <integer name="config_lightSensorWarmupTime">200</integer>
     <integer-array name="config_autoBrightnessLevels">
         <item>1</item>
         <item>2</item>
