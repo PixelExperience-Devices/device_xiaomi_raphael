@@ -1,3 +1,6 @@
+# Audio
+/system/etc/audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
+
 # Camera Motor
 /dev/drv8846_dev         u:object_r:camera_motor_device:s0
 
