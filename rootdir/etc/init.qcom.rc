@@ -12,5 +12,18 @@ service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
     group system
     disabled
 
+service vendor.ss_ramdump_local /vendor/bin/subsystem_ramdump
+    class late_start
+    user system
+    group system
+    disabled
+
 on property init.svc.vendor.motor=running
     stop vendor.motor
+
+on property:persist.vendor.sys.ssr.enable_ramdumps=1
+    start vendor.ss_ramdump_local
+
+on property:persist.vendor.sys.ssr.enable_ramdumps=0
+    stop vendor.ss_ramdump
+    stop vendor.ss_ramdump_local
