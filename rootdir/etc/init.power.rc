@@ -15,6 +15,9 @@
 #
 
 on property:vendor.setup.power=1
+    # Enable EAS
+    write /proc/sys/kernel/sched_energy_aware 1
+
     # Enable bus-dcvs
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor bw_hwmon
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/polling_interval 40

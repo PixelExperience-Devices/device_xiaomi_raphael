@@ -28,7 +28,8 @@
 #
 
 on early-init
-    write /proc/sys/kernel/sched_boost 1
+    # Disable EAS
+    write /proc/sys/kernel/sched_energy_aware 0
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
