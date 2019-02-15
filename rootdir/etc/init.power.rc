@@ -100,6 +100,10 @@ on property:vendor.setup.power=1
     # Enable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    # Enable idle state listener
+    write /sys/class/drm/card0/device/idle_encoder_mask 1
+    write /sys/class/drm/card0/device/idle_timeout_ms 100
+
     chown system system /sys/class/devfreq/soc:qcom,l3-cdsp/userspace/set_freq
 
     # Enable PowerHAL hint processing
