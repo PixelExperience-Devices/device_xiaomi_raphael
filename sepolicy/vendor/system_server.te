@@ -1,0 +1,2 @@
+# Smart charger
+allow system_server vendor_sysfs_battery_supply:file rw_file_perms;
