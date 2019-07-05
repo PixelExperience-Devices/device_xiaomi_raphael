@@ -5,6 +5,7 @@ on init
     mount none /system/lib/soundfx/libvolumelistener.so /vendor/lib/soundfx/libvolumelistener.so bind
     mount none /system/overlay/BluetoothResCommon.apk /vendor/overlay/BluetoothResCommon.apk bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
+    mount none /system/etc/media_codecs.xml /vendor/etc/media_codecs.xml bind
 
 service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
     class hal

@@ -22,3 +22,6 @@
 
 # Modules
 /system/lib/modules/wlan\.ko    u:object_r:vendor_file:s0
+
+# Media
+/system/etc/media_codecs.xml    u:object_r:vendor_configs_file:s0
