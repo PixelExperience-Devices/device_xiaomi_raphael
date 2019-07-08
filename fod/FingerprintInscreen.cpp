@@ -20,6 +20,7 @@
 
 #include <android-base/logging.h>
 #include <fstream>
+#include <cmath>
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 3
@@ -118,7 +119,15 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
-    return 255 - brightness;
+    float alpha;
+
+    if (brightness > 62) {
+        alpha = 1.0 - pow(brightness / 255.0 * 430.0 / 600.0, 0.45);
+    } else {
+        alpha = 1.0 - pow(brightness / 200.0, 0.45);
+    }
+
+    return 255 * alpha;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
