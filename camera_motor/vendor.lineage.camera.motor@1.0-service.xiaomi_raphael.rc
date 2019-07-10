@@ -1,0 +1,6 @@
+service vendor.camera-motor-1-0 /system/bin/hw/vendor.lineage.camera.motor@1.0-service.xiaomi_raphael
+    interface vendor.lineage.camera.motor@1.0::ICameraMotor default
+    class hal
+    user system
+    group system
+    shutdown critical
