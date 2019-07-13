@@ -20,7 +20,10 @@
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include <misc/drv8846.h>
+
 #define CAMERA_ID_FRONT "1"
+#define MOTOR_DEV_PATH "/dev/drv8846_dev"
 
 namespace vendor {
 namespace lineage {
@@ -29,9 +32,15 @@ namespace motor {
 namespace V1_0 {
 namespace implementation {
 
+CameraMotor::CameraMotor() {
+    motor_fd_ = android::base::unique_fd(open(MOTOR_DEV_PATH, O_RDWR));
+}
+
 Return<void> CameraMotor::onConnect(const hidl_string& cameraId) {
     if (cameraId == CAMERA_ID_FRONT) {
         LOG(INFO) << "Camera is uprising.";
+        uint8_t arg = UP;
+        ioctl(motor_fd_.get(), MOTOR_IOC_SET_AUTORUN, &arg);
     }
 
     return Void();
@@ -40,6 +49,8 @@ Return<void> CameraMotor::onConnect(const hidl_string& cameraId) {
 Return<void> CameraMotor::onDisconnect(const hidl_string& cameraId) {
     if (cameraId == CAMERA_ID_FRONT) {
         LOG(INFO) << "Camera is descending";
+        uint8_t arg = DOWN;
+        ioctl(motor_fd_.get(), MOTOR_IOC_SET_AUTORUN, &arg);
     }
 
     return Void();

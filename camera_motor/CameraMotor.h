@@ -18,6 +18,8 @@
 
 #include <vendor/lineage/camera/motor/1.0/ICameraMotor.h>
 
+#include <android-base/unique_fd.h>
+
 namespace vendor {
 namespace lineage {
 namespace camera {
@@ -31,10 +33,13 @@ using ::android::hardware::Void;
 
 class CameraMotor : public ICameraMotor {
   public:
-    CameraMotor() = default;
+    CameraMotor();
 
     Return<void> onConnect(const hidl_string& cameraId) override;
     Return<void> onDisconnect(const hidl_string& cameraId) override;
+
+  private:
+    android::base::unique_fd motor_fd_;
 };
 
 }  // namespace implementation

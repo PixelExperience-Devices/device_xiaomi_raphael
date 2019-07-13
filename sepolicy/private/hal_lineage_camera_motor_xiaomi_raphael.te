@@ -3,3 +3,5 @@ hal_server_domain(hal_lineage_camera_motor_xiaomi_raphael, hal_lineage_camera_mo
 
 type hal_lineage_camera_motor_xiaomi_raphael_exec, exec_type, file_type;
 init_daemon_domain(hal_lineage_camera_motor_xiaomi_raphael)
+
+allow hal_lineage_camera_motor_xiaomi_raphael camera_motor_device:chr_file rw_file_perms;

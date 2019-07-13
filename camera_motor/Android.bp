@@ -19,6 +19,7 @@ cc_binary {
     name: "vendor.lineage.camera.motor@1.0-service.xiaomi_raphael",
     init_rc: ["vendor.lineage.camera.motor@1.0-service.xiaomi_raphael.rc"],
     srcs: ["service.cpp", "CameraMotor.cpp"],
+    header_libs: ["generated_kernel_headers"],
     shared_libs: [
         "libbase",
         "libhardware",
