@@ -1,2 +1,11 @@
 on init
     mount none /system/overlay/BluetoothResCommon.apk /vendor/overlay/BluetoothResCommon.apk bind
+
+service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+    class hal
+    user system
+    group system
+    disabled
+
+on property init.svc.vendor.motor=running
+    stop vendor.motor
