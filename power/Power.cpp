@@ -33,6 +33,7 @@
 #include <utils/Log.h>
 #include "Power.h"
 #include "power-common.h"
+#include <linux/input.h>
 
 namespace android {
 namespace hardware {
@@ -65,6 +66,17 @@ Return<void> Power::powerHint(PowerHint_1_0 hint, int32_t data) {
 }
 
 Return<void> Power::setFeature(Feature feature, bool activate)  {
+    switch (feature) {
+        case Feature::POWER_FEATURE_DOUBLE_TAP_TO_WAKE: {
+            int fd = open(TAP_TO_WAKE_NODE, O_RDWR);
+            struct input_event ev;
+            ev.type = EV_SYN;
+            ev.code = SYN_CONFIG;
+            ev.value = activate ? INPUT_EVENT_WAKUP_MODE_ON : INPUT_EVENT_WAKUP_MODE_OFF;
+            write(fd, &ev, sizeof(ev));
+            close(fd);
+        } break;
+    }
     return Void();
 }
 
