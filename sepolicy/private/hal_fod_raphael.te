@@ -3,3 +3,8 @@ hal_server_domain(hal_fod_raphael, hal_lineage_fod)
 
 type hal_fod_raphael_exec, exec_type, file_type;
 init_daemon_domain(hal_fod_raphael)
+
+allow hal_fod_raphael sysfs_graphics:file rw_file_perms;
+allow hal_fod_raphael sysfs_tp_fodstatus:file rw_file_perms;
+
+binder_call(hal_fod_raphael, hal_fingerprint)
