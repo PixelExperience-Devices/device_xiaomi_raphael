@@ -24,4 +24,7 @@
     <!-- Bottom margin size when fingerprint in display is active -->
    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">140.0px</dimen>
 
+    <!-- Status bar height and padding -->
+    <dimen name="rounded_corner_content_padding">16dp</dimen>
+    <dimen name="system_icons_keyguard_padding_end">16dp</dimen>
 </resources>
