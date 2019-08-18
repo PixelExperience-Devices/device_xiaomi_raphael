@@ -21,5 +21,11 @@
     "repository": "packages_apps_WallpapersBReel2018",
     "target_path": "packages/apps/WallpapersBReel2018",
     "branch": "pie"
+  },
+  {
+    "repository": "packages_apps_GoogleCameraMod",
+    "target_path": "packages/apps/GoogleCameraMod",
+    "branch": "pie",
+    "remote": "pixel-gitlab"
   }
 ] 

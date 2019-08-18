@@ -35,10 +35,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     BluetoothResCommon
 
-# Camera
-PRODUCT_PACKAGES += \
-    Snap
-
 # Camera Motor
 PRODUCT_PACKAGES += \
     vendor.lineage.camera.motor@1.0-service.xiaomi_raphael
@@ -75,6 +71,9 @@ PRODUCT_BOOT_JARS += \
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common
+
+# GoogleCamera
+$(call inherit-product, packages/apps/GoogleCameraMod/raphael/config.mk)
 
 # Input
 PRODUCT_COPY_FILES += \
