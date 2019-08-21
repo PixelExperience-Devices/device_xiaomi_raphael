@@ -9,8 +9,9 @@
 # Data files
 /data/display(/.*)?                 u:object_r:display_data_file:s0
 
-# Fingerprint related nodes
+# FOD related nodes
 /sys/devices/virtual/touch/tp_dev/fod_status                       u:object_r:sysfs_tp_fodstatus:s0
+/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_hbm     u:object_r:sysfs_fod_hbm:s0
 
 # Files in rootfs
 /bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
