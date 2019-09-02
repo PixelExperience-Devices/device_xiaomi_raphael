@@ -19,7 +19,7 @@ cc_binary {
     name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_raphael",
     init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_raphael.rc"],
     srcs: [
-	"service.cpp",
+        "service.cpp",
         "FingerprintInscreen.cpp",
     ],
     vendor: true,
@@ -31,8 +31,8 @@ cc_binary {
         "liblog",
         "libhwbinder",
         "libutils",
-        "vendor.goodix.hardware.biometrics.fingerprint@2.1",
         "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
+        "vendor.xiaomi.hardware.displayfeature@1.0",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
     ],
     proprietary: true,
