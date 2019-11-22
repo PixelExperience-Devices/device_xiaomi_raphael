@@ -459,6 +459,7 @@ PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # VNDK
+PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
 PRODUCT_PRODUCT_VNDK_VERSION := current
 
 # WiFi
