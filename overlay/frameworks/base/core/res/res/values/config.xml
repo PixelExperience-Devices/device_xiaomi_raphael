@@ -836,4 +836,6 @@
          specified -->
     <string name="default_wallpaper_component" translatable="false">com.breel.wallpapers19/com.breel.wallpapers19.doodle.wallpaper.variations.DoodleWallpaperV1</string>
 
+    <!-- Whether to use scaled brightness (set -1 to disable) -->
+    <integer name="config_useScaleBrightness">2047</integer>
 </resources>
