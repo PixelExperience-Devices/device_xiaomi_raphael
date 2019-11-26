@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="popup_led_effect"
+        android:defaultValue="true"
+        android:title="@string/popup_led_title"
+        android:summary="@string/popup_led_summary"/>
+
+    <ListPreference
+        android:key="popup_sound_effect"
+        android:entries="@array/popupcamera_effects_entries"
+        android:entryValues="@array/popupcamera_effects_values"
+        android:defaultValue="muqin"
+        android:title="@string/popup_title"
+        android:summary="%s" />
+
+</PreferenceScreen>

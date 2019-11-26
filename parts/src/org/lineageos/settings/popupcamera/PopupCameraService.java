@@ -25,6 +25,10 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -56,6 +60,8 @@ public class PopupCameraService extends Service {
 
     private static Handler mHandler = new Handler();
 
+    private PopupCameraPreferences mPopupCameraPreferences;
+
     @Override
     public void onCreate() {
         mSensorManager = this.getSystemService(SensorManager.class);
@@ -65,6 +71,7 @@ public class PopupCameraService extends Service {
             mMotor = IMotor.getService();
         } catch(Exception e) {
         }
+        mPopupCameraPreferences = new PopupCameraPreferences(this);
     }
 
     @Override
@@ -115,10 +122,12 @@ public class PopupCameraService extends Service {
                 try {
                    if (cameraState.equals(openCameraState) && mMotor.getMotorStatus() == 13) {
                        lightUp();
+                       playSoundEffect(openCameraState);
                        mMotor.popupMotor(1);
                        mSensorManager.registerListener(mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
                    } else if (cameraState.equals(closeCameraState) && mMotor.getMotorStatus() == 11) {
                        lightUp();
+                       playSoundEffect(closeCameraState);
                        mMotor.takebackMotor(1);
                        mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
                    }
@@ -142,17 +151,34 @@ public class PopupCameraService extends Service {
         }
     }
 
-    private void lightUp() {
-        FileUtils.writeLine(GREEN_LED_PATH, "255");
-        FileUtils.writeLine(BLUE_LED_PATH, "255");
-
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                FileUtils.writeLine(GREEN_LED_PATH, "0");
-                FileUtils.writeLine(BLUE_LED_PATH, "0");
+    private void playSoundEffect(String state) {
+        String soundEffect = mPopupCameraPreferences.getSoundEffect();
+        if (!soundEffect.equals("0")){
+            String soundPath = "/product/media/audio/ui/popup_" + soundEffect + "_" + (state.equals(openCameraState) ? "up" : "down") + ".ogg";
+            final Uri soundUri = Uri.parse("file://" + soundPath);
+            if (soundUri != null) {
+                final Ringtone sfx = RingtoneManager.getRingtone(this, soundUri);
+                if (sfx != null) {
+                    sfx.setStreamType(AudioManager.STREAM_SYSTEM);
+                    sfx.play();
+                }
             }
-        }, 1200);
+        }
+    }
+
+    private void lightUp() {
+        if (mPopupCameraPreferences.isLedAllowed()){
+            FileUtils.writeLine(GREEN_LED_PATH, "255");
+            FileUtils.writeLine(BLUE_LED_PATH, "255");
+
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    FileUtils.writeLine(GREEN_LED_PATH, "0");
+                    FileUtils.writeLine(BLUE_LED_PATH, "0");
+                }
+            }, 1200);
+        }
     }
 
     private SensorEventListener mFreeFallListener = new SensorEventListener() {
