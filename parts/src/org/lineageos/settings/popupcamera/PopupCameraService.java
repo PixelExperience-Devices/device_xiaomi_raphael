@@ -16,9 +16,12 @@
 
 package org.lineageos.settings.popupcamera;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.Sensor;
@@ -34,11 +37,16 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.List;
 
+import org.lineageos.settings.R;
 import org.lineageos.settings.utils.FileUtils;
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
+import vendor.xiaomi.hardware.motor.V1_0.IMotorCallback;
+import vendor.xiaomi.hardware.motor.V1_0.MotorEvent;
 
 public class PopupCameraService extends Service {
 
@@ -49,7 +57,10 @@ public class PopupCameraService extends Service {
     private static String mCameraState = "-1";
 
     private IMotor mMotor = null;
+    private IMotorCallback mMotorStatusCallback;
+    private final Object mLock = new Object();
     private boolean mMotorBusy = false;
+    private boolean mMotorCalibrating = false;
 
     private SensorManager mSensorManager;
     private Sensor mFreeFallSensor;
@@ -62,6 +73,19 @@ public class PopupCameraService extends Service {
 
     private PopupCameraPreferences mPopupCameraPreferences;
 
+    // Motor status
+    private static final int MOTOR_STATUS_POPUP_OK = 11;
+    private static final int MOTOR_STATUS_POPUP_JAMMED = 12;
+    private static final int MOTOR_STATUS_TAKEBACK_OK = 13;
+    private static final int MOTOR_STATUS_TAKEBACK_JAMMED = 14;
+    private static final int MOTOR_STATUS_PRESSED = 15;
+    private static final int MOTOR_STATUS_CALIB_OK = 17;
+    private static final int MOTOR_STATUS_CALIB_ERROR = 18;
+    private static final int MOTOR_STATUS_REQUEST_CALIB = 19;
+
+    // Error dialog
+    private boolean mErrorDialogShowing;
+
     @Override
     public void onCreate() {
         mSensorManager = this.getSystemService(SensorManager.class);
@@ -69,9 +93,50 @@ public class PopupCameraService extends Service {
         registerReceiver();
         try {
             mMotor = IMotor.getService();
+            mMotorStatusCallback = new MotorStatusCallback();
+            mMotor.setMotorCallback(mMotorStatusCallback);
         } catch(Exception e) {
         }
         mPopupCameraPreferences = new PopupCameraPreferences(this);
+    }
+
+    private final class MotorStatusCallback extends IMotorCallback.Stub {
+        public MotorStatusCallback() {
+        }
+
+        @Override
+        public void onNotify(MotorEvent event) {
+            int status = event.vaalue;
+            int cookie = event.cookie;
+            if (DEBUG) Log.d(TAG, "onNotify: cookie=" + cookie + ",status=" + status);
+            synchronized (mLock) {
+                if (status == MOTOR_STATUS_CALIB_OK || status == MOTOR_STATUS_CALIB_ERROR) {
+                    mMotorCalibrating = false;
+                    showCalibrationResult(status);
+                }else if (status == MOTOR_STATUS_PRESSED) {
+                    forceTakeback();
+                    goBackHome();
+                }else if (status == MOTOR_STATUS_POPUP_JAMMED || status == MOTOR_STATUS_TAKEBACK_JAMMED) {
+                    showErrorDialog();
+                }
+            }
+        }
+    }
+
+    private void calibrateMotor() {
+        synchronized (mLock) {
+            if (mMotorCalibrating || mMotor == null) return;
+            try {
+                mMotorCalibrating = true;
+                mMotor.calibration();
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    private void forceTakeback(){
+        mCameraState = closeCameraState;
+        updateMotor();
     }
 
     @Override
@@ -107,32 +172,48 @@ public class PopupCameraService extends Service {
             final String action = intent.getAction();
             if ("android.intent.action.CAMERA_STATUS_CHANGED".equals(action)) {
                mCameraState = intent.getExtras().getString("android.intent.extra.CAMERA_STATE");
-               updateMotor(mCameraState);
+               updateMotor();
+            }else if ("android.intent.action.SCREEN_OFF".equals(action)) {
+                if (mCameraState.equals(openCameraState)){
+                    forceTakeback();
+                }
             }
         }
     };
 
-    private void updateMotor(String cameraState) {
+    private void updateMotor() {
         final Runnable r = new Runnable() {
             @Override
             public void run() {
-                mMotorBusy = true;
-                mHandler.postDelayed(() -> { mMotorBusy = false; }, 1200);
                 if (mMotor == null) return;
+                mMotorBusy = true;
                 try {
-                   if (cameraState.equals(openCameraState) && mMotor.getMotorStatus() == 13) {
-                       lightUp();
-                       playSoundEffect(openCameraState);
-                       mMotor.popupMotor(1);
-                       mSensorManager.registerListener(mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                   } else if (cameraState.equals(closeCameraState) && mMotor.getMotorStatus() == 11) {
-                       lightUp();
-                       playSoundEffect(closeCameraState);
-                       mMotor.takebackMotor(1);
-                       mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
-                   }
+                    int status = mMotor.getMotorStatus();
+                    if (DEBUG) Log.d(TAG, "updateMotor: status=" + status);
+                    if (mMotorCalibrating){
+                        mMotorBusy = false;
+                        goBackHome();
+                        return;
+                    }else if (mCameraState.equals(openCameraState) && (status == MOTOR_STATUS_TAKEBACK_OK || status == MOTOR_STATUS_CALIB_OK)) {
+                        lightUp();
+                        playSoundEffect(openCameraState);
+                        mMotor.popupMotor(1);
+                        mSensorManager.registerListener(mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                    } else if (mCameraState.equals(closeCameraState) && (status == MOTOR_STATUS_POPUP_OK || status == MOTOR_STATUS_CALIB_OK)) {
+                        lightUp();
+                        playSoundEffect(closeCameraState);
+                        mMotor.takebackMotor(1);
+                        mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
+                    }else{
+                        mMotorBusy = false;
+                        if (status == MOTOR_STATUS_REQUEST_CALIB || status == MOTOR_STATUS_POPUP_JAMMED || status == MOTOR_STATUS_TAKEBACK_JAMMED || status == MOTOR_STATUS_CALIB_ERROR){
+                            showErrorDialog();
+                        }
+                        return;
+                    }
                 } catch(Exception e) {
                 }
+                mHandler.postDelayed(() -> { mMotorBusy = false; }, 1200);
             }
         };
         if (mMotorBusy){
@@ -149,6 +230,46 @@ public class PopupCameraService extends Service {
         }else{
             mHandler.post(r);
         }
+    }
+
+    private void showCalibrationResult(int status){
+        mHandler.post(() -> {
+            Toast.makeText(PopupCameraService.this, status == MOTOR_STATUS_CALIB_OK ?
+                    R.string.popup_camera_calibrate_success :
+                    R.string.popup_camera_calibrate_failed, Toast.LENGTH_LONG).show();
+        });
+    }
+
+    private void showErrorDialog(){
+        if (mErrorDialogShowing){
+            return;
+        }
+        mErrorDialogShowing = true;
+        goBackHome();
+        mHandler.post(() -> {
+            Resources res = getResources();
+            int dialogMessageResId = mCameraState.equals(closeCameraState) ?
+                R.string.popup_camera_takeback_falied_times_calibrate :
+                R.string.popup_camera_popup_falied_times_calibrate;
+            AlertDialog alertDialog = new AlertDialog.Builder(this, R.style.SystemAlertDialogTheme)
+                    .setTitle(res.getString(R.string.popup_camera_tip))
+                    .setMessage(res.getString(dialogMessageResId))
+                    .setPositiveButton(res.getString(R.string.popup_camera_calibrate_now),
+                            (dialog, which) -> {
+                            calibrateMotor();
+                    })
+                    .setNegativeButton(res.getString(android.R.string.cancel), null)
+                    .create();
+            alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        mErrorDialogShowing = false;
+                    }
+                });
+        });
     }
 
     private void playSoundEffect(String state) {
@@ -185,8 +306,8 @@ public class PopupCameraService extends Service {
         @Override
         public void onSensorChanged(SensorEvent event) {
             if (event.sensor.getType() == FREE_FALL_SENSOR_ID && event.values[0] == 2.0f) {
-               updateMotor(closeCameraState);
-               goBackHome();
+                forceTakeback();
+                goBackHome();
             }
         }
 
