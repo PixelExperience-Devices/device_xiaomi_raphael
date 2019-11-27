@@ -85,5 +85,6 @@
     <string name="popup_camera_calibrate_now">Calibrate</string>
     <string name="popup_camera_calibrate_failed">Couldn\'t calibrate</string>
     <string name="popup_camera_calibrate_success">Calibrated successfully. You can open the front camera now.</string>
+    <string name="stop_operate_camera_frequently">You\'re opening the front camera too frequently.</string>
 
 </resources>
