@@ -56,8 +56,7 @@ public class FodService extends Service {
 
     private void registerReceiver() {
         IntentFilter filter = new IntentFilter();
-        filter.addAction("android.intent.action.SCREEN_ON");
-        filter.addAction("android.intent.action.SCREEN_OFF");
+        filter.addAction(Intent.ACTION_SCREEN_ON);
         this.registerReceiver(mIntentReceiver, filter);
     }
 

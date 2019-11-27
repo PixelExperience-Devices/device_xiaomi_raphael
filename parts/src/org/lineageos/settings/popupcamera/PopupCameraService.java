@@ -88,7 +88,7 @@ public class PopupCameraService extends Service {
 
     @Override
     public void onCreate() {
-        mSensorManager = this.getSystemService(SensorManager.class);
+        mSensorManager = getSystemService(SensorManager.class);
         mFreeFallSensor = mSensorManager.getDefaultSensor(FREE_FALL_SENSOR_ID);
         registerReceiver();
         try {
@@ -148,7 +148,7 @@ public class PopupCameraService extends Service {
     @Override
     public void onDestroy() {
         if (DEBUG) Log.d(TAG, "Destroying service");
-        this.unregisterReceiver(mIntentReceiver);
+        unregisterReceiver(mIntentReceiver);
         super.onDestroy();
     }
 
@@ -159,21 +159,19 @@ public class PopupCameraService extends Service {
 
     private void registerReceiver() {
         IntentFilter filter = new IntentFilter();
-        filter.addAction("android.intent.action.ACTION_SHUTDOWN");
-        filter.addAction("android.intent.action.SCREEN_ON");
-        filter.addAction("android.intent.action.SCREEN_OFF");
-        filter.addAction("android.intent.action.CAMERA_STATUS_CHANGED");
-        this.registerReceiver(mIntentReceiver, filter);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(Intent.ACTION_CAMERA_STATUS_CHANGED);
+        registerReceiver(mIntentReceiver, filter);
     }
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if ("android.intent.action.CAMERA_STATUS_CHANGED".equals(action)) {
-               mCameraState = intent.getExtras().getString("android.intent.extra.CAMERA_STATE");
+            if (Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
+               mCameraState = intent.getExtras().getString(Intent.EXTRA_CAMERA_STATE);
                updateMotor();
-            }else if ("android.intent.action.SCREEN_OFF".equals(action)) {
+            }else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                 if (mCameraState.equals(openCameraState)){
                     forceTakeback();
                 }
