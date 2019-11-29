@@ -11,7 +11,7 @@
         android:key="popup_sound_effect"
         android:entries="@array/popupcamera_effects_entries"
         android:entryValues="@array/popupcamera_effects_values"
-        android:defaultValue="muqin"
+        android:defaultValue="0"
         android:title="@string/popup_title"
         android:summary="%s" />
 

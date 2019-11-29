@@ -107,12 +107,12 @@
     </string-array>
 
     <string-array name="popupcamera_effects_values">
+        <item>-1</item>
         <item>0</item>
-        <item>muqin</item>
-        <item>yingyan</item>
-        <item>mofa</item>
-        <item>jijia</item>
-        <item>chilun</item>
-        <item>cangmen</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
     </string-array>
 </resources>
