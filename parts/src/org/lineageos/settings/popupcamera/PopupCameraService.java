@@ -28,9 +28,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.IBinder;
@@ -103,6 +105,11 @@ public class PopupCameraService extends Service {
     private boolean mProximityNear;
     private boolean mShouldTryUpdateMotor;
 
+    // Sound
+    private String[] mSoundNames = {"popup_muqin_up.ogg", "popup_muqin_down.ogg", "popup_yingyan_up.ogg", "popup_yingyan_down.ogg", "popup_mofa_up.ogg", "popup_mofa_down.ogg", "popup_jijia_up.ogg", "popup_jijia_down.ogg", "popup_chilun_up.ogg", "popup_chilun_down.ogg", "popup_cangmen_up.ogg", "popup_cangmen_down.ogg"};
+    private SoundPool mSoundPool;
+    private int[] mSounds = new int[mSoundNames.length];
+
     @Override
     public void onCreate() {
         mSensorManager = getSystemService(SensorManager.class);
@@ -117,6 +124,17 @@ public class PopupCameraService extends Service {
         } catch(Exception e) {
         }
         mPopupCameraPreferences = new PopupCameraPreferences(this);
+        mSoundPool = new SoundPool.Builder().setMaxStreams(1)
+                .setAudioAttributes(new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
+                .build()).build();
+        int i = 0;
+        for (String soundName : mSoundNames) {
+            mSounds[i] = mSoundPool.load("/product/media/audio/ui/" + soundName, 1);
+            i++;
+        }
     }
 
     private void setProximitySensor(boolean enabled) {
@@ -423,17 +441,12 @@ public class PopupCameraService extends Service {
     }
 
     private void playSoundEffect(String state) {
-        String soundEffect = mPopupCameraPreferences.getSoundEffect();
-        if (!soundEffect.equals("0")){
-            String soundPath = "/product/media/audio/ui/popup_" + soundEffect + "_" + (state.equals(openCameraState) ? "up" : "down") + ".ogg";
-            final Uri soundUri = Uri.parse("file://" + soundPath);
-            if (soundUri != null) {
-                final Ringtone sfx = RingtoneManager.getRingtone(this, soundUri);
-                if (sfx != null) {
-                    sfx.setStreamType(AudioManager.STREAM_SYSTEM);
-                    sfx.play();
-                }
+        int soundEffect = Integer.parseInt(mPopupCameraPreferences.getSoundEffect());
+        if (soundEffect != -1){
+            if (state.equals(closeCameraState)){
+                soundEffect++;
             }
+            mSoundPool.play(mSounds[soundEffect], 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 
