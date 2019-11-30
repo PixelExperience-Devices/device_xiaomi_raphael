@@ -20,7 +20,7 @@
     <dimen name="rounded_corner_content_padding">12dp</dimen>
     <dimen name="system_icons_keyguard_padding_end">4dp</dimen>
     <!-- Default radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">9dp</dimen>
+    <dimen name="rounded_corner_radius">31dp</dimen>
     <!-- Radius of the software rounded corners at the top of the display in its natural
         orientation. If zero, the value of rounded_corner_radius is used. -->
     <dimen name="rounded_corner_radius_top">102.0px</dimen>
