@@ -76,4 +76,5 @@ void vendor_load_properties() {
     property_override("persist.bluetooth.a2dp_offload.disabled", "true");
     property_override("persist.bluetooth.bluetooth_audio_hal.disabled", "true");
     property_override("ro.oem_unlock_supported", "0");
+    property_override("ro.apex.updatable", "true");
 }
