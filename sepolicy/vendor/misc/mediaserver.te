@@ -1,1 +1,2 @@
+get_prop(mediaserver, vendor_display_prop)
 allow mediaserver sysfs_msm_subsys:dir { search };

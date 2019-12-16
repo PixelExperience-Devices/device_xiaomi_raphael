@@ -1,0 +1,4 @@
+get_prop(hal_graphics_allocator_default, vendor_display_prop)
+
+dontaudit hal_graphics_allocator_default sysfs_msm_subsys:dir search;
+dontaudit hal_graphics_allocator_default sysfs_msm_subsys:file r_file_perms;

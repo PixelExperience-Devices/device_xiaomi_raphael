@@ -10,3 +10,4 @@ allow hal_sensors_default vendor_sysfs_iio:dir r_dir_perms;
 allow hal_sensors_default vendor_sysfs_iio:file rw_file_perms;
 
 get_prop(hal_sensors_default, vendor_adsprpc_prop)
+get_prop(hal_sensors_default, vendor_display_prop)

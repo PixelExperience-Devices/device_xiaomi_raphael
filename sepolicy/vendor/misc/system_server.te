@@ -1,2 +1,5 @@
+get_prop(system_server, vendor_display_prop)
 allow system_server app_zygote:process { getpgid };
 allow system_server proc:file { getattr open read };
+dontaudit system_server sysfs_msm_subsys:dir search;
+dontaudit system_server sysfs_msm_subsys:file r_file_perms;

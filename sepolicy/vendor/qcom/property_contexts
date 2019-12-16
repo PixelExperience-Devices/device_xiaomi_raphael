@@ -1,2 +1,5 @@
+# Display
+vendor.debug.rs.                   u:object_r:vendor_display_prop:s0
+
 # Sensors
 persist.sensor.sardisable  u:object_r:vendor_sensors_prop:s0

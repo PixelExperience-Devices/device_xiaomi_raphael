@@ -46,3 +46,6 @@ allow hal_fingerprint_default vendor_sysfs_fod:file rw_file_perms;
 
 allow hal_fingerprint_default system_prop:file { getattr map open read };
 allow hal_fingerprint_default system_prop:property_service set;
+
+dontaudit hal_fingerprint_default sysfs_msm_subsys:dir search;
+dontaudit hal_fingerprint_default sysfs_msm_subsys:file r_file_perms;
