@@ -19,3 +19,6 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_NAME := aosp_raphael
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Inherit from custom vendor
+$(call inherit-product, vendor/MiuiCamera/config.mk)
