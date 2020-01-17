@@ -51,4 +51,7 @@
          near events -->
     <bool name="doze_brightness_sensor_reports_proximity" translatable="false">false</bool>
 
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ffffff</color>
+
 </resources>
