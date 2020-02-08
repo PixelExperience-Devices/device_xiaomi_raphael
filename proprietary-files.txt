@@ -441,15 +441,12 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # GPS
-vendor/bin/hw/android.hardware.gnss@2.0-service-qti
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/etc/cacert_location.pem
-vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
 vendor/lib/libslimclient.so
-vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libgdtap.so
@@ -458,9 +455,7 @@ vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblocation_api.so
 vendor/lib64/libloc_api_v02.so
-vendor/lib64/libloc_core.so
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
@@ -477,9 +472,7 @@ vendor/lib64/vendor.qti.gnss@3.0.so
 
 # GPS-Hardware
 vendor/lib64/libaoa.so
-vendor/lib64/libgnss.so
 vendor/lib64/libgnsspps.so
-vendor/lib64/libgps.utils.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
@@ -1003,11 +996,9 @@ vendor/lib64/libalhLDC.so
 vendor/lib64/libalLDC.so
 vendor/lib64/libappclassifier.so
 vendor/lib64/libarcsat.so
-vendor/lib64/libbatching.so
 vendor/lib64/libcacertclient.so
 vendor/lib64/libclient2slpi.notifier.so
 vendor/lib64/libft2vendor.so
-vendor/lib64/libgeofencing.so
 vendor/lib64/libnpu.so
 vendor/lib64/libperfconfig.so
 vendor/lib64/libqcrildatactl.so
