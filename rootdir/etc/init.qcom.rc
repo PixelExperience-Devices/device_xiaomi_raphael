@@ -137,6 +137,10 @@ on boot
     # Sensors log dir
     mkdir /data/vendor/sensors 0770 system system
 
+on post-fs
+    mount none /vendor/etc/goodix/BMatrix.so /mnt/vendor/persist/goodix/BMatrix.so bind
+    mount none /vendor/etc/goodix/caliParamsInfo.so /mnt/vendor/persist/goodix/caliParamsInfo.so bind
+
 on post-fs-data
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
