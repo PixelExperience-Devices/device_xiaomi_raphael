@@ -1321,6 +1321,11 @@
         <boolean name="config_update_service_status" value="false" />
 	<boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="460">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="460" mnc="00">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
