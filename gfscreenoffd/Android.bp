@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: BSD-3-Clause
+
+cc_binary {
+    name: "gfscreenoffd",
+    init_rc: ["gfscreenoffd.rc"],
+    srcs: [
+        "touch_handler.cpp",
+        "gfscreenoffd.cpp",
+    ],
+    cppflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    shared_libs: [
+        "libbase"
+    ],
+}
