@@ -67,7 +67,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    lineage.biometrics.fingerprint.inscreen@1.1-service.raphael
+    lineage.biometrics.fingerprint.inscreen@1.1-service.raphael \
+    gfscreenoffd
 
 # FM
 PRODUCT_PACKAGES += \
