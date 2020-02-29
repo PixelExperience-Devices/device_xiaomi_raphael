@@ -643,10 +643,13 @@ vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
 vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
 vendor/lib64/libhexagon_nn_stub.so
 
+# Pasrmanager - from LA.UM.8.1.r1-14300-sm8150.0
+-vendor/app/pasrservice/pasrservice.apk|6d3652585578e5e22ff1437fd598f14a1ae4ae4a
+vendor/bin/hw/vendor.qti.power.pasrmanager@1.0-service|4c5b9f64462ed08ac7ffd67cf9c76f7d65d8da97
+vendor/etc/init/vendor.qti.power.pasrmanager@1.0-service.rc|b34c1b9179c89cd47adce145bae9a609e5141bc0
+vendor/lib64/hw/vendor.qti.power.pasrmanager@1.0-impl.so|1ff8bc4c4cbc7be7fdda530fd1c8395aa2ef679d
+
 # Pasrmanager
-vendor/bin/hw/vendor.qti.power.pasrmanager@1.0-service
-vendor/etc/init/vendor.qti.power.pasrmanager@1.0-service.rc
-vendor/lib64/hw/vendor.qti.power.pasrmanager@1.0-impl.so
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
 
 # Perf - from LA.UM.8.1.r1-14300-sm8150.0
@@ -972,7 +975,6 @@ vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 
 # Misc
--vendor/app/pasrservice/pasrservice.apk
 vendor/bin/adpl
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/bin/ipacm-diag
