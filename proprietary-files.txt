@@ -953,10 +953,11 @@ vendor/etc/thermald-devices.conf
 vendor/lib64/libthermalclient.so
 vendor/lib64/hw/thermal.msmnile.so
 
-# Time
--vendor/app/TimeService/TimeService.apk
-vendor/bin/time_daemon
-vendor/lib64/libtime_genoff.so
+# Time - from LA.UM.8.1.r1-14300-sm8150.0
+-vendor/app/TimeService/TimeService.apk|4a37afd1395758d946580af184a738e3c657b1e2
+vendor/bin/time_daemon|e57abec59dfecb659d8349b5a3e87a0beca4e932
+vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
+vendor/lib64/libtime_genoff.so|f7e70ecdae66c5e07662e5a8562a3297994bdbe6
 
 # Vibrator
 vendor/bin/hw/vendor.qti.hardware.vibrator@1.2-service
@@ -995,7 +996,6 @@ vendor/etc/init/imsqmidaemon.rc
 vendor/etc/init/imsrcsd.rc
 vendor/etc/init/ims_rtp_daemon.rc
 vendor/etc/init/init-qcril-data.rc
-vendor/etc/init/init.time_daemon.rc
 vendor/etc/init/ipacm-diag.rc
 vendor/etc/init/ipacm.rc
 vendor/etc/init/ipa_fws.rc
