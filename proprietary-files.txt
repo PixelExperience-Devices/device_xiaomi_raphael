@@ -644,31 +644,35 @@ vendor/etc/init/vendor.qti.power.pasrmanager@1.0-service.rc
 vendor/lib64/hw/vendor.qti.power.pasrmanager@1.0-impl.so
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
 
+# Perf - from LA.UM.8.1.r1-14300-sm8150.0
+vendor/bin/msm_irqbalance|0e967f5c7eaf8d863a50996459101be47adf96a2
+vendor/etc/perf/perfboostsconfig.xml|93e57b38e327bfbc174e925d639745e66949229b
+vendor/lib/libperfgluelayer.so|dad079097e6db49514e1e31636b63da6a89da5fd
+vendor/lib/libqti-perfd-client.so|c29e14a9c0c7e330dda3b7453d0cb242944c4c38
+vendor/lib/libqti-perfd.so|b7f3d0adcaa7036c27d10c53b0454f37d4b56268
+vendor/lib/libqti-util.so|72cc63fd039cf4aa7c6b62f53a1f2e4bada05f42
+vendor/lib64/libappclassifier.so|8c8e35e52ad1b2e722f8345afc3073ae80fa904f
+vendor/lib64/liblearningmodule.so|fb4c9e97e5b1f50babc83318815d5e251afa140b
+vendor/lib64/libmeters.so|09f178dee1aa074f12fac5c502a7a6436ce93716
+vendor/lib64/libperfconfig.so|efcf939fdf18a273fedd82cdabc3adc32d7ca46b
+vendor/lib64/libperfgluelayer.so|4c95e08abc1cef5b39db06579d8f9faceb8f23d4
+vendor/lib64/libqti-perfd-client.so|0c2b82b5e5df6e0efb03ace4a259eb63487dd2b6
+vendor/lib64/libqti-perfd.so|7a6c75d2ec8ba7ed6bf17ef048c3c79a1a2daf53
+vendor/lib64/libqti-util.so|45a80be449435d277f09cc59e4a315fa86072c41
+
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
-vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
 vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
 vendor/etc/lm/AdaptLaunchFeature.xml
 vendor/etc/lm/AppClassifierFeature.xml
 vendor/etc/lm/GameOptimizationFeature.xml
 vendor/etc/perf/commonresourceconfigs.xml
-vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/perfconfigstore.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
 vendor/etc/perf/thermalboost.conf
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.perf@2.0.so
-vendor/lib64/liblearningmodule.so
-vendor/lib64/libmeters.so
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-perfd.so
-vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@2.0.so
 
 # Peripheral
@@ -1015,13 +1019,11 @@ vendor/lib64/libalAILDC.so
 vendor/lib64/libalCFR.so
 vendor/lib64/libalhLDC.so
 vendor/lib64/libalLDC.so
-vendor/lib64/libappclassifier.so
 vendor/lib64/libarcsat.so
 vendor/lib64/libcacertclient.so
 vendor/lib64/libclient2slpi.notifier.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libnpu.so
-vendor/lib64/libperfconfig.so
 vendor/lib64/libqcrildatactl.so
 vendor/lib64/libqsap_sdk.so
 vendor/lib64/libskewknob.so
