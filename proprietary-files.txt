@@ -320,6 +320,10 @@ vendor/lib64/libmmcamera_faceproc2.so
 # Charger
 vendor/bin/hvdcp_opti
 
+# Configstore
+-vendor/lib/libplatformconfig.so
+-vendor/lib64/libplatformconfig.so
+
 # DPM
 framework/tcmclient.jar
 product/bin/dpmd
@@ -573,49 +577,52 @@ vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
 vendor/lib/libsmwrapper.so
 
-# Media
-vendor/bin/hw/vendor.qti.media.c2@1.0-service
-vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
-vendor/lib/libdsd2pcm.so
-vendor/lib/libMpeg4SwEncoder.so
-vendor/lib/libmulawdec.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAlacDec.so
-vendor/lib/libOmxAlacDecSw.so
-vendor/lib/libOmxAmrDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxApeDec.so
-vendor/lib/libOmxApeDecSw.so
-vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxG711Dec.so
-vendor/lib/libOmxMux_proprietary.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxVpp.so
-vendor/lib/libOmxWmaDec.so
-vendor/lib/libvppclient.so
-vendor/lib/libvpphcp.so
-vendor/lib/libvpphvx.so
-vendor/lib/libvpplibrary.so
-vendor/lib/vendor.qti.hardware.vpp@1.1.so
-vendor/lib/vendor.qti.hardware.vpp@1.2.so
-vendor/lib64/libMpeg4SwEncoder.so
-vendor/lib64/libmulawdec.so
-vendor/lib64/libvppclient.so
-vendor/lib64/libvpphcp.so
-vendor/lib64/libvpphvx.so
-vendor/lib64/libvpplibrary.so
-vendor/lib64/vendor.qti.hardware.vpp@1.1.so
-vendor/lib64/vendor.qti.hardware.vpp@1.2.so
-vendor/lib64/vendor.qti.hardware.vpp@1.3.so
+# Media - from LA.UM.8.1.r1-14300-sm8150.0
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|80ea3c27b7c1d92c5d5a9fc7f8cfb18aa3eb227a
+vendor/bin/vppservice|619ee3c568de86f0d9a67f007b6eb70011751b2a
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
+vendor/lib/libdsd2pcm.so|a5b2a566ab24322b571ea5c1ae224381e951f91b
+vendor/lib/libMpeg4SwEncoder.so|92a4701711a06c52e117aceef1c112e4882f563d
+vendor/lib/libmulawdec.so|57d963f8038bf807683c5ec69e2db14281d9ed90
+vendor/lib/libOmxAacDec.so|8abbe90fc7802512dcb8bf8026f797d8ad4b5ebe
+vendor/lib/libOmxAlacDec.so|1b476e700c5861c0164d58cf09fcaa5b328b6c6b
+vendor/lib/libOmxAlacDecSw.so|be159db8fab5d4d73e5026788cb78f902724be93
+vendor/lib/libOmxAmrDec.so|ea56aeddb162c6cbf43d2a2eb90ebfeb1f5ac92f
+vendor/lib/libOmxAmrwbplusDec.so|f7f9517397d23b8eb73a251c2f27c1aff55d23ec
+vendor/lib/libOmxApeDec.so|0de0284e4dc2e3bb03aef289a7ab9968746b9e70
+vendor/lib/libOmxApeDecSw.so|2ba921a2b0c71907b604003127b97e3bf4b26bc1
+vendor/lib/libOmxDsdDec.so|39ea2c0e9ec6c6adc6684feb1db28dce8ee6f8df
+vendor/lib/libOmxEvrcDec.so|b7faec88cd37639ae19ad3e65f2f1f2328c47991
+vendor/lib/libOmxG711Dec.so|5222a2c0b357c5fb2bfe3c076144247b28143bd3
+vendor/lib/libOmxMux_proprietary.so|175c8d61d7bc7f793842e5b46370dde659dbbb1a
+vendor/lib/libOmxQcelp13Dec.so|9f7c6df8af7dfda8a814060aa0f4f89f15e3bd2c
+vendor/lib/libOmxWmaDec.so|3ec1cf02686119e6cc6cc9d41638ab9efdb8bbec
+vendor/lib/libqcodec2.so|7e290c9a08cb80e662e4cab6bb90c392460bc128
+vendor/lib/libvppclient.so|c49779329e8f830c93dfe869a45c0f287cd98807
+vendor/lib/libvpphcp.so|debcf37598b1a0c2510a287c3cdf277d4a92cc33
+vendor/lib/libvpphvx.so|44436688c9da13ed5abb3cba5260c7833e10564b
+vendor/lib/libvpplibrary.so|bcba69b499c6bf040c90587b97cb70381d6258bb
+vendor/lib64/libMpeg4SwEncoder.so|453a9b47c9e430ea7476d41f14abaa5d16cb318b
+vendor/lib64/libmulawdec.so|2f8cd09580892a2bfa4f8e711895e2b08340d0ed
+vendor/lib64/libvppclient.so|ac61437c920a1fa1a97e56a1c1be356db2730cad
+vendor/lib64/libvpphcp.so|6c0b520a9b81a194f53c554c14472081dbe0593a
+vendor/lib64/libvpphvx.so|ec33c14302d9ee2729f435ada8843965ea416600
+vendor/lib64/libvpplibrary.so|ea4fa5076315dfc3859d93fb805bd4d21da204d1
 
 # Media-Hardware
+vendor/etc/init/vppservice.rc
 vendor/lib/libarbitrarybytes.so
 vendor/lib/libOmxSwVdec.so
 vendor/lib/libOmxSwVencMpeg4.so
--vendor/lib/libplatformconfig.so
 vendor/lib/libstagefrighthw.so
--vendor/lib64/libplatformconfig.so
+
+# Media
+vendor/lib/libOmxVpp.so
+vendor/lib/vendor.qti.hardware.vpp@1.1.so
+vendor/lib/vendor.qti.hardware.vpp@1.2.so
+vendor/lib64/vendor.qti.hardware.vpp@1.1.so
+vendor/lib64/vendor.qti.hardware.vpp@1.2.so
+vendor/lib64/vendor.qti.hardware.vpp@1.3.so
 
 # Mlipay
 vendor/bin/mlipayd@1.1
@@ -961,7 +968,6 @@ vendor/bin/adpl
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/bin/ipacm-diag
 vendor/bin/sscrpcd
-vendor/bin/vppservice
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
 vendor/etc/configstore/vpp.configstore.xml
@@ -984,7 +990,6 @@ vendor/etc/init/netmgrd.rc
 vendor/etc/init/qseecomd.rc
 vendor/etc/init/vendor.qti.adsprpc-service.rc
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
-vendor/etc/init/vppservice.rc
 vendor/lib/btaudio_offload_if.so
 vendor/lib/hw/vendor.qti.hardware.audiohalext@1.0-impl.so
 vendor/lib/liba2dpoffload.so
@@ -998,7 +1003,6 @@ vendor/lib/libhfp.so
 vendor/lib/libmmparser_lite_proprietary.so
 vendor/lib/libmmrtpdecoder_proprietary.so
 vendor/lib/libmmrtpencoder_proprietary.so
-vendor/lib/libqcodec2.so
 vendor/lib/libsn100u_fw.so
 vendor/lib/libsndmonitor.so
 vendor/lib/libspkrprot.so
