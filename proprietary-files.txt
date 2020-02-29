@@ -558,13 +558,15 @@ vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
 
+# Keymaster - from LA.UM.8.1.r1-14300-sm8150.0
+vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|429a5cd93530d80ec191efc3c65bee5b50e9f70e
+vendor/bin/hw/android.hardware.keymaster@4.0-strongbox-service-qti|27d85c395785981622740a3a75e2e60831a85304
+vendor/lib64/libkeymasterdeviceutils.so|4affab4ad36df14ac09d35dff025aff8b748c240
+vendor/lib64/libqtikeymaster4.so|493b515a0d088b20f67768027079a4302b729ac0
+
 # Keymaster
-vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
-vendor/bin/hw/android.hardware.keymaster@4.0-strongbox-service-qti
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
-vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterutils.so
-vendor/lib64/libqtikeymaster4.so
 
 # Keystore
 vendor/lib64/libspcom.so
