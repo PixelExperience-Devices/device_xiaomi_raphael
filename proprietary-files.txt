@@ -951,7 +951,6 @@ vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermald-devices.conf
 vendor/lib64/libthermalclient.so
-vendor/lib64/hw/thermal.msmnile.so
 
 # Time - from LA.UM.8.1.r1-14300-sm8150.0
 -vendor/app/TimeService/TimeService.apk|4a37afd1395758d946580af184a738e3c657b1e2
