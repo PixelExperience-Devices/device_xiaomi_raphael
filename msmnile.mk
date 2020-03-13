@@ -357,7 +357,7 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_xiaomi
+    librecovery_updater_raphael
 
 # RenderScript
 PRODUCT_PACKAGES += \
