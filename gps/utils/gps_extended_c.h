@@ -452,10 +452,10 @@ typedef uint32_t GnssAdditionalSystemInfoMask;
 /** GPS PRN Range */
 #define GPS_SV_PRN_MIN      1
 #define GPS_SV_PRN_MAX      32
-#define SBAS_SV_PRN_MIN     33
-#define SBAS_SV_PRN_MAX     64
 #define GLO_SV_PRN_MIN      65
 #define GLO_SV_PRN_MAX      96
+#define SBAS_SV_PRN_MIN     120
+#define SBAS_SV_PRN_MAX     191
 #define QZSS_SV_PRN_MIN     193
 #define QZSS_SV_PRN_MAX     197
 #define BDS_SV_PRN_MIN      201
@@ -619,17 +619,6 @@ typedef uint16_t GnssMeasUsageInfoValidityMask;
 #define GNSS_CARRIER_PHASE_RESIDUAL_VALID       ((GnssMeasUsageInfoValidityMask)0x00000004ul)
 #define GNSS_CARRIER_PHASE_AMBIGUITY_TYPE_VALID ((GnssMeasUsageInfoValidityMask)0x00000008ul)
 
-typedef uint16_t GnssSvPolyStatusMask;
-#define GNSS_SV_POLY_SRC_ALM_CORR_V02 ((GnssSvPolyStatusMask)0x01)
-#define GNSS_SV_POLY_GLO_STR4_V02 ((GnssSvPolyStatusMask)0x02)
-#define GNSS_SV_POLY_DELETE_V02 ((GnssSvPolyStatusMask)0x04)
-#define GNSS_SV_POLY_SRC_GAL_FNAV_OR_INAV_V02 ((GnssSvPolyStatusMask)0x08)
-typedef uint16_t GnssSvPolyStatusMaskValidity;
-#define GNSS_SV_POLY_SRC_ALM_CORR_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x01)
-#define GNSS_SV_POLY_GLO_STR4_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x02)
-#define GNSS_SV_POLY_DELETE_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x04)
-#define GNSS_SV_POLY_SRC_GAL_FNAV_OR_INAV_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x08)
-
 
 typedef struct {
     /** Specifies GNSS signal type
@@ -638,13 +627,15 @@ typedef struct {
     /** Specifies GNSS Constellation Type
         Mandatory Field*/
     Gnss_LocSvSystemEnumType gnssConstellation;
-    /**  GNSS SV ID.
-         For GPS:      1 to 32
-         For GLONASS:  65 to 96. When slot-number to SV ID mapping is unknown, set as 255.
-         For SBAS:     120 to 151
-         For QZSS-L1CA:193 to 197
-         For BDS:      201 to 237
-         For GAL:      301 to 336 */
+    /**  Unique SV Identifier.
+     *   SV Range for supported constellation is specified as below:
+     *    - For GPS:     1 to 32
+     *    - For GLONASS: 65 to 96
+     *    - For SBAS:    120 to 158 and 183 to 191
+     *    - For QZSS:    193 to 197
+     *    - For BDS:     201 to 237
+     *    - For GAL:     301 to 336
+     *    - For NAVIC:   401 to 414 */
     uint16_t gnssSvId;
     /** GLONASS frequency number + 7.
         Valid only for a GLONASS system and
@@ -1014,14 +1005,9 @@ typedef uint32_t LOC_GPS_LOCK_MASK;
 #define isGpsLockAll(lock) (((lock) & ((LOC_GPS_LOCK_MASK)3)) == 3)
 
 /*++ ***********************************************
-**  Satellite Measurement and Satellite Polynomial
-**  Structure definitions
+**  Satellite Measurement Structure definitions
 **  ***********************************************
 --*/
-#define GNSS_SV_POLY_VELOCITY_COEF_MAX_SIZE         12
-#define GNSS_SV_POLY_XYZ_0_TH_ORDER_COEFF_MAX_SIZE  3
-#define GNSS_SV_POLY_XYZ_N_TH_ORDER_COEFF_MAX_SIZE  9
-#define GNSS_SV_POLY_SV_CLKBIAS_COEFF_MAX_SIZE      4
 /** Max number of GNSS SV measurement */
 #define GNSS_LOC_SV_MEAS_LIST_MAX_SIZE              128
 
@@ -1209,20 +1195,26 @@ typedef enum
     /**< Satellite Doppler measured */
     GNSS_LOC_MEAS_STATUS_VELOCITY_FINE           = 0x00000020,
     /**< TRUE: Fine Doppler measured, FALSE: Coarse Doppler measured */
+    GNSS_LOC_MEAS_STATUS_LP_VALID                = 0x00000040,
+    /**<  TRUE/FALSE -- Lock Point is valid/invalid */
+    GNSS_LOC_MEAS_STATUS_LP_POS_VALID            = 0x00000080,
+    /**<  TRUE/FALSE -- Lock Point is positive/negative */
     GNSS_LOC_MEAS_STATUS_FROM_RNG_DIFF           = 0x00000200,
     /**< Range update from Satellite differences */
     GNSS_LOC_MEAS_STATUS_FROM_VE_DIFF            = 0x00000400,
     /**< Doppler update from Satellite differences */
     GNSS_LOC_MEAS_STATUS_DONT_USE_X              = 0x00000800,
     /**< Don't use measurement if bit is set */
-    GNSS_LOC_MEAS_STATUS_DONT_USE_M              = 0x000001000,
+    GNSS_LOC_MEAS_STATUS_DONT_USE_M              = 0x00001000,
     /**< Don't use measurement if bit is set */
-    GNSS_LOC_MEAS_STATUS_DONT_USE_D              = 0x000002000,
+    GNSS_LOC_MEAS_STATUS_DONT_USE_D              = 0x00002000,
     /**< Don't use measurement if bit is set */
-    GNSS_LOC_MEAS_STATUS_DONT_USE_S              = 0x000004000,
+    GNSS_LOC_MEAS_STATUS_DONT_USE_S              = 0x00004000,
     /**< Don't use measurement if bit is set */
-    GNSS_LOC_MEAS_STATUS_DONT_USE_P              = 0x000008000
+    GNSS_LOC_MEAS_STATUS_DONT_USE_P              = 0x00008000,
     /**< Don't use measurement if bit is set */
+    GNSS_LOC_MEAS_STATUS_GNSS_FRESH_MEAS         = 0x08000000
+    /**< TRUE -- Fresh GNSS measurement observed in last second    */
 }Gnss_LocSvMeasStatusMaskType;
 
 typedef struct
@@ -1311,15 +1303,9 @@ typedef struct
     // 0 signal type mask indicates invalid value
     GnssSignalTypeMask              gnssSignalTypeMask;
     uint16_t                        gnssSvId;
-    /**< GNSS SV ID.
-         \begin{itemize1}
-         \item Range:  \begin{itemize1}
-           \item For GPS:      1 to 32
-           \item For GLONASS:  1 to 32
-           \item For SBAS:     120 to 151
-           \item For BDS:      201 to 237
-         \end{itemize1} \end{itemize1}
-        The GPS and GLONASS SVs can be disambiguated using the system field.
+    /** Unique SV Identifier.
+     *  For SV Range of supported constellation, please refer to the
+     *  comment section of gnssSvId in GpsMeasUsageInfo.
     */
     uint8_t                         gloFrequency;
     /**< GLONASS frequency number + 7 \n
@@ -1479,6 +1465,7 @@ typedef uint64_t GpsSvMeasHeaderFlags;
 #define GNSS_SV_MEAS_HEADER_HAS_DGNSS_CORRECTION_SOURCE_TYPE  0x08000000
 #define GNSS_SV_MEAS_HEADER_HAS_DGNSS_CORRECTION_SOURCE_ID    0x010000000
 #define GNSS_SV_MEAS_HEADER_HAS_DGNSS_REF_STATION_ID          0x020000000
+#define GNSS_SV_MEAS_HEADER_HAS_REF_COUNT_TICKS              0x040000000
 
 typedef struct
 {
@@ -1539,7 +1526,6 @@ typedef struct
     /** DGNSS Ref station ID: 32bit number identifying the DGNSS
      *  ref station ID, if DGNSS was used for these measurements. */
     uint16_t                                    dgnssRefStationId;
-
 } GnssSvMeasurementHeader;
 
 typedef struct {
@@ -1580,66 +1566,6 @@ typedef enum
    /**< GLONASS String 4 has been received */
 }Gnss_SvPolyStatusMaskType;
 
-
-typedef struct
-{
-    uint32_t      size;
-    uint16_t     gnssSvId;
-    /* GPS: 1-32, GLO: 65-96, 0: Invalid,
-       SBAS: 120-151, BDS:201-237,GAL:301 to 336
-       All others are reserved
-    */
-    int8_t      freqNum;
-    /* Freq index, only valid if u_SysInd is GLO */
-
-    GnssSvPolyStatusMaskValidity svPolyStatusMaskValidity;
-    GnssSvPolyStatusMask         svPolyStatusMask;
-
-    uint32_t    is_valid;
-
-    uint16_t     iode;
-    /* Ephemeris reference time
-       GPS:Issue of Data Ephemeris used [unitless].
-       GLO: Tb 7-bit, refer to ICD02
-    */
-    double      T0;
-    /* Reference time for polynominal calculations
-       GPS: Secs in week.
-       GLO: Full secs since Jan/01/96
-    */
-    double      polyCoeffXYZ0[GNSS_SV_POLY_XYZ_0_TH_ORDER_COEFF_MAX_SIZE];
-    /* C0X, C0Y, C0Z */
-    double      polyCoefXYZN[GNSS_SV_POLY_XYZ_N_TH_ORDER_COEFF_MAX_SIZE];
-    /* C1X, C2X ... C2Z, C3Z */
-    float       polyCoefOther[GNSS_SV_POLY_SV_CLKBIAS_COEFF_MAX_SIZE];
-    /* C0T, C1T, C2T, C3T */
-    float       svPosUnc;       /* SV position uncertainty [m]. */
-    float       ionoDelay;    /* Ionospheric delay at d_T0 [m]. */
-    float       ionoDot;      /* Iono delay rate [m/s].  */
-    float       sbasIonoDelay;/* SBAS Ionospheric delay at d_T0 [m]. */
-    float       sbasIonoDot;  /* SBAS Iono delay rate [m/s].  */
-    float       tropoDelay;   /* Tropospheric delay [m]. */
-    float       elevation;    /* Elevation [rad] at d_T0 */
-    float       elevationDot;      /* Elevation rate [rad/s] */
-    float       elevationUnc;      /* SV elevation [rad] uncertainty */
-    double      velCoef[GNSS_SV_POLY_VELOCITY_COEF_MAX_SIZE];
-    /* Coefficients of velocity poly */
-    uint32_t    enhancedIOD;    /*  Enhanced Reference Time */
-    float gpsIscL1ca;
-    float gpsIscL2c;
-    float gpsIscL5I5;
-    float gpsIscL5Q5;
-    float gpsTgd;
-    float gloTgdG1G2;
-    float bdsTgdB1;
-    float bdsTgdB2;
-    float bdsTgdB2a;
-    float bdsIscB2a;
-    float galBgdE1E5a;
-    float galBgdE1E5b;
-    float navicTgdL5;
-} GnssSvPolynomial;
-
 typedef enum {
     GNSS_EPH_ACTION_UPDATE_SRC_UNKNOWN_V02 = 0, /**<Update ephemeris. Source of ephemeris is unknown  */
     GNSS_EPH_ACTION_UPDATE_SRC_OTA_V02         = 1, /**<Update ephemeris. Source of ephemeris is OTA  */
@@ -1660,15 +1586,10 @@ typedef enum {
 
 typedef struct {
     uint16_t gnssSvId;
-    /**<   GNSS SV ID.
-      - Type: uint16
-      \begin{itemize1}
-      \item    Range:    \begin{itemize1}
-        \item    For GPS:     1 to 32
-        \item    For QZSS:    193 to 197
-        \item    For BDS:     201 to 237
-        \item    For GAL:     301 to 336
-      \vspace{-0.18in} \end{itemize1} \end{itemize1} */
+    /** Unique SV Identifier.
+     *  For SV Range of supported constellation, please refer to the
+     *  comment section of gnssSvId in GpsMeasUsageInfo.
+     */
 
     GnssEphAction updateAction;
     /**<   Specifies the action and source of ephemeris. \n
