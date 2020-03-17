@@ -86,17 +86,18 @@ Return<void> FingerprintInscreen::switchHbm(bool enabled) {
 }
 
 Return<void> FingerprintInscreen::onPress() {
+    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    release_wake_lock(LOG_TAG);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
     xiaomiDisplayFeatureService->setFeature(0, 17, 1, 255);
     xiaomiDisplayFeatureService->setFeature(0, 11, 1, 4);
@@ -106,7 +107,6 @@ Return<void> FingerprintInscreen::onShowFODView() {
 Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
     xiaomiDisplayFeatureService->setFeature(0, 17, 0, 255);
-    release_wake_lock(LOG_TAG);
     return Void();
 }
 
