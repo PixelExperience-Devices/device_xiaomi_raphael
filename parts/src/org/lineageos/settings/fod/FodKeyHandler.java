@@ -20,8 +20,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.UserHandle;
 import android.provider.Settings;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -33,9 +35,11 @@ public class FodKeyHandler implements DeviceKeyHandler {
     private static final boolean DEBUG = true;
 
     private static final int KEY_FOD_GESTURE_DOWN = 745;
-    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
     protected final Context mContext;
+    private final PowerManager mPowerManager;
+    private final WakeLock mFodWakeLock;
+
     private boolean mInteractive = true;
     private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
         @Override
@@ -50,6 +54,9 @@ public class FodKeyHandler implements DeviceKeyHandler {
 
     public FodKeyHandler(Context context) {
         mContext = context;
+        mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mFodWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "ScreenOffFODWakeLock");
         IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
         context.registerReceiver(mScreenStateReceiver, screenStateFilter);
@@ -61,10 +68,9 @@ public class FodKeyHandler implements DeviceKeyHandler {
                 Settings.Secure.USER_SETUP_COMPLETE, 0) != 0;
     }
 
-    private void launchDozePulse() {
-        if (DEBUG) Log.i(TAG, "Doze pulse");
-        mContext.sendBroadcastAsUser(new Intent(DOZE_INTENT),
-                new UserHandle(UserHandle.USER_CURRENT));
+    private void wakeUp() {
+        mFodWakeLock.acquire(3000);
+        mPowerManager.wakeUp(SystemClock.uptimeMillis(), "screen-off-fod");
     }
 
     private void handleFODScreenOff() {
@@ -72,7 +78,7 @@ public class FodKeyHandler implements DeviceKeyHandler {
             return;
         }
 
-        launchDozePulse();
+        wakeUp();
     }
 
     public KeyEvent handleKeyEvent(KeyEvent event) {
