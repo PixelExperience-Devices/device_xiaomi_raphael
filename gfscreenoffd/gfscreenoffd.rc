@@ -34,6 +34,9 @@ on property:persist.sys.gfscreenoffd.run=1
 on property:persist.sys.gfscreenoffd.run=0
     stop gfscreenoffd
 
+on property:persist.sys.gfscreenoffd.set_status=1
+    write /sys/devices/virtual/touch/tp_dev/fod_status 1
+
 service gfscreenoffd /system/bin/gfscreenoffd
     class late_start
     user root
