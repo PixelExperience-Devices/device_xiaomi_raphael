@@ -16,56 +16,26 @@
 
 package org.lineageos.settings.fod;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.provider.Settings;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
 
 public class FodKeyHandler implements DeviceKeyHandler {
-    private static final String TAG = FodKeyHandler.class.getSimpleName();
-
-    private static final boolean DEBUG = true;
-
     private static final int KEY_FOD_GESTURE_DOWN = 745;
 
     protected final Context mContext;
     private final PowerManager mPowerManager;
     private final WakeLock mFodWakeLock;
 
-    private boolean mInteractive = true;
-    private BroadcastReceiver mScreenStateReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-                mInteractive = true;
-            } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-                mInteractive = false;
-            }
-        }
-    };
-
     public FodKeyHandler(Context context) {
         mContext = context;
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mFodWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "ScreenOffFODWakeLock");
-        IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        screenStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        context.registerReceiver(mScreenStateReceiver, screenStateFilter);
-    }
-
-
-    private boolean hasSetupCompleted() {
-        return Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.USER_SETUP_COMPLETE, 0) != 0;
     }
 
     private void wakeUp() {
@@ -73,33 +43,14 @@ public class FodKeyHandler implements DeviceKeyHandler {
         mPowerManager.wakeUp(SystemClock.uptimeMillis(), "screen-off-fod");
     }
 
-    private void handleFODScreenOff() {
-        if (mInteractive) {
-            return;
-        }
-
-        wakeUp();
-    }
-
     public KeyEvent handleKeyEvent(KeyEvent event) {
-        if (!hasSetupCompleted()) {
-            return event;
-        }
-
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return event;
         }
-
-        int scanCode = event.getScanCode();
-
-        switch (scanCode) {
-            case KEY_FOD_GESTURE_DOWN:
-                handleFODScreenOff();
-                break;
-            default:
-                return event;
+        if (event.getScanCode() == KEY_FOD_GESTURE_DOWN){
+            wakeUp();
+            return null;
         }
-
-        return null;
+        return event;
     }
 }
