@@ -83,6 +83,10 @@ vendor.display.enable_optimize_refresh=1
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
 
+# Dolby
+persist.vendor.audio_fx.current=dolby
+ro.vendor.dolby.dax.version=DS1_2.2.0.0_r1
+
 # DPM
 persist.vendor.dpm.feature=1
 persist.vendor.dpm.loglevel=0
@@ -133,6 +137,7 @@ ro.hardware.keystore_desede=true
 # Media
 debug.stagefright.ccodec=1
 debug.stagefright.omx_default_rank=0
+debug.stagefright.omx_default_rank.sw-audio=16
 media.stagefright.enable-aac=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-http=true
