@@ -49,6 +49,14 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_PACKAGES += \
     fs_config_files
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library
+
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
