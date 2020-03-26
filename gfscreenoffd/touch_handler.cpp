@@ -118,7 +118,7 @@ void TouchHandler::startListener() {
 
     LOG(INFO) << "Listening touchscreen";
     while (true) {
-        usleep(10000);
+        usleep(20000);
         poll(pfds, 2, -1);
 
         // wait for screen off
@@ -128,7 +128,7 @@ void TouchHandler::startListener() {
                 goto out;
             }
             if (ret <= FB_BLANK_NORMAL) {
-                usleep(100000);
+                usleep(200000);
                 continue;
             }
         }
