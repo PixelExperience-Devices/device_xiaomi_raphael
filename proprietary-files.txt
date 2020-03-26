@@ -563,6 +563,20 @@ vendor/lib64/libOpenCL.so|d6bb350254707592d6f6360c06d4c3336f8f1155
 -product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
 -product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
 
+# IO-Prefetcher
+vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
+vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib/libqti-iopd-client.so
+vendor/lib/libqti-iopd.so
+vendor/lib/vendor.qti.hardware.iop@1.0.so
+vendor/lib/vendor.qti.hardware.iop@2.0.so
+vendor/lib64/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib64/libqti-iopd-client.so
+vendor/lib64/libqti-iopd.so
+vendor/lib64/vendor.qti.hardware.iop@1.0.so
+vendor/lib64/vendor.qti.hardware.iop@2.0.so
+
 # IP-CAM
 vendor/bin/ipacm
 vendor/bin/ipacm-diag
