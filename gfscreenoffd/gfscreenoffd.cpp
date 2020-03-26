@@ -5,6 +5,7 @@
 #include "touch_handler.h"
 
 #include <android-base/logging.h>
+#include <sys/resource.h>
 #include <fcntl.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
@@ -16,6 +17,7 @@ using ::vendor::chaldeastudio::gfscreenoffd::TouchHandler;
 
 int main() {
     int ret, fd;
+    id_t pid = getpid();
     struct uinput_user_dev udev;
 
     fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
@@ -44,6 +46,8 @@ int main() {
         close(fd);
         return 1;
     }
+
+    setpriority(PRIO_PROCESS, pid, 19);
 
     TouchHandler handler(fd);
     handler.startListener();

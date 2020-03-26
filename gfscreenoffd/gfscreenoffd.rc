@@ -40,7 +40,5 @@ on property:persist.sys.gfscreenoffd.set_status=1
 service gfscreenoffd /system/bin/gfscreenoffd
     class late_start
     user root
-    group system uhid
-    oneshot
-    priority 19
+    group root system uhid
     disabled
