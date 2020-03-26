@@ -710,6 +710,12 @@ vendor/lib64/libperfgluelayer.so|4c95e08abc1cef5b39db06579d8f9faceb8f23d4
 vendor/lib64/libqti-perfd-client.so|0c2b82b5e5df6e0efb03ace4a259eb63487dd2b6
 vendor/lib64/libqti-perfd.so|7a6c75d2ec8ba7ed6bf17ef048c3c79a1a2daf53
 vendor/lib64/libqti-util.so|45a80be449435d277f09cc59e4a315fa86072c41
+vendor/lib64/libqti-utils.so
+vendor/lib64/libmeters-ns.so
+vendor/lib64/libgameoptfeature.so
+vendor/lib64/libadaptlaunch.so
+vendor/lib/libqti-utils.so
+vendor/lib/libperfconfig.so
 
 # Peripheral
 vendor/bin/pm-proxy
