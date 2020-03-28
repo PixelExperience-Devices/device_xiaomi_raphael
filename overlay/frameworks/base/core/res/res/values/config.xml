@@ -436,4 +436,7 @@
     <!-- Class name of screen off fod handler -->
     <string name="config_fodScreenOffHandlerClass" translatable="false">org.lineageos.settings.fod.FodScreenOffHandlerImpl</string>
 
+    <!-- If face auth sends the user directly to home/last open app, or stays on keyguard -->
+    <bool name="config_faceAuthDismissesKeyguard">false</bool>
+
 </resources>
