@@ -88,5 +88,6 @@
     <string name="stop_operate_camera_frequently">You\'re opening the front camera too frequently.</string>
     <string name="takeback_camera_front_failed">Couldn\'t close front camera. Try again.</string>
     <string name="popup_camera_front_failed">Couldn\'t open front camera. Try again.</string>
+    <string name="popup_camera_proximity_obstructed">Remove your hand from the proximity sensor to open the front camera...</string>
 
 </resources>
