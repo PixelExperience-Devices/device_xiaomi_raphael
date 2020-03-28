@@ -30,8 +30,7 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
 
     private Context mContext;
     private boolean mInteractive = true;
-    private boolean mRunning = false;
-    private boolean mIsDreaming = false;
+    private boolean mHasEnrolled = false;
 
     public FodScreenOffHandlerImpl(Context context) {
         mContext = context;
@@ -39,14 +38,10 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
 
     @Override
     public void onFingerprintRunningStateChanged(boolean running) {
-        mRunning = running;
-        updateState();
     }
 
     @Override
     public void onDreamingStateChanged(boolean dreaming) {
-        mIsDreaming = dreaming;
-        updateState();
     }
 
     @Override
@@ -55,17 +50,16 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
         updateState();
     }
 
+    @Override
+    public void hasEnrolledFingerprints(boolean enrolled) {
+        mHasEnrolled = enrolled;
+    }
+
     private void updateState(){
         boolean daemonRunning = SystemProperties.getInt(FOD_SCRNOFFD_PROP, 0) != 0;
-        if (mIsDreaming && mInteractive){
-            if (daemonRunning){
-                stopDaemon();
-            }
-        }else if (mInteractive && mRunning){
-            mayStartDaemon();
-        }else if (mInteractive){
+        if (!mHasEnrolled && daemonRunning){
             stopDaemon();
-        }else if (mRunning){
+        }else if (!mInteractive && mHasEnrolled){
             setFodStatus();
             mayStartDaemon();
         }
