@@ -1057,9 +1057,6 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
 
-    <!-- Whether to send camera status intent -->
-    <bool name="config_sendCameraStatusIntent">true</bool>
-
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">false</bool>
 
@@ -1084,5 +1081,8 @@
 
     <!-- Class name of screen off fod handler -->
     <string name="config_fodScreenOffHandlerClass" translatable="false">org.lineageos.settings.fod.FodScreenOffHandlerImpl</string>
+
+    <!-- Component name of popup camera service -->
+    <string name="config_popUpCameraServiceComponentName" translatable="false">org.lineageos.settings/org.lineageos.settings.popupcamera.PopupCameraService</string>
 
 </resources>
