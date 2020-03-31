@@ -537,37 +537,37 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics - from LA.UM.8.1.r1-14300-sm8150.0
+# Graphics - from LA.UM.8.1.r1-14500-sm8150.0
 vendor/lib/egl/eglSubDriverAndroid.so|dbefce0e7c448944f1a7a6a2e14dce86124c14d8
 vendor/lib/egl/libEGL_adreno.so|b31c6914b8a655b801a9a1b385c8fa8de0483a5b
 vendor/lib/egl/libGLESv1_CM_adreno.so|44517c5403cb9227d20b6a94e405c7df88db31ca
-vendor/lib/egl/libGLESv2_adreno.so|37105f6fb7be790aa6101b60559018b3e4b56c69
+vendor/lib/egl/libGLESv2_adreno.so|b566ef216ef34ccb8aea275733d8546904a4548b
 vendor/lib/egl/libq3dtools_adreno.so|6b5193d7f5399cd0cd03ab9553f082a4149394f3
 vendor/lib/egl/libq3dtools_esx.so|b4025e8094720f7fab7fbba7d544b04c7cd7868c
 vendor/lib/egl/libQTapGLES.so|19868504aca3d950c9c36a585daec48ab245ac82
-vendor/lib/hw/vulkan.msmnile.so|f8111e6678d240c85f6581a2dde1d3ff067b9efa
+vendor/lib/hw/vulkan.msmnile.so|6f165bfd3fb214fc636a634c91f7ec18b0b3ed59
 vendor/lib/libadreno_utils.so|067d95a9342d2fc4256ecbc7673dfe2a6fbca9b8
 vendor/lib/libC2D2.so|839ee175cc8314aac277a8c8bfe210b0b0866d15
 vendor/lib/libc2d30_bltlib.so|f18e611558d9626a89853544f12004c77f9d099d
-vendor/lib/libCB.so|3a694d28462918f69a24a55c2c5308d6a8747ef7
+vendor/lib/libCB.so|35e98744ddf1fd1d284ea4361e29bf9f5d4d1065
 vendor/lib/libgsl.so|2f3b822bf715642faa1127a8c6326661838e4803
-vendor/lib/libllvm-glnext.so|553160d14341fbcb2e05b69d59a8658af00c3fa8
+vendor/lib/libllvm-glnext.so|1842495c4819be51380af83075ed3b97e45918db
 vendor/lib/libllvm-qcom.so|bd226f1fdd464e157dee859f28f7448ccc64e7df
 vendor/lib/libOpenCL.so|8ffe91c6bfc13ae61a0f91977d2a66ace9dfb864
 vendor/lib64/egl/eglSubDriverAndroid.so|6bc4fc63631a5abde0ac3d9aa8157d28992099ac
 vendor/lib64/egl/libEGL_adreno.so|bee29dcabce553d37f555859c59a24a221826bd6
 vendor/lib64/egl/libGLESv1_CM_adreno.so|8baba40b5b2e0c990ae0a99a9897140c2abf1105
-vendor/lib64/egl/libGLESv2_adreno.so|3f4455de4c9e2de77ed20ce3b9e7b72b909a8ce2
+vendor/lib64/egl/libGLESv2_adreno.so|5c1ca32d2ec661addd5c36cca4f4d2259771eceb
 vendor/lib64/egl/libq3dtools_adreno.so|07c3b406aa055abfdb3358833d02cb5133964d37
 vendor/lib64/egl/libq3dtools_esx.so|476314308cb94c5d82e46eba273b560331174ac3
 vendor/lib64/egl/libQTapGLES.so|537964010de7ef23663f3bb6bfc51595c0aedbd4
-vendor/lib64/hw/vulkan.msmnile.so|220f50af6c58339c7db0e81eab94070a64f57a50
+vendor/lib64/hw/vulkan.msmnile.so|61c50fecf04c20c75f85dbe31e7cf10e83a5135c
 vendor/lib64/libadreno_utils.so|b46bdecaef58fbf040b7a472d54ad19b6b34b26d
 vendor/lib64/libC2D2.so|802802ac7ce0bb8bfc6918449a89ec820c6cfd53
 vendor/lib64/libc2d30_bltlib.so|f308185ec20049368c6f417ebeed3e6d84e26e2f
-vendor/lib64/libCB.so|cd4273a64c7c699febc0821616a3dad37d8b5ca8
+vendor/lib64/libCB.so|4cc5fdd72a984092c6781be16205963103bdb726
 vendor/lib64/libgsl.so|beb9130e77f82f6f84f1029f619f2a73031a48c2
-vendor/lib64/libllvm-glnext.so|dbbabb0b455a3ae7b31f4c60063f491595ee8dfe
+vendor/lib64/libllvm-glnext.so|3201eb5299439208085381295263ea0a3d1040a7
 vendor/lib64/libllvm-qcom.so|ccaf5c49196fb4ea6b5329ecec79dd6252f1b988
 vendor/lib64/libOpenCL.so|d6bb350254707592d6f6360c06d4c3336f8f1155
 
