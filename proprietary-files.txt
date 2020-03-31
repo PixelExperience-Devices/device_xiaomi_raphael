@@ -494,29 +494,29 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
-# GPS - from LA.UM.8.1.r1-14300-sm8150.0
-vendor/bin/xtwifi-client|8df2ccbcc1ef6e418b4c0b90c35c7eef40b86bb1
+# GPS - from LA.UM.8.1.r1-14500-sm8150.0
+vendor/bin/xtwifi-client|bd83223bc256120091e138e7b58e0c15ffe78069
 vendor/bin/xtwifi-inet-agent|45a5db235eb12c322b9ef65797d1650772fbb0b6
 vendor/bin/loc_launcher|9623f5f96bd262abc5c883610feca43a5ab214b3
 vendor/bin/lowi-server|30879dcd5ad1d5fa135f1b6cd7a429f8d27d3bfd
-vendor/bin/slim_daemon|b65684d09601cc4e81f4c5972a92a575a362c8ab
-vendor/bin/xtra-daemon|24240c9d809d7964d22eb1f82c0ec0a7bfbeb311
+vendor/bin/slim_daemon|8e90b1f4f62e38e1d64fe1d7e8f1786311e904f8
+vendor/bin/xtra-daemon|19668186cc2938d756bf754170701fb8a1de7110
 vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
 vendor/lib/libslimclient.so|12c0ecaf7de7a07ae4a7f80dbc564ce229c3ca33
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|4c696d794933e34e5fb68c7aba67f533058bc858
-vendor/lib64/libaoa.so|b9542775d5876b9215b9b8336af5eb5d247ef89b
+vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|062a712062a4a57030499f2d4882e22cf56f277f
+vendor/lib64/libaoa.so|21792cf23cf01fdba8c5f9288f838224d73f1a52
 vendor/lib64/libdataitems.so|eed59b07b2b7d02dd9ac008f341d7c50dccf7d5d
-vendor/lib64/libgdtap.so|ac4eef2860539c776fee1809d567357626963778
+vendor/lib64/libgdtap.so|5fc6beb99cf918967fd1f3d0cac8b25113d4175a
 vendor/lib64/libizat_client_api.so|2343abbe03743adb24a79762feb89a2174b9b838
-vendor/lib64/libizat_core.so|e3b09a2f5ee96420939418bf24416f4b3c1d734a
-vendor/lib64/liblbs_core.so|6812d5402cfde1b70f3e4e0cb8387f4c39426054
-vendor/lib64/liblocationservice.so|edbec50b1a12efa24c13a00402a88db44efa339f
+vendor/lib64/libizat_core.so|714999077c70dd20174ef70df6620d2ee8446b2d
+vendor/lib64/liblbs_core.so|2e748cda51755904121fd70e11dab46b12694d1b
+vendor/lib64/liblocationservice.so|a1296e101c9294aa534c5f9a0033e47c86b563de
 vendor/lib64/liblocationservice_glue.so|7e11fbd073dd9efb49718366e989f951d2a1af2a
 vendor/lib64/liblowi_client.so|e89ab4e233e85d9d01c5073ffea1a7b7eeeab68a
 vendor/lib64/liblowi_wifihal.so|fd25fc9fd7973b5821d45b735e274d886c9b62e0
 vendor/lib64/libqdma_file_agent.so|bb7b35dae09848f2fceddaac17344d2b7ef4e944
 vendor/lib64/libslimclient.so|af8b04d46f76a0ac5c174d0f09afa7b8fd3ec4c0
-vendor/lib64/libxtadapter.so|4d1f195e2ead9e2d4b459d890d9ad032c67155d8
+vendor/lib64/libxtadapter.so|14488cedaa1b375f99f973d166674b15f47ad5dc
 vendor/lib64/vendor.qti.gnss@3.0-service.so|e799172a7113a35b1f17a8c5999713286c104d11
 
 # GPS
