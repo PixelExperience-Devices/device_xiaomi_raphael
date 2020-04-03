@@ -21,11 +21,20 @@ persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Display
 ro.sf.lcd_density=440
+persist.vendor.df.color.temp=0
+persist.vendor.df.extcolor.proc=0
+ro.vendor.df.effect.conflict=1
+
+# Display Features
+ro.displayfeature.histogram.enable=true
+ro.eyecare.brightness.threshold=11
+ro.eyecare.brightness.level=5
+ro.hist.brightness.threshold=7
+sys.displayfeature.hbm.enable=true
+sys.displayfeature_hidl=true
 
 # Graphics
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
-ro.surface_flinger.has_wide_color_display=true
-ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.max_virtual_display_dimension=4096
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.use_color_management=true
