@@ -4,7 +4,7 @@ on boot
     chmod 0644 /sys/class/backlight/panel0-backlight/brightness
     chmod 0644 /sys/class/backlight/panel0-backlight/max_brightness
 
-service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.xiaomi_msmnile
+service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.xiaomi_raphael
     interface android.hardware.light@2.0::ILight default
     class hal
     user system
