@@ -27,4 +27,9 @@
     <!-- Radius of the software rounded corners at the bottom of the display in its natural
         orientation. If zero, the value of rounded_corner_radius is used. -->
     <dimen name="rounded_corner_radius_bottom">87.0px</dimen>
+
+    <!-- The margin between Emergency Carrier area and pattern/pin
+         view to incorporate the FOD icon -->
+    <dimen name="keyguard_security_fod_view_margin">100dp</dimen>
+
 </resources>
