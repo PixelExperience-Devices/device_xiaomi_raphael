@@ -452,8 +452,8 @@ public class PopupCameraService extends Service {
             }
             Resources res = getResources();
             int dialogMessageResId = needsCalib ? (mCameraState.equals(closeCameraState) ?
-                R.string.popup_camera_takeback_falied_times_calibrate :
-                R.string.popup_camera_popup_falied_times_calibrate) :
+                R.string.popup_camera_takeback_failed_times_calibrate :
+                R.string.popup_camera_popup_failed_times_calibrate) :
                     (mCameraState.equals(closeCameraState) ?
                         R.string.takeback_camera_front_failed :
                         R.string.popup_camera_front_failed);
