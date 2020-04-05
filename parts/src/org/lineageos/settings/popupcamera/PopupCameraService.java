@@ -137,7 +137,7 @@ public class PopupCameraService extends Service {
                 .build()).build();
         int i = 0;
         for (String soundName : mSoundNames) {
-            mSounds[i] = mSoundPool.load("/product/media/audio/ui/" + soundName, 1);
+            mSounds[i] = mSoundPool.load("/system/media/audio/ui/" + soundName, 1);
             i++;
         }
     }
