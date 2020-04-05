@@ -22,21 +22,34 @@ import android.view.MenuItem;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
+import androidx.preference.SwitchPreference;
 
 import org.lineageos.settings.R;
 
+import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
+
 public class PopupCameraSettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String PREF_POPUP_LED = "popup_led_effect";
+    private SwitchPreference mPopupLed;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.popup_settings);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        mPopupLed = (SwitchPreference) findPreference(PREF_POPUP_LED);
+        mPopupLed.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+        switch (preference.getKey()) {
+            case PREF_POPUP_LED:
+                PopUpCameraUtils.setLedEnabled(getActivity(), (Boolean) newValue);
+                return true;
+            default: return false;
+        }
     }
 
     @Override
