@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.popupcamera;
+package org.lineageos.settings.utils;
 
 import android.content.Context;
 import android.hardware.Sensor;

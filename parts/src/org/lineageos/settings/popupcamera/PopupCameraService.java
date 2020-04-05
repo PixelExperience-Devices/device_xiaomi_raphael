@@ -49,6 +49,7 @@ import java.util.List;
 
 import org.lineageos.settings.R;
 import org.lineageos.settings.utils.LimitSizeList;
+import org.lineageos.settings.utils.ProximitySensor;
 
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 import vendor.xiaomi.hardware.motor.V1_0.IMotorCallback;

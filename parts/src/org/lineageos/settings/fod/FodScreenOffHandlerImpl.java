@@ -56,7 +56,7 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
     }
 
     private void updateState(){
-        boolean daemonRunning = SystemProperties.getInt(FOD_SCRNOFFD_PROP, 0) != 0;
+        boolean daemonRunning = isDaemonRunning();
         if (!mHasEnrolled && daemonRunning){
             stopDaemon();
         }else if (!mInteractive && mHasEnrolled){
@@ -66,7 +66,7 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
     }
 
     private void mayStartDaemon(){
-        boolean daemonRunning = SystemProperties.getInt(FOD_SCRNOFFD_PROP, 0) != 0;
+        boolean daemonRunning = isDaemonRunning();
         if (!daemonRunning){
             SystemProperties.set(FOD_SCRNOFFD_PROP, "1");
         }
@@ -78,6 +78,10 @@ public class FodScreenOffHandlerImpl implements FodScreenOffHandler {
 
     private void setFodStatus(){
         SystemProperties.set(FOD_SET_STATUS_PROP, "1");
+    }
+
+    protected static boolean isDaemonRunning(){
+        return SystemProperties.getInt(FOD_SCRNOFFD_PROP, 0) != 0;
     }
 
 }
