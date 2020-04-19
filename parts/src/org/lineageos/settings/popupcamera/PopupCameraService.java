@@ -16,6 +16,7 @@
 
 package org.lineageos.settings.popupcamera;
 
+import android.annotation.NonNull;
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -24,6 +25,7 @@ import android.content.res.Resources;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.camera2.CameraManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,6 +39,7 @@ import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.Handler;
+import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
@@ -57,7 +60,7 @@ import vendor.xiaomi.hardware.motor.V1_0.MotorEvent;
 
 import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
 
-public class PopupCameraService extends Service {
+public class PopupCameraService extends Service implements Handler.Callback {
 
     private static final String TAG = "PopupCameraService";
     private static final boolean DEBUG = false;
@@ -75,10 +78,19 @@ public class PopupCameraService extends Service {
     private Sensor mFreeFallSensor;
     private static final int FREE_FALL_SENSOR_ID = 33171042;
 
+    public static final int CAMERA_EVENT_DELAY_TIME = 100; //ms
+    public static final int MSG_CAMERA_CLOSED = 1001;
+    public static final int MSG_CAMERA_OPEN = 1002;
+
+    public static final String FRONT_CAMERA_ID = "1";
+
     private static final String GREEN_LED_PATH = "/sys/class/leds/green/brightness";
     private static final String BLUE_LED_PATH = "/sys/class/leds/blue/brightness";
 
-    private static Handler mHandler = new Handler();
+    private Handler mHandler = new Handler(this);
+
+    private long mClosedEvent;
+    private long mOpenEvent;
 
     private PopupCameraPreferences mPopupCameraPreferences;
 
@@ -120,6 +132,8 @@ public class PopupCameraService extends Service {
 
     @Override
     public void onCreate() {
+        CameraManager cameraManager = getSystemService(CameraManager.class);
+        cameraManager.registerAvailabilityCallback(availabilityCallback, null);
         mSensorManager = getSystemService(SensorManager.class);
         mFreeFallSensor = mSensorManager.getDefaultSensor(FREE_FALL_SENSOR_ID);
         mProximitySensor = new ProximitySensor(this, mSensorManager, mProximityListener);
@@ -313,7 +327,6 @@ public class PopupCameraService extends Service {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SHUTDOWN);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_CAMERA_STATUS_CHANGED);
         registerReceiver(mIntentReceiver, filter);
     }
 
@@ -321,13 +334,7 @@ public class PopupCameraService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
-               mCameraState = intent.getExtras().getString(Intent.EXTRA_CAMERA_STATE);
-               if (mCameraState.equals(closeCameraState)){
-                   dismissProximityObstructedDialog();
-               }
-               updateMotor();
-            }else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SHUTDOWN.equals(action)) {
+            if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SHUTDOWN.equals(action)) {
                 if (mCameraState.equals(openCameraState)){
                     forceTakeback();
                 }
@@ -523,6 +530,39 @@ public class PopupCameraService extends Service {
         }, 1500);
     }
 
+    private CameraManager.AvailabilityCallback availabilityCallback =
+            new CameraManager.AvailabilityCallback() {
+                @Override
+                public void onCameraAvailable(@NonNull String cameraId) {
+                    super.onCameraAvailable(cameraId);
+                    if (cameraId.equals(FRONT_CAMERA_ID)) {
+                        mClosedEvent = SystemClock.elapsedRealtime();
+                        if (SystemClock.elapsedRealtime() - mOpenEvent
+                                < CAMERA_EVENT_DELAY_TIME && mHandler.hasMessages(
+                                MSG_CAMERA_OPEN)) {
+                            mHandler.removeMessages(MSG_CAMERA_OPEN);
+                        }
+                        mHandler.sendEmptyMessageDelayed(MSG_CAMERA_CLOSED,
+                                CAMERA_EVENT_DELAY_TIME);
+                    }
+                }
+
+                @Override
+                public void onCameraUnavailable(@NonNull String cameraId) {
+                    super.onCameraAvailable(cameraId);
+                    if (cameraId.equals(FRONT_CAMERA_ID)) {
+                        mOpenEvent = SystemClock.elapsedRealtime();
+                        if (SystemClock.elapsedRealtime() - mClosedEvent
+                                < CAMERA_EVENT_DELAY_TIME && mHandler.hasMessages(
+                                MSG_CAMERA_CLOSED)) {
+                            mHandler.removeMessages(MSG_CAMERA_CLOSED);
+                        }
+                        mHandler.sendEmptyMessageDelayed(MSG_CAMERA_OPEN,
+                                CAMERA_EVENT_DELAY_TIME);
+                    }
+                }
+            };
+
     private SensorEventListener mFreeFallListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
@@ -566,5 +606,21 @@ public class PopupCameraService extends Service {
         homeIntent.addCategory(Intent.CATEGORY_HOME);
         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityAsUser(homeIntent, null, UserHandle.CURRENT);
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        switch (msg.what) {
+            case MSG_CAMERA_CLOSED:
+            case MSG_CAMERA_OPEN:
+                mCameraState = msg.what == MSG_CAMERA_OPEN ?
+                    openCameraState : closeCameraState;
+                if (mCameraState.equals(closeCameraState)){
+                    dismissProximityObstructedDialog();
+                }
+                updateMotor();
+            break;
+        }
+        return true;
     }
 }
