@@ -19,6 +19,8 @@ persist.vendor.ims.disableADBLogs=1
 persist.vendor.ims.disableIMSLogs=1
 persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableQXDMLogs=1
+persist.vendor.radio.report_codec=1
+persist.vendor.radio.vdp_on_ims_cap=1
 
 # LMKD
 ro.config.low_ram=false
