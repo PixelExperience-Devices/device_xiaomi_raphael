@@ -56,6 +56,8 @@ import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 import vendor.xiaomi.hardware.motor.V1_0.IMotorCallback;
 import vendor.xiaomi.hardware.motor.V1_0.MotorEvent;
 
+import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
+
 public class PopupCameraService extends Service {
 
     private static final String TAG = "PopupCameraService";
@@ -500,18 +502,26 @@ public class PopupCameraService extends Service {
     }
 
     private void lightUp() {
+        boolean opened = mCameraState.equals(openCameraState);
+        if (!opened){
+            restoreBatteryLed();
+        }
         if (mPopupCameraPreferences.isLedAllowed()){
             FileUtils.writeLine(GREEN_LED_PATH, "255");
             FileUtils.writeLine(BLUE_LED_PATH, "255");
 
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    FileUtils.writeLine(GREEN_LED_PATH, "0");
-                    FileUtils.writeLine(BLUE_LED_PATH, "0");
-                }
+            mHandler.postDelayed(() -> {
+                PopUpCameraUtils.blockBatteryLed(this, true);
+                FileUtils.writeLine(GREEN_LED_PATH, "0");
+                FileUtils.writeLine(BLUE_LED_PATH, "0");
             }, 1200);
         }
+    }
+
+    private void restoreBatteryLed(){
+        mHandler.postDelayed(() -> {
+            PopUpCameraUtils.blockBatteryLed(this, false);
+        }, 1500);
     }
 
     private SensorEventListener mFreeFallListener = new SensorEventListener() {
