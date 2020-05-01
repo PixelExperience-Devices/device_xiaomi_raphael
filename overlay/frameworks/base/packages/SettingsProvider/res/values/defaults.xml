@@ -24,4 +24,16 @@
     <!-- 30 seconds for default screen timeout -->
     <integer name="def_screen_off_timeout">30000</integer>
 
+    <!-- Disable bluetooth by default -->
+    <bool name="def_bluetooth_on">false</bool>
+
+    <!-- Disable dial pad tones by default -->
+    <bool name="def_dtmf_tones_enabled">false</bool>
+
+    <!-- Disable screen locking sounds by default -->
+    <integer name="def_lockscreen_sounds_enabled">0</integer>
+
+    <!-- Enable vibrate for calls by default -->
+    <bool name="def_vibrate_when_ringing">true</bool>
+
 </resources>
