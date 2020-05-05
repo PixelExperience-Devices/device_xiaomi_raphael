@@ -16,6 +16,12 @@
 import common
 import re
 
+def FullOTA_Assertions(info):
+  AddTrustZoneAssertion(info, info.input_zip)
+
+def IncrementalOTA_Assertions(info):
+  AddTrustZoneAssertion(info, info.target_zip)
+
 def FullOTA_InstallEnd(info):
   OTA_InstallEnd(info, False)
   return
@@ -38,3 +44,12 @@ def OTA_InstallEnd(info, incremental):
   info.script.Print("Patching firmware images...")
   AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo", incremental)
   return
+
+def AddTrustZoneAssertion(info, input_zip):
+  android_info = info.input_zip.read("OTA/android-info.txt")
+  m = re.search(r'require\s+version-tz\s*=\s*(\S+)', android_info)
+  if m:
+    versions = m.group(1).split('|')
+    if len(versions) and '*' not in versions:
+      cmd = 'assert(raphael.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1" || abort("ERROR: This package requires firmware from an Android 10 based MIUI build. Please upgrade firmware and retry!"););'
+      info.script.AppendExtra(cmd)
