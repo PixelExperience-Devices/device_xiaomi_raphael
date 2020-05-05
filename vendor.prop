@@ -164,6 +164,9 @@ persist.dbg.wfc_avail_ovr=1
 # Memory
 ro.vendor.qti.va_aosp.support=1
 
+# Media
+debug.stagefright.omx_default_rank.sw-audio=16
+
 # Property to enable/disable PASR
 vendor.power.pasr.enabled=true
 
