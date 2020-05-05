@@ -22,3 +22,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     vendor.audio.feature.a2dp_offload.enable=false \
     ro.oem_unlock_supported=0 \
     ro.apex.updatable=true
+
+# Media
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.stagefright.omx_default_rank.sw-audio=16
