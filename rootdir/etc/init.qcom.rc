@@ -1,6 +1,3 @@
-on boot
-    write /sys/class/thermal/thermal_message/sconfig 10
-
 on post-fs-data
     write /sys/class/drm/card0-DSI-1/dim_layer_enable 1
 
