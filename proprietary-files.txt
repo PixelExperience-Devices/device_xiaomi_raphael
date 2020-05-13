@@ -491,8 +491,6 @@ vendor/lib64/libgf_hal.so
 vendor/lib64/libhvx_proxy_stub.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0_vendor.so
-vendor/etc/goodix/BMatrix.so|28e9ff5f39e36b92ac3b7633b3847def8e6949e3
-vendor/etc/goodix/caliParamsInfo.so|95a4668aa54107250e416af070d9e93c6e3b243c
 
 # Firmware
 vendor/firmware/a630_sqe.fw
