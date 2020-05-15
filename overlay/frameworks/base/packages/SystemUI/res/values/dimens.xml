@@ -31,8 +31,4 @@
 
     <dimen name="keyguard_carrier_text_margin">44px</dimen>
 
-    <!-- The margin between Emergency Carrier area and pattern/pin
-         view to incorporate the FOD icon -->
-    <dimen name="keyguard_security_fod_view_margin">100dp</dimen>
-
 </resources>
