@@ -1,0 +1,9 @@
+android_app {
+    name: "MiuiCamera-res",
+    resource_dirs: ["res"],
+    dex_preopt: {
+        enabled: false,
+    },
+    installable: false,
+	product_specific: true
+}

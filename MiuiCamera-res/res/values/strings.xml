@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="device_ultra_pixel_watermark_default_text">48MP TRIPLE CAMERA</string>
+    <string name="module_name_pixel">48M</string>
+    <string name="ultra_pixel_device">48MP</string>
+    <string name="device_watermark_default_text">AI TRIPLE CAMERA</string>
+</resources>
