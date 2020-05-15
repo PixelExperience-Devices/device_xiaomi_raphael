@@ -36,3 +36,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit from custom vendor
 $(call inherit-product, vendor/MiuiCamera/config.mk)
+
+PRODUCT_PACKAGES += \
+    MiuiCamera-res-48mp-triple
