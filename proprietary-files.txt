@@ -919,6 +919,9 @@ vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
 vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
 
+# Radio-IMS - from stock
+-product/priv-app/ims/ims.apk|77ea72ab04c651c2a365320179cb1b7c75dcd8bb
+
 # Radio-IMS
 lib64/libdiag_system.so
 -product/app/uceShimService/uceShimService.apk
@@ -949,7 +952,6 @@ product/lib64/vendor.qti.hardware.radio.ims@1.1.so
 product/lib64/vendor.qti.hardware.radio.ims@1.2.so
 product/lib64/vendor.qti.hardware.radio.ims@1.3.so
 product/lib64/vendor.qti.hardware.radio.ims@1.4.so
--product/priv-app/ims/ims.apk
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
