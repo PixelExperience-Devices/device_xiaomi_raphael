@@ -709,6 +709,24 @@ vendor/lib/libarbitrarybytes.so
 vendor/lib/libOmxSwVdec.so
 vendor/lib/libOmxSwVencMpeg4.so
 
+# MISys
+etc/permissions/vendor.xiaomi.hardware.misys-V1.0-java-permission.xml
+etc/permissions/vendor.xiaomi.hardware.misys-V2.0-java-permission.xml
+framework/vendor.xiaomi.hardware.misys-V1.0-java.jar
+framework/vendor.xiaomi.hardware.misys-V2.0-java.jar
+vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
+vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
+vendor/etc/init/vendor.xiaomi.hardware.misys@1.0-service.rc
+vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
+vendor/lib/vendor.xiaomi.hardware.misys@1.0.so
+vendor/lib/vendor.xiaomi.hardware.misys@2.0.so
+vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so
+vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so
+vendor/lib/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
+vendor/lib/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
+vendor/lib64/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
+vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
+
 # Mlipay
 vendor/bin/mlipayd@1.1
 vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
