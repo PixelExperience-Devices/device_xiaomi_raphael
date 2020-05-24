@@ -5,11 +5,6 @@
     "branch": "ten"
   },
   {
-    "repository" : "kernel_xiaomi_raphael",
-    "target_path": "kernel/xiaomi/raphael",
-    "branch": "ten"
-  },
-  {
     "repository": "packages_apps_PixelLiveWallpaper",
     "target_path": "packages/apps/PixelLiveWallpaper",
     "branch": "ten",
