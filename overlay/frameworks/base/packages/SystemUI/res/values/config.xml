@@ -23,9 +23,6 @@
     <!-- Color of the FOD view -->
     <color name="config_fodColor">#00ffffff</color>
 
-    <!-- Whether to show biometric help only when failed -->
-    <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
-
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
 
