@@ -144,18 +144,18 @@ product/lib/vendor.qti.hardware.iop@2.0.so
 product/lib/vendor.qti.hardware.perf@2.0.so
 
 # Popup camera sound effects
-product/media/audio/ui/popup_cangmen_down.ogg
-product/media/audio/ui/popup_cangmen_up.ogg
-product/media/audio/ui/popup_chilun_down.ogg
-product/media/audio/ui/popup_chilun_up.ogg
-product/media/audio/ui/popup_jijia_down.ogg
-product/media/audio/ui/popup_jijia_up.ogg
-product/media/audio/ui/popup_mofa_down.ogg
-product/media/audio/ui/popup_mofa_up.ogg
-product/media/audio/ui/popup_muqin_down.ogg
-product/media/audio/ui/popup_muqin_up.ogg
-product/media/audio/ui/popup_yingyan_down.ogg
-product/media/audio/ui/popup_yingyan_up.ogg
+media/audio/ui/popup_cangmen_down.ogg
+media/audio/ui/popup_cangmen_up.ogg
+media/audio/ui/popup_chilun_down.ogg
+media/audio/ui/popup_chilun_up.ogg
+media/audio/ui/popup_jijia_down.ogg
+media/audio/ui/popup_jijia_up.ogg
+media/audio/ui/popup_mofa_down.ogg
+media/audio/ui/popup_mofa_up.ogg
+media/audio/ui/popup_muqin_down.ogg
+media/audio/ui/popup_muqin_up.ogg
+media/audio/ui/popup_yingyan_down.ogg
+media/audio/ui/popup_yingyan_up.ogg
 
 # OMX
 lib/libstagefright_softomx.so
