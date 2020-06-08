@@ -1,5 +1,3 @@
-import /system/etc/init/init.safailnet.rc
-
 on boot
     write /sys/class/thermal/thermal_message/sconfig 10
 
