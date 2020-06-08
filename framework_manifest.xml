@@ -2,7 +2,7 @@
     <hal format="hidl">
         <name>vendor.lineage.biometrics.fingerprint.inscreen</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IFingerprintInscreen</name>
             <instance>default</instance>
