@@ -148,10 +148,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.raphael
-
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
