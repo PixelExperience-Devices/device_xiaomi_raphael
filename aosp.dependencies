@@ -9,10 +9,5 @@
     "target_path": "packages/apps/PixelLiveWallpaper",
     "branch": "ten",
     "remote": "pixel-gitlab"
-  },
-  {
-    "repository": "vendor_MiuiCamera",
-    "target_path": "vendor/MiuiCamera",
-    "branch": "ten-anx-raphael"
   }
 ]
