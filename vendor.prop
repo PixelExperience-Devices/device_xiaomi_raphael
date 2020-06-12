@@ -112,6 +112,7 @@ vendor.gatekeeper.disable_spu=true
 debug.renderengine.backend=skiaglthreaded
 debug.sdm.support_writeback=0
 debug.sf.use_phase_offsets_as_durations=1
+debug.sf.disable_client_composition_cache=1
 debug.sf.late.sf.duration=10500000
 debug.sf.late.app.duration=20500000
 debug.sf.early.sf.duration=16000000
