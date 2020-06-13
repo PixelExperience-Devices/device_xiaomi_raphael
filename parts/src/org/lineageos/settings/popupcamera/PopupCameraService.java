@@ -88,6 +88,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
     private static final String BLUE_LED_PATH = "/sys/class/leds/blue/brightness";
 
     private Handler mHandler = new Handler(this);
+    private Handler mLightHandler = new Handler();
 
     private long mClosedEvent;
     private long mOpenEvent;
@@ -510,26 +511,29 @@ public class PopupCameraService extends Service implements Handler.Callback {
     }
 
     private void lightUp() {
+        mLightHandler.removeCallbacksAndMessages(null);
         boolean opened = mCameraState.equals(openCameraState);
-        if (!opened){
-            restoreBatteryLed();
-        }
         if (mPopupCameraPreferences.isLedAllowed()){
             FileUtils.writeLine(GREEN_LED_PATH, "255");
             FileUtils.writeLine(BLUE_LED_PATH, "255");
 
-            mHandler.postDelayed(() -> {
+            mLightHandler.postDelayed(() -> {
                 PopUpCameraUtils.blockBatteryLed(this, true);
                 FileUtils.writeLine(GREEN_LED_PATH, "0");
                 FileUtils.writeLine(BLUE_LED_PATH, "0");
+                if (!opened){
+                    PopUpCameraUtils.blockBatteryLed(this, false);
+                }
             }, 1200);
+        }else{
+            if (opened){
+                PopUpCameraUtils.blockBatteryLed(this, true);
+            }else{
+                mLightHandler.postDelayed(() -> {
+                    PopUpCameraUtils.blockBatteryLed(this, false);
+                }, 1500);
+            }
         }
-    }
-
-    private void restoreBatteryLed(){
-        mHandler.postDelayed(() -> {
-            PopUpCameraUtils.blockBatteryLed(this, false);
-        }, 1500);
     }
 
     private CameraManager.AvailabilityCallback availabilityCallback =
