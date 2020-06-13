@@ -1,0 +1,8 @@
+# Additional - required for prebuilt vendor
+type location, domain;
+type location_data_file, file_type, data_file_type;
+type location_socket, file_type;
+type wlan_device, dev_type;
+type proc_wifi_dbg, fs_type, proc_type;
+type vendor_wifi_version, property_type;
+type debugfs_wlan, debugfs_type, fs_type;

@@ -169,3 +169,6 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/raphael/BoardConfigVendor.mk
+
+# wifi-ext
+include $(DEVICE_PATH)/wifi-ext/BoardConfig.mk
