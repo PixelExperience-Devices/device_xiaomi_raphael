@@ -119,6 +119,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
     private ProximitySensor mProximitySensor;
     private boolean mProximityNear;
     private boolean mShouldTryUpdateMotor;
+    private boolean mBootCompleted;
 
     // Sound
     private String[] mSoundNames = {"popup_muqin_up.ogg", "popup_muqin_down.ogg", "popup_yingyan_up.ogg", "popup_yingyan_down.ogg", "popup_mofa_up.ogg", "popup_mofa_down.ogg", "popup_jijia_up.ogg", "popup_jijia_down.ogg", "popup_chilun_up.ogg", "popup_chilun_down.ogg", "popup_cangmen_up.ogg", "popup_cangmen_down.ogg"};
@@ -294,6 +295,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
             }
         } catch(RemoteException e) {
         }
+        mHandler.postDelayed(() -> { mBootCompleted = true; }, 1200);
     }
 
     private void forceTakeback(){
@@ -432,7 +434,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
     }
 
     private void handleError(int status){
-        if (mDialogShowing){
+        if (mDialogShowing || !mBootCompleted){
             return;
         }
         mDialogShowing = true;
