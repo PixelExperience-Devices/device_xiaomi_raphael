@@ -16,3 +16,6 @@ ro.telephony.default_network=22,22
 
 # Vendor
 ro.vendor.qti.va_aosp.support=1
+
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=true
