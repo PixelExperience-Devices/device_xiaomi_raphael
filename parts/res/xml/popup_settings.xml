@@ -12,7 +12,7 @@
         android:entries="@array/popupcamera_effects_entries"
         android:entryValues="@array/popupcamera_effects_values"
         android:defaultValue="0"
-        android:title="@string/popup_title"
+        android:title="@string/popup_sound_title"
         android:summary="%s" />
 
 </PreferenceScreen>
