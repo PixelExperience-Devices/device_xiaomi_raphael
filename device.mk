@@ -169,3 +169,6 @@ PRODUCT_BOOT_JARS += \
 # Wallpapers
 PRODUCT_PACKAGES += \
     PixelLiveWallpaperPrebuilt
+
+# wifi-ext
+include $(LOCAL_PATH)/wifi-ext/device.mk
