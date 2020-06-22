@@ -27,8 +27,9 @@ allow hal_power_default {
 }:dir r_dir_perms;
 
 allow hal_power_default {
-  vendor_sysfs_devfreq
+  sysfs_fs_f2fs
   sysfs_msm_subsys
+  vendor_sysfs_devfreq
 }:dir search;
 
 # Rule for hal_power_default to access graphics composer process
