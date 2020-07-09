@@ -1,2 +1,0 @@
-# wifi-ext
-/(product|system/product)/vendor_overlay/[0-9]+/bin/hw/vendor\.google\.wifi_ext@1\.0-service-vendor   u:object_r:hal_wifi_ext_exec:s0
