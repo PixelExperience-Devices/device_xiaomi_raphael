@@ -49,7 +49,7 @@
             android:disableDependentsState="true"
             android:title="@string/raise_to_wake_gesture_title"
             android:summary="@string/raise_to_wake_gesture_summary"
-            android:icon="@drawable/ic_pickup" />
+            android:icon="@drawable/ic_raise" />
 
     </PreferenceCategory>
 
