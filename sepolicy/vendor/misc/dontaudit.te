@@ -1,0 +1,2 @@
+# Apps are no longer allowed open access to /dev/ashmem, unless they target API level < Q.
+dontaudit untrusted_app ashmem_device:chr_file open;
