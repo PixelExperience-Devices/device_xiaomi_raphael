@@ -3,7 +3,7 @@
     "repository": "vendor_xiaomi_raphael",
     "target_path": "vendor/xiaomi/raphael",
     "branch": "ten",
-    "remote": "pixel-devices-bitbucket"
+    "remote": "pixel-devices-blobs"
   },
   {
     "repository": "packages_apps_PixelLiveWallpaper",
