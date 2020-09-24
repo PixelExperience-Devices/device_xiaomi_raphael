@@ -11,3 +11,6 @@ allow init hal_fingerprint_default:process { ptrace };
 allow init hwservicemanager:binder { call transfer };
 allow init init:capability { sys_nice };
 allow init same_process_hal_file:file execute;
+
+allow init per_boot_file:file ioctl;
+allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };
