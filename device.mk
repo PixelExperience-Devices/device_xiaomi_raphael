@@ -524,3 +524,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# Enable zygote critical window.
+PRODUCT_PROPERTY_OVERRIDES += \
+    zygote.critical_window.minute=10
