@@ -16,42 +16,7 @@
 
 #include <aidl/android/hardware/power/BnPower.h>
 #include <android-base/file.h>
-#include <android-base/logging.h>
 #include <linux/input.h>
-
-namespace {
-int open_ts_input() {
-    int fd = -1;
-    DIR* dir = opendir("/dev/input");
-
-    if (dir != NULL) {
-        struct dirent* ent;
-
-        while ((ent = readdir(dir)) != NULL) {
-            if (ent->d_type == DT_CHR) {
-                char absolute_path[PATH_MAX] = {0};
-                char name[80] = {0};
-
-                strcpy(absolute_path, "/dev/input/");
-                strcat(absolute_path, ent->d_name);
-
-                fd = open(absolute_path, O_RDWR);
-                if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
-                    if (strcmp(name, "goodix_ts") == 0)
-                        break;
-                }
-
-                close(fd);
-                fd = -1;
-            }
-        }
-
-        closedir(dir);
-    }
-
-    return fd;
-}
-}  // anonymous namespace
 
 namespace aidl {
 namespace google {
@@ -79,12 +44,7 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
     switch (type) {
         case Mode::DOUBLE_TAP_TO_WAKE:
             {
-                int fd = open_ts_input();
-                if (fd == -1) {
-                    LOG(WARNING)
-                        << "DT2W won't work because no supported touchscreen input devices were found";
-                    return false;
-                }
+                int fd = open("/dev/input/event3", O_RDWR);
                 struct input_event ev;
                 ev.type = EV_SYN;
                 ev.code = SYN_CONFIG;

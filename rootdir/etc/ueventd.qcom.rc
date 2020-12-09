@@ -388,6 +388,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/devices/platform/us_prox.0/iio:device* scan_elements/in_proximity_en  0600 system system
 /sys/devices/platform/us_prox.0/iio:device* scan_elements/in_timestamp_en  0600 system system
 
+#D2TW
+/dev/input/event3                                       0666   system     system
+
 # LED class devices
 /sys/class/leds/red      delay_on     0640    system    system
 /sys/class/leds/red      delay_off    0640    system    system
