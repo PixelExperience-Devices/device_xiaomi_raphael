@@ -238,6 +238,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.qti.chg_policy.sh \
+    init.mi.usb.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     init.xiaomi.rc \
