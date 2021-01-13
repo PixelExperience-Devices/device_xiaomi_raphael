@@ -2,6 +2,7 @@
 allow hal_nfc_default vendor_nfc_vendor_data_file:dir {
   rw_file_perms
   create_dir_perms
+  search
 };
 allow hal_nfc_default vendor_nfc_vendor_data_file:file create_file_perms;
 
