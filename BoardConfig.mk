@@ -127,6 +127,9 @@ KERNEL_LD := LD=ld.lld
 TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
 TARGET_KERNEL_CONFIG := raphael_defconfig
 
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
