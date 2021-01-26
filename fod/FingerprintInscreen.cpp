@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 
 #include <android-base/logging.h>
 #include <fstream>
+#include <chrono>
 #include <cmath>
 #include <thread>
 
@@ -42,6 +43,14 @@
 #define FOD_SENSOR_X 445
 #define FOD_SENSOR_Y 1931
 #define FOD_SENSOR_SIZE 190
+
+#define DIM_LAYER_HBM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm"
+
+#define DIM_LAYER_HBM_ON 1
+#define DIM_LAYER_HBM_OFF 0
+#define DIM_LAYER_OFF_DELAY 85ms
+
+using namespace std::chrono_literals;
 
 namespace {
 
@@ -130,6 +139,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
+    set(DIM_LAYER_HBM_PATH, DIM_LAYER_HBM_ON);
     return Void();
 }
 
@@ -139,11 +149,14 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
+    set(DIM_LAYER_HBM_PATH, DIM_LAYER_HBM_ON);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
+    std::this_thread::sleep_for(DIM_LAYER_OFF_DELAY);
+    set(DIM_LAYER_HBM_PATH, DIM_LAYER_HBM_OFF);
     return Void();
 }
 
