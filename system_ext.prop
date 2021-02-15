@@ -7,7 +7,7 @@ persist.audio.fluence.voicerec=false
 
 # Camera
 persist.camera.gyro.disable=0
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev
+vendor.camera.aux.packagelist=com.android.camera,org.lineageos.aperture,org.pixelexperience.faceunlock
 
 # CNE
 persist.vendor.cne.feature=1
