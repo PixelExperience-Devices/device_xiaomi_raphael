@@ -5,3 +5,9 @@ allow platform_app vendor_sysfs_graphics:file r_file_perms;
 get_prop(platform_app, vendor_audio_prop);
 
 allow platform_app sysfs_msm_subsys:dir { search };
+
+# System Info
+allow platform_app vendor_sysfs_battery_supply:dir search;
+allow platform_app vendor_sysfs_battery_supply:file { getattr open read }; 
+allow platform_app vendor_sysfs_kgsl:dir search;
+allow platform_app vendor_sysfs_kgsl:file { getattr open read };

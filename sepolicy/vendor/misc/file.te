@@ -4,3 +4,6 @@ type per_boot_file, file_type, data_file_type, core_data_file_type;
 # Read/Search into sysfs_msm_subsy
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_kgsl_proc, sysfs_type, fs_type;
+
+# System Info Node
+type sysfs_kgsl, sysfs_type, fs_type;
