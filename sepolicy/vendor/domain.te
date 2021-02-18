@@ -1,0 +1,1 @@
+allow { domain - isolated_app } sysfs_kgsl:lnk_file read;
