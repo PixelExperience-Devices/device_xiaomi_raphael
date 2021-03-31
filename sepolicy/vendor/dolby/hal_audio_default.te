@@ -1,0 +1,20 @@
+# Dolby
+
+# Allow binder communication with hal_dms_default
+allow hal_audio_default hal_dms_default:binder { transfer call };
+#binder_call(hal_audio_default, hal_dms_default)
+
+# Allow hal_audio_default to find hal_dms_hwservice
+allow hal_audio_default hal_dms_hwservice:hwservice_manager find;
+
+# Allow hal_audio_default to read and write sysfs_wake_lock
+allow hal_audio_default sysfs_wake_lock:file rw_file_perms;
+
+# Allow hal_audio_default to read sysfs
+allow hal_audio_default sysfs:dir r_dir_perms;
+
+# Allow hal_audio_default to block_suspend itself
+allow hal_audio_default self:capability2 block_suspend;
+
+# Allow hal_audio_default to read and write to vendor_diag_device
+allow hal_audio_default vendor_diag_device:chr_file rw_file_perms;
