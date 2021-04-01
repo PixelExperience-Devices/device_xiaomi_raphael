@@ -36,7 +36,7 @@
 /dev/block/bootdevice/by-name/system                    /                        ext4    ro,barrier=1,discard                                 wait
 /dev/block/bootdevice/by-name/vendor                    /vendor                  ext4    ro,barrier=1                                         wait,recoveryonly
 /dev/block/bootdevice/by-name/cache                     /cache                   ext4    nosuid,noatime,nodev,barrier=1                       wait
-/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,background_gc=sync,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,quota,formattable,reservedsize=128M,checkpoint=fs
+/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,background_gc=sync,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,quota,formattable,reservedsize=128M,checkpoint=fs
 /dev/block/bootdevice/by-name/boot                      /boot                    emmc    defaults                                             recoveryonly
 /dev/block/bootdevice/by-name/recovery                  /recovery                emmc    defaults                                             recoveryonly
 /devices/platform/soc/8804000.sdhci/mmc_host*           /storage/sdcard1         vfat    nosuid,nodev                                         wait,voldmanaged=sdcard1:auto,encryptable=footer
