@@ -142,7 +142,7 @@ on property:sys.boot_completed=1
 
     # Enable ZRAM on boot_complete
     rm /data/unencrypted/zram_swap
-    swapon_all /vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.zram
     write /proc/sys/vm/swappiness 100
 
     # Runtime fs tuning

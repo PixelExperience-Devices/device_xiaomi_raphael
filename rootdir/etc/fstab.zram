@@ -1,0 +1,4 @@
+# Android fstab file.
+
+#<src>                                                  <mnt_point>            <type>  <mnt_flags and options>                              <fs_mgr_flags>
+/dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8
