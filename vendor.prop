@@ -10,6 +10,7 @@ persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.hifi=false
 persist.vendor.audio.ras.enabled=false
 persist.vendor.audio.voicecall.speaker.stereo=true
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 ro.config.vc_call_vol_steps=11
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
