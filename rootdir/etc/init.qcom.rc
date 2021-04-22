@@ -744,3 +744,8 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     task_profiles ProcessCapacityHigh HighPerformance
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
+
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
