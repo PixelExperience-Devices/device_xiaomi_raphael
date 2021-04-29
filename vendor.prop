@@ -81,6 +81,8 @@ ro.surface_flinger.supports_background_blur=1
 
 # Camera
 camera.disable_zsl_mode=true
+log.tag.CHIUSECASE=ERROR
+persist.vendor.camera.logInfoMask=false
 
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
