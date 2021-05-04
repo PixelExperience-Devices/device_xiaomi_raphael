@@ -84,26 +84,19 @@ void vendor_load_properties() {
     if (region == "GLOBAL") {
         model = "Mi 9T Pro";
         device = "raphael";
-        fingerprint =
-                "Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys";
         description = "raphael-user 11 RKQ1.200826.002 V12.5.2.0.RFKMIXM release-keys";
         mod_device = "raphael_global";
     } else if (region == "CN") {
         model = "Redmi K20 Pro";
         device = "raphael";
-        fingerprint =
-                "Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.5.0.RFKCNXM:user/release-keys";
         description = "raphael-user 11 RKQ1.200826.002 V12.5.5.0.RFKCNXM release-keys";
     } else if (region == "INDIA") {
         model = "Redmi K20 Pro";
         device = "raphaelin";
-        fingerprint =
-                "Xiaomi/raphaelin/raphaelin:11/RKQ1.200826.002/V12.5.1.0.RFKINXM:user/release-keys";
         description = "raphaelin-user 11 RKQ1.200826.002 V12.5.1.0.RFKINXM release-keys";
         mod_device = "raphaelin_in_global";
     }
 
-    set_ro_build_prop("fingerprint", fingerprint);
     set_ro_product_prop("device", device);
     set_ro_product_prop("model", model);
     property_override("ro.build.description", description.c_str());
