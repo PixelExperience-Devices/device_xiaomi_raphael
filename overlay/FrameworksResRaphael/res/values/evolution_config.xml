@@ -40,4 +40,7 @@
 
     <!-- Shows the required view for Screen OFF FOD -->
     <bool name="config_supportsScreenOffUdfps">true</bool>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_supportSmartPixels">true</bool>
 </resources>
