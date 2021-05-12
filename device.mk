@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
     audio.primary.default \
     audio.primary.msmnile \
     audio.usb.default \
+    audio.usbv2.default \
     audio.r_submix.default
 
 PRODUCT_PACKAGES += \
