@@ -1,6 +1,7 @@
 set_prop(vendor_init, vendor_alarm_boot_prop)
 set_prop(vendor_init, vendor_power_prop)
 set_prop(vendor_init, vendor_video_prop)
+set_prop(vendor_init, vendor_ssr_prop)
 
 allow vendor_init {
   vendor_debugfs_clk
