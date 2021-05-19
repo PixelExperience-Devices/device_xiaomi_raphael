@@ -128,7 +128,6 @@ ro.hardware.vulkan=adreno
 ro.opengles.version=196610
 vendor.gralloc.disable_ubwc=0
 debug.renderengine.backend=skiaglthreaded
-renderthread.skia.reduceopstasksplitting=true
 
 # Incremental
 ro.incremental.enable=1
