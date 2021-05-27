@@ -149,7 +149,6 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
-    set(DIM_LAYER_HBM_PATH, DIM_LAYER_HBM_ON);
     return Void();
 }
 
