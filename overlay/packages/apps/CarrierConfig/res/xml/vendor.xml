@@ -111,6 +111,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <!-- Config for explicit call transfer support for an IMS call -->
         <boolean name="carrier_allow_transfer_ims_call_bool" value="true" />
         <long name="carrier_data_call_apn_retry_after_disconnect_long" value="100" />
+
+        <!-- Show VoLTE and VoWIFI for all -->
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
 
     <carrier_config mcc="001" mnc="01">
