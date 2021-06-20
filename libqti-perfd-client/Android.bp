@@ -3,7 +3,7 @@ cc_library_shared {
     proprietary: true,
     defaults: ["hidl_defaults"],
     srcs: [
-        "client.cpp",
+        "client.c",
     ],
     cflags: [
         "-Werror",
