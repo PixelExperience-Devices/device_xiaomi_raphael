@@ -1100,4 +1100,7 @@
          etc. dialogs. --> 
     <string name="config_appsNotReportingCrashes">com.google.android.tts</string>
 
+    <!-- the number of the max cached processes in the system. -->
+    <integer name="config_customizedMaxCachedProcesses">64</integer>
+
 </resources>
