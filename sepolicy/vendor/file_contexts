@@ -55,6 +55,9 @@
 /vendor/bin/nv_mac                                              u:object_r:vendor_wcnss_service_exec:s0
 /data/vendor/mac_addr(/.*)?                                     u:object_r:vendor_wifi_vendor_data_file:s0
 
+# Thermal
+/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.pixel                     u:object_r:hal_thermal_default_exec:s0
+
 # UFS
 /sys/devices/platform/soc/[a-f0-9]+.ufshc/clkgate_enable        u:object_r:vendor_sysfs_scsi_host:s0
 

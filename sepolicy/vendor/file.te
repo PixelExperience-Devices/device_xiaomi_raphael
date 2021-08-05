@@ -16,3 +16,6 @@ type vendor_sysfs_hbm, sysfs_type, fs_type;
 # Nodes
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_kgsl, sysfs_type, fs_type;
+
+# Thermal
+type thermal_link_device, dev_type;

@@ -3,3 +3,6 @@ vendor_internal_prop(vendor_device_prop)
 
 # Power
 vendor_internal_prop(vendor_power_prop)
+
+#Thermal
+vendor_internal_prop(vendor_thermal_prop)

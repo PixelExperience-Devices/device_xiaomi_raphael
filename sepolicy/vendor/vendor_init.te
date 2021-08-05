@@ -19,3 +19,7 @@ allow vendor_init vendor_camera_prop:property_service set;
 allow vendor_init vendor_fp_prop:property_service set;
 
 set_prop(vendor_init, init_service_status_prop)
+
+# Thermal
+allow vendor_init thermal_link_device:dir r_dir_perms;
+allow vendor_init thermal_link_device:lnk_file r_file_perms;
