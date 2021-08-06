@@ -1,13 +1,13 @@
 cc_binary {
-  name: "android.hardware.thermal@2.0-service.pixel",
+  name: "android.hardware.thermal@2.0-service.xiaomi_raphael",
   defaults: [
     "hidl_defaults",
   ],
   vendor: true,
   relative_install_path: "hw",
-  vintf_fragments: ["android.hardware.thermal@2.0-service.pixel.xml"],
+  vintf_fragments: ["android.hardware.thermal@2.0-service.xiaomi_raphael.xml"],
   init_rc: [
-    "android.hardware.thermal@2.0-service.pixel.rc",
+    "android.hardware.thermal@2.0-service.xiaomi_raphael.rc",
   ],
   srcs: [
     "service.cpp",
@@ -43,14 +43,5 @@ cc_binary {
   ],
   tidy_flags: [
     "-warnings-as-errors=android-*,clang-analyzer-security*,cert-*"
-  ],
-}
-
-sh_binary {
-  name: "thermal_logd",
-  src: "init.thermal.logging.sh",
-  vendor: true,
-  init_rc: [
-    "pixel-thermal-logd.rc",
   ],
 }
