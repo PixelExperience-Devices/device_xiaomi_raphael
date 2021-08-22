@@ -28,8 +28,6 @@
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.xiaomi.rc
-import /vendor/etc/init/init.mi_thermald.rc
-import /vendor/etc/init/init.batterysecret.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
