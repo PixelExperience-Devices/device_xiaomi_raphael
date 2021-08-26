@@ -315,8 +315,8 @@ public class PopupCameraService extends Service implements Handler.Callback {
             Resources res = getResources();
             String cameraState = "-1";
             int dialogMessageResId = cameraState.equals(Constants.CLOSE_CAMERA_STATE)
-                    ? R.string.popup_camera_takeback_failed_calibrate
-                    : R.string.popup_camera_popup_failed_calibrate;
+                    ? R.string.popup_camera_takeback_failed_times_calibrate
+                    : R.string.popup_camera_popup_failed_times_calibrate;
             AlertDialog alertDialog =
                     new AlertDialog.Builder(this, R.style.SystemAlertDialogTheme)
                             .setTitle(res.getString(R.string.popup_camera_tip))
