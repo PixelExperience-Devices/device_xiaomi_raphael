@@ -1,10 +1,20 @@
 [
   {
-    "repository": "android_hardware_xiaomi",
-    "target_path": "hardware/xiaomi"
+    "remote": "pixel-devices",
+    "repository": "kernel_xiaomi_raphael",
+    "target_path": "kernel/xiaomi/raphael",
+    "branch": "eleven"
   },
   {
-    "repository": "android_kernel_xiaomi_sm8150",
-    "target_path": "kernel/xiaomi/sm8150"
+    "remote": "pixel-devices-blobs",
+    "repository": "vendor_xiaomi_raphael",
+    "target_path": "vendor/xiaomi/raphael",
+    "branch": "eleven"
+  },
+  {
+    "remote": "lineage",
+    "repository": "android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "lineage-18.1"
   }
 ]
