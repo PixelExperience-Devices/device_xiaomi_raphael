@@ -28,8 +28,8 @@ cc_binary {
     "libbinder_ndk",
     "android.hardware.thermal@1.0",
     "android.hardware.thermal@2.0",
-    "android.hardware.power-V1-ndk_platform",
-    "pixel-power-ext-V1-ndk_platform"
+    "android.hardware.power-V1-ndk",
+    "pixel-power-ext-V1-ndk"
   ],
   cflags: [
     "-Wall",
