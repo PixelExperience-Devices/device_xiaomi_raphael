@@ -258,6 +258,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.zram \
     init.insmod.sh \
+    init.power.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
