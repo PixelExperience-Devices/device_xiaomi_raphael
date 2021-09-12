@@ -153,6 +153,7 @@ on boot
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
 
+
 on property:sys.boot_completed=1
     # Haptics
     write /sys/class/leds/vibrator/index 3
@@ -187,6 +188,13 @@ on property:sys.boot_completed=1
     write /dev/blkio/background/blkio.weight 200
     write /dev/blkio/blkio.group_idle 2000
     write /dev/blkio/background/blkio.group_idle 0
+
+    # Disable wsf, beacause we are using efk.
+    # wsf Range : 1..1000 So set to bare minimum value 1.
+    write /proc/sys/vm/watermark_scale_factor 1
+
+    # Enable oom_reaper
+    write /sys/module/lowmemorykiller/parameters/oom_reaper 1
 
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
