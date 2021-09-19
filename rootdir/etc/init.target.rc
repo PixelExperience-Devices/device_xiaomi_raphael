@@ -45,7 +45,7 @@ on init
     write /dev/sys/fs/by-name/userdata/node_io_flag 56
 
     # Report max frequency to unity tasks
-    write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
+    write /proc/sys/kernel/sched_lib_name "com.miHoYo.,UnityMain,libunity.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
 
     # ZRAM setup
