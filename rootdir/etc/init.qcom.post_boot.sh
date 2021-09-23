@@ -5228,7 +5228,6 @@ case "$target" in
                 echo "unknown feature_id value" $feature_id
         fi
 
-    echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
     configure_memory_parameters
     ;;
 esac
