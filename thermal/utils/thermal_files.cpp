@@ -19,6 +19,7 @@
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
+#include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 #include "thermal_files.h"
 
@@ -45,6 +46,7 @@ bool ThermalFiles::readThermalFile(std::string_view thermal_name, std::string *d
     std::string file_path = getThermalFilePath(std::string_view(thermal_name));
     *data = "";
     if (file_path.empty()) {
+        PLOG(WARNING) << "Failed to find " << thermal_name << "'s path";
         return false;
     }
 
@@ -55,6 +57,18 @@ bool ThermalFiles::readThermalFile(std::string_view thermal_name, std::string *d
 
     // Strip the newline.
     *data = ::android::base::Trim(sensor_reading);
+    return true;
+}
+
+bool ThermalFiles::writeCdevFile(std::string_view cdev_name, std::string_view data) {
+    std::string file_path =
+            getThermalFilePath(android::base::StringPrintf("%s_%s", cdev_name.data(), "w"));
+
+    if (!android::base::WriteStringToFile(data.data(), file_path)) {
+        PLOG(WARNING) << "Failed to write cdev: " << cdev_name << " to " << data.data();
+        return false;
+    }
+
     return true;
 }
 

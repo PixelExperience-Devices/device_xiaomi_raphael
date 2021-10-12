@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef ANDROID_HARDWARE_THERMAL_V2_0_CROSSHATCH_THERMAL_H
-#define ANDROID_HARDWARE_THERMAL_V2_0_CROSSHATCH_THERMAL_H
+
+#pragma once
 
 #include <mutex>
 #include <thread>
@@ -40,7 +40,7 @@ using ::android::hardware::thermal::V2_0::IThermalChangedCallback;
 struct CallbackSetting {
     CallbackSetting(sp<IThermalChangedCallback> callback, bool is_filter_type,
                     TemperatureType_2_0 type)
-        : callback(callback), is_filter_type(is_filter_type), type(type) {}
+        : callback(std::move(callback)), is_filter_type(is_filter_type), type(type) {}
     sp<IThermalChangedCallback> callback;
     bool is_filter_type;
     TemperatureType_2_0 type;
@@ -65,9 +65,9 @@ class Thermal : public IThermal {
                                         getCurrentTemperatures_cb _hidl_cb) override;
     Return<void> getTemperatureThresholds(bool filterType, TemperatureType_2_0 type,
                                           getTemperatureThresholds_cb _hidl_cb) override;
-    Return<void> registerThermalChangedCallback(const sp<IThermalChangedCallback> &callback,
-                                                bool filterType, TemperatureType_2_0 type,
-                                                registerThermalChangedCallback_cb _hidl_cb) override;
+    Return<void> registerThermalChangedCallback(
+            const sp<IThermalChangedCallback> &callback, bool filterType, TemperatureType_2_0 type,
+            registerThermalChangedCallback_cb _hidl_cb) override;
     Return<void> unregisterThermalChangedCallback(
         const sp<IThermalChangedCallback> &callback,
         unregisterThermalChangedCallback_cb _hidl_cb) override;
@@ -78,10 +78,14 @@ class Thermal : public IThermal {
     Return<void> debug(const hidl_handle &fd, const hidl_vec<hidl_string> &args) override;
 
     // Helper function for calling callbacks
-    void sendThermalChangedCallback(const std::vector<Temperature_2_0> &temps);
+    void sendThermalChangedCallback(const Temperature_2_0 &t);
 
   private:
     ThermalHelper thermal_helper_;
+    void dumpVirtualSensorInfo(std::ostringstream *dump_buf);
+    void dumpThrottlingInfo(std::ostringstream *dump_buf);
+    void dumpThrottlingRequestStatus(std::ostringstream *dump_buf);
+    void dumpPowerRailInfo(std::ostringstream *dump_buf);
     std::mutex thermal_callback_mutex_;
     std::vector<CallbackSetting> callbacks_;
 };
@@ -91,5 +95,3 @@ class Thermal : public IThermal {
 }  // namespace thermal
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_THERMAL_V2_0_CROSSHATCH_THERMAL_H

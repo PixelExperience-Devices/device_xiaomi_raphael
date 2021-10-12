@@ -390,7 +390,8 @@ PRODUCT_COPY_FILES += \
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.xiaomi_raphael
+    android.hardware.thermal@2.0-service.xiaomi_raphael \
+    thermal_symlinks
 
 # QMI
 PRODUCT_PACKAGES += \
