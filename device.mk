@@ -367,7 +367,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.xiaomi_raphael
+    android.hardware.thermal@2.0-service.xiaomi_raphael \
+    thermal_symlinks
 
 # QTI
 PRODUCT_PACKAGES += \
