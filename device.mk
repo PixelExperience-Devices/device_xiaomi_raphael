@@ -171,6 +171,9 @@ PRODUCT_PACKAGES += \
     gralloc.msmnile \
     hwcomposer.msmnile \
     libtinyxml \
+    libdisplayconfig \
+    libqdMetaData \
+    libqdMetaData.system \
     libvulkan \
     memtrack.msmnile \
     vendor.display.config@1.11.vendor \
@@ -522,18 +525,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
-
-# WiFi Display
-PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
-    libdisplayconfig.system.qti \
-    libqdMetaData \
-    libqdMetaData.system \
-    libnl \
-    libwfdaac_vendor
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 # Enable zygote critical window.
 PRODUCT_PROPERTY_OVERRIDES += \

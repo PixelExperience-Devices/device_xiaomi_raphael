@@ -40,7 +40,6 @@
     <hidden-api-whitelisted-app package="com.qualcomm.qcrilmsgtunnel" />
 
     <hidden-api-whitelisted-app package="com.android.bluetooth" />
-    <hidden-api-whitelisted-app package="com.qualcomm.wfd.service" />
     <allow-implicit-broadcast action="org.codeaurora.intent.action.CALL_COMPOSER_INFO" />
     <allow-implicit-broadcast action="org.codeaurora.intent.action.PRE_ALERTING_CALL_INFO" />
 </config>
