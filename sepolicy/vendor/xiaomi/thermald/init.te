@@ -1,0 +1,1 @@
+allow init vendor_configs_file:file mounton;
