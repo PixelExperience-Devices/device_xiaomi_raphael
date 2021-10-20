@@ -5,7 +5,6 @@ type per_boot_file, file_type, data_file_type, core_data_file_type;
 type audio_socket, file_type;
 type fingerprint_data_file, data_file_type, file_type;
 type persist_camera_file, vendor_persist_type, file_type;
-type thermal_data_file, data_file_type, file_type;
 type public_adsprpcd_file, file_type;
 
 # Insmod
