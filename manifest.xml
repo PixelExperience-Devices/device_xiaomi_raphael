@@ -261,11 +261,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <fqname>@1.0::IGPAppConnector/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.tetheroffload.config</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IOffloadConfig/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.tetheroffload.control</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IOffloadControl/default</fqname>
