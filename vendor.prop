@@ -56,6 +56,7 @@ ro.crypto.volume.options=::v2
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
+debug.sdm.support_writeback=0
 debug.sf.hw=0
 debug.egl.hw=0
 debug.renderengine.backend=skiaglthreaded
