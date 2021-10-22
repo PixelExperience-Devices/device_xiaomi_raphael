@@ -199,6 +199,11 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     group system
     disabled
 
+service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-msmnile-normal_mode.conf
+    class main
+    user root
+    group root
+
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
 
@@ -217,15 +222,6 @@ on charger
     setprop sys.usb.configfs 1
     start vendor.qcom-post-boot
     start vendor.hvdcp_opti
-
-service vendor.thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
 
 service nv_mac /vendor/bin/nv_mac
     class late_start
