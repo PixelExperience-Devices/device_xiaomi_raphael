@@ -1,0 +1,1 @@
+allow init hal_fingerprint_default:process { ptrace };

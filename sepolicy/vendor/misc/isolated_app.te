@@ -1,0 +1,3 @@
+allow isolated_app app_data_file:dir { getattr };
+allow isolated_app app_data_file:file { setattr };
+allow isolated_app zygote:file { read };

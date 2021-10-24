@@ -1,0 +1,2 @@
+allow system_server app_zygote:process { getpgid };
+allow system_server proc:file { getattr open read };

@@ -1,0 +1,1 @@
+allow fsck fsck:capability { kill };

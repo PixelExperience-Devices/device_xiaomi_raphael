@@ -3,8 +3,13 @@ dontaudit fsck self:capability kill;
 
 # b/151195350
 dontaudit linkerconfig self:capability kill;
+dontaudit linkerconfig linkerconfig:capability { kill };
 
 # b/152468658
 dontaudit vdc self:capability kill;
 
 dontaudit untrusted_app_all hal_memtrack_hwservice:hwservice_manager { find };
+
+dontaudit odrefresh odrefresh:capability { kill };
+
+dontaudit vendor_init init_service_status_private_prop:file { read };
