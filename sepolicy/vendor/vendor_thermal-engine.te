@@ -1,0 +1,5 @@
+allow vendor_thermal-engine system_prop:file { getattr  map  open  read };
+
+allow vendor_thermal-engine system_prop:property_service { set };
+
+allow vendor_thermal-engine vendor_data_file:dir { read };

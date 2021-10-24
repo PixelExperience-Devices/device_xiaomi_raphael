@@ -1,0 +1,1 @@
+dontaudit linkerconfig linkerconfig:capability { kill };

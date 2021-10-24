@@ -1,6 +1,9 @@
 get_prop({ appdomain -isolated_app }, vendor_fp_prop)
 get_prop({ appdomain -isolated_app }, vendor_tee_listener_prop)
 
+dontaudit appdomain sysfs_msm_subsys:dir search;
+dontaudit appdomain sysfs_msm_subsys:file r_file_perms;
+
 allow { appdomain -isolated_app } adsprpcd_file:dir r_dir_perms;
 allow { appdomain -isolated_app } public_adsprpcd_file:file r_file_perms;
 allow { appdomain -isolated_app } vendor_xdsp_device:chr_file r_file_perms;

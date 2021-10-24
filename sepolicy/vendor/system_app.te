@@ -1,2 +1,12 @@
 allow system_app sysfs_zram:dir search;
 allow system_app sysfs_zram:file r_file_perms;
+
+allow system_app vendor_sysfs_graphics:file { getattr open read };
+
+allow system_app sysfs_thermal:file { write };
+
+allow system_app apk_data_file:file { ioctl };
+
+allow system_app incremental_prop:file { read open };
+
+allow system_app sysfs_msm_subsys:dir { search };
