@@ -40,6 +40,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.checkDozeService(context);
         HapticUtils.restoreLevel(context);
         PopupCameraUtils.startService(context);
-        RefreshUtils.startService(context);
+        RefreshUtils.initialize(context);
     }
 }

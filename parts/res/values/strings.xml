@@ -29,8 +29,4 @@
     <string name="dirac_headset_bluetooth_collar">Mi Bluetooth Neckband</string>
     <string name="dirac_headset_bluetooth_linefree">Mi Bluetooth Earphones</string>
     <string name="dirac_headset_redmi_earphones">Redmi Earphones</string>
-
-    <!-- Refresh Rate -->
-    <string name="refresh_standard">Standard (60Hz)</string>
-    <string name="refresh_high_72">High (72Hz)</string>
 </resources>
