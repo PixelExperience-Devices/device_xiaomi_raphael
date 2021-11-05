@@ -6,6 +6,9 @@ ro.product.mod_device          u:object_r:build_prop:s0
 # Graphics
 ro.gfx.driver.1                u:object_r:graphics_config_prop:s0
 
+# Hardware
+ro.hardware.chipname           u:object_r:build_prop:s0
+
 # MIUI
 ro.cust.test                   u:object_r:exported_system_prop:s0
 ro.miui.                       u:object_r:exported_system_prop:s0
