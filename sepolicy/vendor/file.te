@@ -8,9 +8,12 @@ type persist_camera_file, vendor_persist_type, file_type;
 type thermal_data_file, data_file_type, file_type;
 type public_adsprpcd_file, file_type;
 
+# Insmod
+type vendor_sysfs_msm_boot, fs_type, sysfs_type;
+
+# Livedisplay
+type vendor_sysfs_hbm, sysfs_type, fs_type;
+
 # Nodes
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_kgsl, sysfs_type, fs_type;
-
-# Insmod
-type vendor_sysfs_msm_boot, fs_type, sysfs_type;
