@@ -33,7 +33,7 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
 #<src>                                                 <mnt_point>               <type>  <mnt_flags and options>                            <fs_mgr_flags>
-/dev/block/bootdevice/by-name/system                    /                        ext4    ro,barrier=1,discard                                 wait,readahead_size_kb=128
+/dev/block/bootdevice/by-name/system                    /                        ext4    ro,barrier=1,discard,i_version                       wait,readahead_size_kb=128
 /dev/block/bootdevice/by-name/vendor                    /vendor                  ext4    ro,barrier=1                                         wait,recoveryonly,readahead_size_kb=128
 /dev/block/bootdevice/by-name/cache                     /cache                   ext4    nosuid,noatime,nodev,barrier=1                       wait
 /dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,background_gc=sync,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,quota,formattable,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,checkpoint=fs,readahead_size_kb=128
