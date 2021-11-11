@@ -30,3 +30,6 @@ genfscon sysfs /devices/virtual/misc/msm_multi_aac/wakeup               u:object
 genfscon sysfs /devices/virtual/misc/msm_qcelp/wakeup                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wma/wakeup                     u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup                  u:object_r:sysfs_wakeup:s0
+
+# FPS Info
+genfscon sysfs /class/drm/card0/sde-crtc-0/measured_fps    u:object_r:vendor_sysfs_graphics:s0
