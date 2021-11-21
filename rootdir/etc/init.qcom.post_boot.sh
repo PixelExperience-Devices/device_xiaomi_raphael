@@ -214,88 +214,6 @@ function 8937_sched_dcvs_eas()
     fi
 }
 
-function configure_automotive_sku_parameters() {
-
-    echo 1036800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    echo 1056000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-    echo 1171200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
-    echo 1785600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    echo 902400000  > /sys/class/devfreq/18321110.qcom,cpu0-cpu-l3-lat/min_freq
-    echo 902400000  > /sys/class/devfreq/18321110.qcom,cpu4-cpu-l3-lat/min_freq
-    echo 902400000  > /sys/class/devfreq/18321110.qcom,cpu7-cpu-l3-lat/min_freq
-    echo 1612800000 > /sys/class/devfreq/18321110.qcom,cpu0-cpu-l3-lat/max_freq
-    echo 1612800000 > /sys/class/devfreq/18321110.qcom,cpu4-cpu-l3-lat/max_freq
-    echo 1612800000 > /sys/class/devfreq/18321110.qcom,cpu7-cpu-l3-lat/max_freq
-    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/min_freq
-    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/min_freq
-    echo 902400000  > /sys/class/devfreq/soc\:qcom,cpu7-cpu-l3-lat/min_freq
-    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/max_freq
-    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/max_freq
-    echo 1612800000 > /sys/class/devfreq/soc\:qcom,cpu7-cpu-l3-lat/max_freq
-
-#read feature id from nvram
-reg_val=`cat /sys/devices/platform/soc/780130.qfprom/qfprom0/nvmem | od -An -t d4`
-feature_id=$(((reg_val >> 20) & 0xFF))
-log -t BOOT -p i "feature id '$feature_id'"
-if [ $feature_id == 0 ]; then
-       echo " SKU Configured : SA8155P"
-       echo 2131200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-       echo 2419200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq
-       echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-elif [ $feature_id == 1 ]; then
-        echo "SKU Configured : SA8150P"
-        echo 1920000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-        echo 2227200 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq
-        echo 3 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-else
-        echo "unknown feature_id value" $feature_id
-fi
-}
-
-function configure_automotive_sku_parameters_sa8195() {
-
-	#Setting the min supported frequencies
-        echo 1113600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-        echo 1171200 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-        echo 940800000  > /sys/class/devfreq/18321110.qcom,cpu0-cpu-l3-lat/min_freq
-        echo 940800000  > /sys/class/devfreq/18321110.qcom,cpu4-cpu-l3-lat/min_freq
-        echo 1651200000 > /sys/class/devfreq/18321110.qcom,cpu0-cpu-l3-lat/max_freq
-        echo 1651200000 > /sys/class/devfreq/18321110.qcom,cpu4-cpu-l3-lat/max_freq
-	echo 940800000  > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/min_freq
-        echo 940800000  > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/min_freq
-        echo 1651200000 > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/max_freq
-	echo 1651200000 > /sys/class/devfreq/soc\:qcom,cpu4-cpu-l3-lat/max_freq
-
-	#read feature id
-        reg_val=`cat /sys/devices/platform/soc/780130.qfprom/qfprom0/nvmem | od -An -t d4`
-        feature_id=$(((reg_val >> 20) & 0xFF))
-
-        #setting min gpu freq to 392  MHz
-        echo 4 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel
-        if [ $feature_id == 0 ]; then
-                echo "feature_id is 0 for SA8195AA"
-
-                #setting max cpu freq to 2.496GHz
-                echo 2496000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-                #setting max gpu freq to 530 MHz
-                echo 3 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-		echo 1804 > /sys/devices/platform/soc/soc:aop-set-ddr-freq/set_ddr_capped_freq
-        elif [ $feature_id == 1 ] || [ $feature_id == 2 ]; then
-                echo "feature_id is 1 for external SA8195AB"
-                echo "feature_id is 2 for internal SA8195AB"
-
-                #setting max cpu freq to 2.496GHz
-                echo 2496000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-                #setting max gpu freq to 670 MHz
-                echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-		echo 2092 > /sys/devices/platform/soc/soc:aop-set-ddr-freq/set_ddr_capped_freq
-        elif [ $feature_id == 3 ]; then
-                echo "feature_id is 3 for external SA8195AC"
-        else
-                echo "unknown feature_id value" $feature_id
-        fi
-}
-
 function configure_sku_parameters() {
 
 #read feature id from nvram
@@ -5094,15 +5012,6 @@ case "$target" in
             else
                 soc_id=`cat /sys/devices/system/soc/soc0/id`
             fi
-	if [ "$target_type" == "automotive" ]; then
-           # update frequencies
-	   if [ "$soc_id" == "340" ] | [ "$soc_id" == "405" ]; then #sa8195
-		configure_automotive_sku_parameters_sa8195
-	   else #sa8155
-		configure_automotive_sku_parameters
-	   fi
-	fi
-
     ;;
 esac
 
