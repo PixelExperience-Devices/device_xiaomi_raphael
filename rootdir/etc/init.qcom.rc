@@ -86,7 +86,6 @@ on early-boot
     # Wait for devices
     wait_for_prop vendor.all.devices.ready 1
 
-    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
