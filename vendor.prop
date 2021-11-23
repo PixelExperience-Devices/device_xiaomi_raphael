@@ -85,8 +85,6 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
-debug.sf.hw=0
-debug.egl.hw=0
 debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 debug.sf.latch_unsignaled=0
