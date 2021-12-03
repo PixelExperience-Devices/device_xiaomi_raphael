@@ -60,6 +60,7 @@ dalvik.vm.dex2oat64.enabled=true
 debug.sdm.support_writeback=0
 debug.sf.hw=0
 debug.egl.hw=0
+debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 debug.sf.latch_unsignaled=1
 persist.sys.sf.color_saturation=1.0
