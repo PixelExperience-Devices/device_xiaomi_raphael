@@ -58,6 +58,7 @@ dalvik.vm.dex2oat64.enabled=true
 # Display
 debug.sf.hw=0
 debug.egl.hw=0
+debug.renderengine.backend=skiaglthreaded
 debug.sf.latch_unsignaled=1
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
