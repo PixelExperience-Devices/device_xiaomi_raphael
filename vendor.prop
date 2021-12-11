@@ -129,7 +129,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 persist.vendor.qcomsysd.enabled=1
 
 # RCS
-persist.rcs.supported=0
+persist.rcs.supported=1
 
 # RIL
 persist.radio.multisim.config=dsds
