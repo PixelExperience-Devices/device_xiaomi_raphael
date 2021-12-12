@@ -9,6 +9,7 @@ allow xiaomiparts {
   audioserver_service
   cameraserver_service
   drmserver_service
+  hint_service
   mediaextractor_service
   mediametrics_service
   mediaserver_service
