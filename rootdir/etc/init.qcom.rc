@@ -220,8 +220,10 @@ on boot
     enable vendor.dataqti
     enable vendor.dataadpl
 
-# msm specific files that need to be created on /data
+    setprop init.svc.console stopped
+
 on post-fs-data
+    # msm specific files that need to be created on /data
     mkdir /data/vendor/misc 01771 system system
 
     # Create directory used for dump collection
@@ -458,6 +460,9 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wcd_cpe0/fw_name
     #Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
+    # Restrict permissions to socket file 
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -746,8 +751,3 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     task_profiles ProcessCapacityHigh HighPerformance
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
-
-on property:sys.boot_completed=1
-    # Restrict permissions to socket file
-    # to hide Magisk & co.
-    chmod 440 /proc/net/unix
