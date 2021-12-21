@@ -50,5 +50,8 @@
 # UFS
 /sys/devices/platform/soc/[a-f0-9]+.ufshc/clkgate_enable        u:object_r:vendor_sysfs_scsi_host:s0
 
+# Widevine
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.4-service.clearkey                                     u:object_r:vendor_hal_drm_widevine_exec:s0
+
 # Zram
 /data/per_boot(/.*)?                                            u:object_r:per_boot_file:s0
