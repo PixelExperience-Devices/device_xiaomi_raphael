@@ -38,6 +38,8 @@
     <allow-in-power-save package="com.qualcomm.qti.ims" />
     <allow-in-power-save package="com.qualcomm.qti.radioconfiginterface" />
     <allow-in-power-save package="com.skyhook.blp" />
+    <allow-implicit-broadcast action="org.codeaurora.intent.action.PRE_ALERTING_CALL_INFO" />
+
     <!-- These telephony applications need access to non-[System]SDK APIs -->
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteserver" />
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteclient" />
