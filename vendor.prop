@@ -150,6 +150,9 @@ vendor.power.pasr.enabled=true
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf.scroll_opt=true
 
+# Printk
+persist.vendor.console.silent.config=1
+
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 
