@@ -1,0 +1,2 @@
+# Allow to set fingerprint properties
+allow vendor_init vendor_fp_prop:property_service set;

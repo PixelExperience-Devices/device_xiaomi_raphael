@@ -58,3 +58,5 @@ allow mi_thermald sysfs:{
 
 # Allow mi_thermald to set thermal profile
 set_prop(mi_thermald, thermal_normal_prop)
+
+dontaudit mi_thermald self:capability dac_override;
