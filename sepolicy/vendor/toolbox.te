@@ -1,0 +1,2 @@
+allow toolbox toolbox:capability { kill };
+allow toolbox self:capability kill;
