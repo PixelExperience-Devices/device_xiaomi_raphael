@@ -1,0 +1,9 @@
+allow vendor_thermal-engine {
+  vendor_sysfs_devfreq
+  sysfs_msm_subsys
+}:dir r_dir_perms;
+
+allow vendor_thermal-engine vendor_sysfs_devfreq:file rw_file_perms;
+
+# Rule for vendor_thermal-engine to access init process
+unix_socket_connect(vendor_thermal-engine, property, init);

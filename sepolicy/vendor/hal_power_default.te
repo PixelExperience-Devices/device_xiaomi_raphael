@@ -1,3 +1,5 @@
+type sysfs_msm_subsys, sysfs_type, fs_type;
+
 allow hal_power_default vendor_sysfs_kgsl:lnk_file rw_file_perms;
 
 allow hal_power_default {
@@ -7,9 +9,12 @@ allow hal_power_default {
 
 allow hal_power_default {
   cgroup
+  proc
   sysfs_devices_system_cpu
   sysfs_fs_f2fs
+  sysfs_msm_subsys
   vendor_sysfs_devfreq
+  vendor_sysfs_graphics
   vendor_sysfs_kgsl
   vendor_sysfs_scsi_host
 }:file rw_file_perms;
@@ -21,4 +26,13 @@ allow hal_power_default {
   vendor_sysfs_devfreq
 }:dir r_dir_perms;
 
+allow hal_power_default {
+  vendor_sysfs_devfreq
+  sysfs_msm_subsys
+}:dir search;
+
+# Rule for hal_power_default to access graphics composer process
+unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default);
+
+# To get/set powerhal state property
 set_prop(hal_power_default, vendor_power_prop)

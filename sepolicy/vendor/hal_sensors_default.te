@@ -1,2 +1,11 @@
+type vendor_sysfs_iio, fs_type, sysfs_type;
+
+allow hal_sensors_default audio_socket:sock_file rw_file_perms;
 allow hal_sensors_default default_prop:file { getattr read open };
+allow hal_sensors_default socket_device:sock_file rw_file_perms;
+allow hal_sensors_default iio_device:chr_file rw_file_perms;
 allow hal_sensors_default vendor_diag_device:chr_file { open read write ioctl };
+allow hal_sensors_default vendor_sysfs_iio:dir r_dir_perms;
+allow hal_sensors_default vendor_sysfs_iio:file rw_file_perms;
+
+get_prop(hal_sensors_default, vendor_adsprpc_prop)
