@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.2-impl \
     audio.a2dp.default \
     audio.bluetooth.default \
+    audio.primary.default \
     audio.primary.msmnile \
     audio.r_submix.default \
     audio.usb.default \
