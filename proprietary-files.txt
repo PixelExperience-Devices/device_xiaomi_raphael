@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from V12.5.2.0.RFKMIXM.
+# All unpinned blobs are extracted from V12.5.6
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
@@ -88,6 +88,7 @@ vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libqtigef.so
+vendor/lib/libresampler.so
 vendor/lib/libssrec.so
 vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
 vendor/lib/vndk/libxlog.so
@@ -99,6 +100,7 @@ vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libaudioroute_ext.so
 vendor/lib64/libqtigef.so
+vendor/lib64/libresampler.so
 vendor/lib64/libssrec.so
 vendor/lib64/vendor.qti.hardware.audiohalext@1.0.so
 
