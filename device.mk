@@ -261,9 +261,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # IPACM
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
+$(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
 
 # IRSC
 PRODUCT_COPY_FILES += \
