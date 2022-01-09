@@ -1197,8 +1197,8 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 # Subsystem
 vendor/bin/ssr_setup
 
-# Thermal
-vendor/bin/thermal-engine
+# Thermal - from coral-user-12-SQ1A.220105.002-7961164-release-keys
+vendor/bin/thermal-engine|01cb7dc998c39016b54089c18921ad7d65b3c675
 
 # ThermalClient
 -vendor/lib/libthermalclient.so
