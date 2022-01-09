@@ -457,13 +457,21 @@ vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
-# Display Calibration - from raphael V12.5.5.0.RFKCNXM (Patched)
+# Display-Calibration - from raphael V12.5.5.0.RFKCNXM (Patched)
 vendor/etc/qdcm_calib_data_samsung_ea8076_fhd_cmd_dsi_panel.xml|466f515f4dce2e4138f894946024937f1e953a8f
 
-# Display Postprocessing
-vendor/lib64/libdisp-aba.so
-vendor/lib64/libdpps.so
-vendor/lib64/libdisplayqos.so
+# Display - from LA.UM.9.1.r1-11400.02
+vendor/lib64/libdisp-aba.so|d904572dedd19e88053c3352d2a24c666362b23b
+vendor/lib64/libdisplayqos.so|3e95c6aedbfca5132ef75365e0a45a32c79b1fd6
+vendor/lib64/libhdr_tm.so|9977b4ccb6667d990210c1ac980e55325f7e7a50
+vendor/lib64/libqseed3.so|1395834daf3c6cd07acbdbc44110decb3be362c2
+vendor/lib64/libsdedrm.so|bccd71afeb56529b457699bdd179d571830caa16
+vendor/lib64/libsdm-color.so|e82ee94b86f9c59044017ab527261a7aacbd6083
+vendor/lib64/libsdm-colormgr-algo.so|11b65733d87ff65633a5fe8f4207dde12391625c
+vendor/lib64/libsdm-diag.so|55dafc05ba68666f10412a534f7122d7f45bf403
+vendor/lib64/libsdm-disp-vndapis.so|9ab6725a5efba29b77d1d6ab33e10e3ff3296960
+vendor/lib64/libsdmextension.so|c1425aae0475207054351c2bf16c18350ccf7570
+vendor/lib64/libtinyxml2_1.so|92101861d95cbdf9625d192d0b2295baa5960b68
 
 # DPM
 framework/tcmclient.jar
@@ -651,21 +659,6 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libVkLayer_q3dtools.so
-
-# Graphics (DRM) - from hanoip RRI31.Q1-42-24-4
-vendor/lib64/libsdedrm.so|bccd71afeb56529b457699bdd179d571830caa16
-
-# Graphics (HDR)
-vendor/lib64/libhdr_tm.so
-
-# Graphics (SDM) - from hanoip RRI31.Q1-42-24-4
-vendor/lib64/libqseed3.so|1395834daf3c6cd07acbdbc44110decb3be362c2
-vendor/lib64/libsdm-color.so|e82ee94b86f9c59044017ab527261a7aacbd6083
-vendor/lib64/libsdm-colormgr-algo.so|11b65733d87ff65633a5fe8f4207dde12391625c
-vendor/lib64/libsdm-diag.so|55dafc05ba68666f10412a534f7122d7f45bf403
-vendor/lib64/libsdm-disp-vndapis.so|9ab6725a5efba29b77d1d6ab33e10e3ff3296960
-vendor/lib64/libsdmextension.so|c1425aae0475207054351c2bf16c18350ccf7570
-vendor/lib64/libtinyxml2_1.so|92101861d95cbdf9625d192d0b2295baa5960b68
 
 # Graphics (Vulkan)
 vendor/lib/hw/vulkan.adreno.so
