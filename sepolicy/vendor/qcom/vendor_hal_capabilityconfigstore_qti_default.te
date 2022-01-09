@@ -1,0 +1,1 @@
+allow vendor_hal_capabilityconfigstore_qti_default vendor_cap_configstore_dbg_prop:file { read };
