@@ -604,4 +604,9 @@
 
     <!-- Exempt CNE from privacy (location) indicators -->
     <string name="config_systemAudioIntelligence" translatable="false">com.qualcomm.qti.cne</string>
+
+    <!-- List of comma separated package names for 
+    which we the system will not show crash, ANR,
+         etc. dialogs. --> 
+    <string name="config_appsNotReportingCrashes">com.google.android.tts</string>
 </resources>
