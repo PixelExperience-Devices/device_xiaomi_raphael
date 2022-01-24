@@ -63,6 +63,7 @@ on early-fs
 
 on fs
     start hwservicemanager
+    chown media audio /mnt/vendor/persist/audio
     mount_all /vendor/etc/fstab.qcom --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
