@@ -7,7 +7,7 @@ persist.audio.fluence.voicerec=false
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
-bluetooth.profile.asha.central=false
+bluetooth.profile.asha.central.enabled=false
 
 # Camera
 persist.camera.gyro.disable=0
