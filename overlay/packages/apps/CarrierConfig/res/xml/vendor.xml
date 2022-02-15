@@ -227,6 +227,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
 
+    <carrier_config mcc="208" mnc="15">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <string name="carrier_name_string">Free</string>
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <int name="carrier_default_wfc_ims_mode_int" value="1" />
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="vowifi_call_quality" value="true" />
+    </carrier_config>
+
     <carrier_config mcc="208" mnc="20">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
