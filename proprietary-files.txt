@@ -1307,15 +1307,12 @@ vendor/bin/ssr_setup
 
 # Thermal
 vendor/bin/mi_thermald
-vendor/bin/thermal-engine
 vendor/bin/thermal_factory
-vendor/etc/init/init_thermal-engine.rc
 vendor/etc/init/init.mi_thermald.rc
 vendor/etc/thermal-arvr.conf
 vendor/etc/thermal-camera.conf
 vendor/etc/thermal-chg-only.conf
 vendor/etc/thermal-class0.conf
-vendor/etc/thermal-engine.conf
 vendor/etc/thermal-extreme.conf
 vendor/etc/thermal-map.conf
 vendor/etc/thermal-nolimits.conf

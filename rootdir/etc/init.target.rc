@@ -180,15 +180,6 @@ service vendor.sec_nvm /vendor/bin/sec_nvm
     user system
     group system
 
-service vendor.thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
-
 service vendor.lowi /vendor/bin/sscrpcd
    class core
    user system
