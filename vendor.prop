@@ -2,11 +2,6 @@
 aaudio.hw_burst_min_usec=2000
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
-audio.offload.buffer.size.kb=32
-audio.offload.gapless.enabled=true
-persist.audio.fluence.speaker=true
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.tmic.enabled=false
 persist.vendor.audio.fluence.voicecall=true
@@ -50,10 +45,6 @@ persist.vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 camera.disable_zsl_mode=true
-persist.camera.gyro.disable=0
-
-# CNE
-persist.vendor.cne.feature=1
 
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
@@ -65,7 +56,6 @@ dalvik.vm.dex2oat64.enabled=true
 debug.sf.hw=0
 debug.egl.hw=0
 debug.sf.latch_unsignaled=1
-persist.demo.hdmirotationlock=false
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.msmnile.api30
@@ -110,7 +100,6 @@ ro.hardware.keystore_desede=true
 # Media
 debug.stagefright.ccodec=1
 debug.stagefright.omx_default_rank=0
-media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 media.stagefright.enable-aac=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-http=true
@@ -123,15 +112,9 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.netflix.bsp_rev=Q855-16947-1
 
 # Netmgr
-persist.data.df.dev_name=rmnet_usb0
-persist.data.wda.enable=true
-persist.rmnet.data.enable=true
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
 ro.vendor.use_data_netmgrd=true
-
-# NFC
-ro.nfc.port=I2C
 
 # PASR
 vendor.power.pasr.enabled=true
@@ -146,7 +129,6 @@ persist.vendor.qcomsysd.enabled=1
 persist.rcs.supported=0
 
 # RIL
-persist.radio.dynamic_sar=false
 persist.radio.multisim.config=dsds
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.atfwd.start=true
@@ -161,7 +143,6 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.sar_sar_sensor=true
 persist.vendor.radio.sib16_support=1
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_cdma_sub=0
 telephony.lteOnCdmaDevice=1
 
@@ -169,9 +150,5 @@ telephony.lteOnCdmaDevice=1
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM8150
 
-# Time
-persist.timed.enable=true
-
 # WiFi Display
-persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
