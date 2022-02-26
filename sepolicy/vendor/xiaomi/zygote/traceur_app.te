@@ -1,0 +1,1 @@
+allow traceur_app zygote:unix_stream_socket { getopt };

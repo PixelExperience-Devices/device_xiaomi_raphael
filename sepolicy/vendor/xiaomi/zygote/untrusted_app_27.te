@@ -1,0 +1,1 @@
+allow untrusted_app_27 zygote:unix_stream_socket { getopt };

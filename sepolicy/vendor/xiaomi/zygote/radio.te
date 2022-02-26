@@ -1,0 +1,1 @@
+allow radio zygote:unix_stream_socket { getopt };
