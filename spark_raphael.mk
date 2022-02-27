@@ -36,3 +36,6 @@ EXTRA_UDFPS_ANIMATIONS := true
 
 # Quick Tap
 TARGET_SUPPORTS_QUICK_TAP := true
+
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
