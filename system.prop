@@ -10,6 +10,10 @@ ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
 vendor.bluetooth.soc=cherokee
 
+# Blur
+ro.sf.blurs_are_expensive=1
+ro.surface_flinger.supports_background_blur=1
+
 # Camera
 persist.vendor.camera.privapp.list=com.android.camera
 vendor.camera.sat.fallback.dist=40
