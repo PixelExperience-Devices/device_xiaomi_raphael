@@ -99,6 +99,11 @@ dalvik.vm.dex2oat-filter=speed
 dalvik.vm.dex2oat-threads=8
 dalvik.vm.dex2oat64.enabled=true
 
+# DPM
+persist.vendor.dpm.feature=1
+persist.vendor.dpm.loglevel=0
+persist.vendor.dpm.nsrm.bkg.evt=3955
+
 # DRM
 drm.service.enabled=true
 
