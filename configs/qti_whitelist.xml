@@ -32,36 +32,15 @@
 
 <config>
     <!-- These are telephony components that need to freely run in the background -->
-    <allow-in-power-save package="com.qualcomm.atfwd" />
     <allow-in-power-save package="com.qualcomm.qti.telephonyservice" />
     <allow-in-power-save package="com.qualcomm.qcrilmsgtunnel" />
-    <allow-in-power-save package="com.qualcomm.qti.ims" />
-    <allow-in-power-save package="com.qualcomm.qti.radioconfiginterface" />
-    <allow-in-power-save package="com.skyhook.blp" />
     <!-- These telephony applications need access to non-[System]SDK APIs -->
-    <hidden-api-whitelisted-app package="com.qualcomm.uimremoteserver" />
-    <hidden-api-whitelisted-app package="com.qualcomm.uimremoteclient" />
-    <hidden-api-whitelisted-app package="com.qualcomm.atfwd" />
-    <hidden-api-whitelisted-app package="com.qti.qualcomm.datastatusnotification" />
-    <hidden-api-whitelisted-app package="com.qti.qualcomm.deviceinfo" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.modemtestmode" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.networksetting" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.qtisystemservice" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.telephonyservice" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.radioconfiginterface" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.radioconfigtest" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.roamingsettings" />
     <hidden-api-whitelisted-app package="org.codeaurora.ims" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.ims" />
-    <hidden-api-whitelisted-app package="com.qti.xdivert" />
     <hidden-api-whitelisted-app package="com.qualcomm.qcrilmsgtunnel" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.ltedirect" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.app" />
-    <hidden-api-whitelisted-app package="com.qualcomm.embms" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.embmstuneaway" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.uimlpatest" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.lpa" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.uim" />
 
+    <hidden-api-whitelisted-app package="com.android.bluetooth" />
+    <hidden-api-whitelisted-app package="com.qualcomm.wfd.service" />
+    <allow-implicit-broadcast action="org.codeaurora.intent.action.CALL_COMPOSER_INFO" />
     <allow-implicit-broadcast action="org.codeaurora.intent.action.PRE_ALERTING_CALL_INFO" />
 </config>
