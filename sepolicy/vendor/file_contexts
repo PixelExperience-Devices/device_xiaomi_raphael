@@ -43,3 +43,6 @@
 # Thermal
 /vendor/bin/mi_thermald                                         u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)?                                      u:object_r:thermal_data_file:s0
+
+# UFS
+/sys/devices/platform/soc/[a-f0-9]+.ufshc/clkgate_enable        u:object_r:vendor_sysfs_scsi_host:s0
