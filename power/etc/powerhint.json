@@ -281,7 +281,7 @@
     },
     {
       "Name": "UfsClkGateEnable",
-      "Path": "/dev/sys/block/bootdevice/clkgate_enable",
+      "Path": "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable",
       "Values": [
         "0",
         "1"
