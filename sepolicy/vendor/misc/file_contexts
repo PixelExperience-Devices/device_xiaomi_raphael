@@ -1,2 +1,5 @@
 # FPS Info
 /sys/class/drm/card0/sde-crtc-0/measured_fps                         u:object_r:vendor_sysfs_graphics:s0
+
+# Zram
+/data/per_boot(/.*)?                                                    u:object_r:per_boot_file:s0

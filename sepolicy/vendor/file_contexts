@@ -1,2 +1,0 @@
-# Zram
-/data/per_boot(/.*)?                                                    u:object_r:per_boot_file:s0
