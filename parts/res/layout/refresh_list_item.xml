@@ -43,7 +43,7 @@
             android:ellipsize="marquee"
             android:singleLine="true"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.Medium"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="?android:attr/textColorPrimary" />
 
         <Spinner
