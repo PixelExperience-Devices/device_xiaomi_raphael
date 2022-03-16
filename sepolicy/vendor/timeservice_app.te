@@ -1,0 +1,3 @@
+type timeservice_app, domain;
+
+allow timeservice_app zygote:unix_stream_socket { getopt };
