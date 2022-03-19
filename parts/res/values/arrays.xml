@@ -52,16 +52,13 @@
 
     <!-- Values for Dirac headset pref -->
     <string-array name="dirac_headset_pref_entries" translatable="false">
-        <item>@string/dirac_headset_default</item>
         <item>@string/dirac_headset_earbuds</item>
         <item>@string/dirac_headset_in_ear_2013</item>
         <item>@string/dirac_headset_piston_1</item>
-        <item>@string/dirac_headset_general</item>
-        <item>@string/dirac_headset_general_inear</item>
         <item>@string/dirac_headset_piston_basic</item>
         <item>@string/dirac_headset_piston_2</item>
         <item>@string/dirac_headset_piston_standard</item>
-        <item>@string/dirac_headset_headphone</item>
+        <item>@string/dirac_headset_general_inear</item>
         <item>@string/dirac_headset_piston_youth</item>
         <item>@string/dirac_headset_piston_color</item>
         <item>@string/dirac_headset_in_ear</item>
@@ -74,16 +71,19 @@
         <item>@string/dirac_headset_in_ear2</item>
         <item>@string/dirac_headset_earphone_basic</item>
         <item>@string/dirac_headset_earphone</item>
+        <item>@string/dirac_headset_ear_four</item>
+        <item>@string/dirac_headset_piston_typec</item>
+        <item>@string/dirac_headset_bluetooth_collar</item>
+        <item>@string/dirac_headset_bluetooth_linefree</item>
+        <item>@string/dirac_headset_redmi_earphones</item>
     </string-array>
 
     <string-array name="dirac_headset_pref_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
+        <item>4</item>
         <item>5</item>
-        <item>6</item>
-        <item>7</item>
         <item>8</item>
         <item>9</item>
         <item>10</item>
@@ -98,8 +98,11 @@
         <item>19</item>
         <item>20</item>
         <item>21</item>
-        <item>22</item>
-        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
     </string-array>
 
     <!-- Values for Dirac preset pref -->
