@@ -105,6 +105,12 @@
     <string name="dirac_preset_soft_bass">Soft Bass</string>
     <string name="dirac_preset_soft_treble">Soft Treble</string>
 
+    <string name="music_headset_scenario_intelligent">Smart</string>
+    <string name="music_headset_scenario_music">Music</string>
+    <string name="music_headset_scenario_select">Select Scene</string>
+    <string name="music_headset_scenario_video">Video</string>
+    <string name="music_headset_scenario_vocal">Voice</string>
+
     <!-- Clear Speaker -->
     <string name="clear_speaker_title">Clear speaker</string>
     <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
