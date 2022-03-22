@@ -22,18 +22,11 @@
     <!-- the padding on the end of the statusbar -->
     <dimen name="status_bar_padding_end">10dp</dimen>
 
-    <!-- Margin on the right side of the system icon group on Keyguard. -->
-    <dimen name="system_icons_keyguard_padding_end">8dp</dimen>
-
     <!-- the padding of the rounded corner -->
     <dimen name="rounded_corner_content_padding">8dp</dimen>
 
     <!-- Location on the screen of the center of the physical power button. -->
     <dimen name="physical_power_button_center_screen_location_y">950px</dimen>
-
-    <!-- Location on the screen of the center of the physical volume up/down buttons. -->
-    <dimen name="physical_volume_up_button_center_screen_location_y">525px</dimen>
-    <dimen name="physical_volume_down_button_center_screen_location_y">700px</dimen>
 
     <!-- Location on the screen of the center of the fingerprint sensor. For devices with under
      display fingerprint sensors, this directly corresponds to the fingerprint sensor's location.
