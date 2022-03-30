@@ -126,9 +126,3 @@ ro.vendor.qti.va_aosp.support=1
 
 # WiFi
 config.disable_rtt=true
-
-# Spark-OS
-ro.spark.device.name=Redmi K20 Pro
-ro.spark.group.url=https://t.me/SparkOSCommunity
-ro.spark.maintainer=Jenkins (Automated)
-ro.spark.maintainer.username=SparkOSCommunity

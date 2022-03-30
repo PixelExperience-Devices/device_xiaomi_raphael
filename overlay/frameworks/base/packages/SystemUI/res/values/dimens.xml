@@ -15,6 +15,7 @@
 */
 -->
 <resources>
+
     <!-- the padding on the start of the statusbar -->
     <dimen name="status_bar_padding_start">16dp</dimen>
 
@@ -27,9 +28,10 @@
     <!-- Margin on the left side of the carrier text on Keyguard -->
     <dimen name="keyguard_carrier_text_margin">25dp</dimen>
 
-    <!-- Margin on the right side of the system icon group on Keyguard. -->
-    <dimen name="system_icons_keyguard_padding_end">8dp</dimen>
+    <!-- Location on the screen of the center of the physical power button. -->
+    <dimen name="physical_power_button_center_screen_location_y">950px</dimen>
 
-    <!-- Recognizing fingerprint animation -->
-    <dimen name="udfps_animation_offset">35dp</dimen>
+    <!-- Location on the screen of the center of the fingerprint sensor. -->
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">1900px</dimen>
+
 </resources>
