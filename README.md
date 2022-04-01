@@ -4,7 +4,7 @@ The Redmi K20 Pro / Mi 9T Pro (codenamed _"raphael"_) is a flagship smartphone f
 ## Device specifications
 
 | Device                  | Redmi K20 Pro / Mi 9T Pro                                       |
-| ----------------------: | :-------------------------------------------------------------- |
+| :---------------------- | :-------------------------------------------------------------- |
 | SoC                     | Qualcomm SM8150 Snapdragon 855                                  |
 | CPU                     | 1x2.84 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485 |
 | GPU                     | Adreno 640                                                      |
