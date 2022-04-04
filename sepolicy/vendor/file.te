@@ -11,3 +11,6 @@ type public_adsprpcd_file, file_type;
 # Nodes
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_kgsl, sysfs_type, fs_type;
+
+# Insmod
+type vendor_sysfs_msm_boot, fs_type, sysfs_type;

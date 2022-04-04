@@ -33,3 +33,9 @@ genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup                  u:object
 
 # FPS Info
 genfscon sysfs /class/drm/card0/sde-crtc-0/measured_fps    u:object_r:vendor_sysfs_graphics:s0
+
+# Insmod
+genfscon sysfs /kernel/boot_cdsp/boot                                                                                                                        u:object_r:vendor_sysfs_msm_boot:s0
+genfscon sysfs /kernel/boot_slpi/boot                                                                                                                        u:object_r:vendor_sysfs_msm_boot:s0
+genfscon sysfs /devices/virtual/npu/msm_npu/boot                                                                                                             u:object_r:vendor_sysfs_msm_boot:s0
+genfscon sysfs /devices/virtual/cvp/cvp/boot                                                                                                                 u:object_r:vendor_sysfs_msm_boot:s0

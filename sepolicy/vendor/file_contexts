@@ -14,6 +14,9 @@
 /dev/elliptic(.*)?                                              u:object_r:ultrasound_device:s0
 /dev/goodix_fp                                                  u:object_r:fingerprint_device:s0
 
+# Executable
+/vendor/bin/init\.insmod\.sh                                    u:object_r:init-insmod-sh_exec:s0
+
 # Fingerprint
 /data/vendor/goodix(/.*)?                                       u:object_r:fingerprint_data_file:s0
 /data/vendor/fpc(/.*)?                                          u:object_r:fingerprint_data_file:s0

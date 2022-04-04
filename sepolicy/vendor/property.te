@@ -1,2 +1,5 @@
 vendor_internal_prop(vendor_power_prop)
 vendor_internal_prop(vendor_thermal_normal_prop)
+
+# Insmod
+vendor_internal_prop(vendor_device_prop)
