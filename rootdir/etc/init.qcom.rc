@@ -389,18 +389,6 @@ service iop /system/vendor/bin/iop
     disabled
     socket iop seqpacket 0666 root system
 
-service qcomsysd /system/vendor/bin/qcom-system-daemon
-    class main
-    user root
-    group root diag oem_2901
-    disabled
-
-on property:persist.vendor.qcomsysd.enabled=1
-    enable qcomsysd
-
-on property:persist.vendor.qcomsysd.enabled=0
-    stop qcomsysd
-
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
     disabled
