@@ -260,7 +260,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.raphael.wlan.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     init.xiaomi.rc \

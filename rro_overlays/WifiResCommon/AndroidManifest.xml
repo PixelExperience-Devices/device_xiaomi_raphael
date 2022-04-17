@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="1"
     android:versionName="1.0"
-    package="com.google.android.wifi.resources.overlay.common">
+    package="com.android.wifi.resources.overlay.common">
 
     <application android:hasCode="false"/>
 
@@ -10,6 +10,6 @@
         android:isStatic="true"
         android:priority="0"
         android:targetName="WifiCustomization"
-        android:targetPackage="com.google.android.wifi.resources"/>
+        android:targetPackage="com.android.wifi.resources"/>
 
 </manifest>
