@@ -19,6 +19,7 @@
 
 #include "BiometricsFingerprint.h"
 
+#include <android/binder_manager.h>
 #include <android-base/strings.h>
 #include <cutils/properties.h>
 #include <hardware/hardware.h>
@@ -29,6 +30,12 @@
 
 #include <fstream>
 #include <thread>
+
+#include <aidl/android/hardware/power/IPower.h>
+#include <aidl/google/hardware/power/extension/pixel/IPowerExt.h>
+
+using ::aidl::android::hardware::power::IPower;
+using ::aidl::google::hardware::power::extension::pixel::IPowerExt;
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
@@ -78,12 +85,14 @@ namespace implementation {
 
 // Supported fingerprint HAL version
 static const uint16_t kVersion = HARDWARE_MODULE_API_VERSION(2, 1);
+constexpr char kBoostHint[] = "LAUNCH";
+constexpr int32_t kBoostDurationMs = 2000;
 
 using RequestStatus = android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
 
 BiometricsFingerprint* BiometricsFingerprint::sInstance = nullptr;
 
-BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
+BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr), mBoostHintIsSupported(false), mBoostHintSupportIsChecked(false), mPowerHalExtAidl(nullptr) {
     sInstance = this; // keep track of the most recent instance
     mDevice = openHal();
     if (!mDevice) {
@@ -118,6 +127,103 @@ BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevi
             }
         }
     }).detach();
+}
+
+
+int32_t BiometricsFingerprint::connectPowerHalExt() {
+    if (mPowerHalExtAidl) {
+        return android::NO_ERROR;
+    }
+    const std::string kInstance = std::string(IPower::descriptor) + "/default";
+    ndk::SpAIBinder pwBinder = ndk::SpAIBinder(AServiceManager_getService(kInstance.c_str()));
+    ndk::SpAIBinder pwExtBinder;
+    AIBinder_getExtension(pwBinder.get(), pwExtBinder.getR());
+    mPowerHalExtAidl = IPowerExt::fromBinder(pwExtBinder);
+    if (!mPowerHalExtAidl) {
+        ALOGE("failed to connect power HAL extension");
+        return -EINVAL;
+    }
+    ALOGI("connect power HAL extension successfully");
+    return android::NO_ERROR;
+}
+
+int32_t BiometricsFingerprint::checkPowerHalExtBoostSupport(const std::string &boost) {
+    if (boost.empty() || connectPowerHalExt() != android::NO_ERROR) {
+        return -EINVAL;
+    }
+    bool isSupported = false;
+    auto ret = mPowerHalExtAidl->isBoostSupported(boost.c_str(), &isSupported);
+    if (!ret.isOk()) {
+        ALOGE("failed to check power HAL extension hint: boost=%s", boost.c_str());
+        if (ret.getExceptionCode() == EX_TRANSACTION_FAILED) {
+            /*
+             * PowerHAL service may crash due to some reasons, this could end up
+             * binder transaction failure. Set nullptr here to trigger re-connection.
+             */
+            ALOGE("binder transaction failed for power HAL extension hint");
+            mPowerHalExtAidl = nullptr;
+            return -ENOTCONN;
+        }
+        return -EINVAL;
+    }
+    if (!isSupported) {
+        ALOGW("power HAL extension hint is not supported: boost=%s", boost.c_str());
+        return -EOPNOTSUPP;
+    }
+    ALOGI("power HAL extension hint is supported: boost=%s", boost.c_str());
+    return android::NO_ERROR;
+}
+
+int32_t BiometricsFingerprint::sendPowerHalExtBoost(const std::string &boost,
+                                                               int32_t durationMs) {
+    if (boost.empty() || connectPowerHalExt() != android::NO_ERROR) {
+        return -EINVAL;
+    }
+    auto ret = mPowerHalExtAidl->setBoost(boost.c_str(), durationMs);
+    if (!ret.isOk()) {
+        ALOGE("failed to send power HAL extension hint: boost=%s, duration=%d", boost.c_str(),
+              durationMs);
+        if (ret.getExceptionCode() == EX_TRANSACTION_FAILED) {
+            /*
+             * PowerHAL service may crash due to some reasons, this could end up
+             * binder transaction failure. Set nullptr here to trigger re-connection.
+             */
+            ALOGE("binder transaction failed for power HAL extension hint");
+            mPowerHalExtAidl = nullptr;
+            return -ENOTCONN;
+        }
+        return -EINVAL;
+    }
+    return android::NO_ERROR;
+}
+
+int32_t BiometricsFingerprint::isBoostHintSupported() {
+    int32_t ret = android::NO_ERROR;
+    if (mBoostHintSupportIsChecked) {
+        ret = mBoostHintIsSupported ? android::NO_ERROR : -EOPNOTSUPP;
+        return ret;
+    }
+    ret = checkPowerHalExtBoostSupport(kBoostHint);
+    if (ret == android::NO_ERROR) {
+        mBoostHintIsSupported = true;
+        mBoostHintSupportIsChecked = true;
+        ALOGI("Boost hint is supported");
+    } else if (ret == -EOPNOTSUPP) {
+        mBoostHintSupportIsChecked = true;
+        ALOGI("Boost hint is unsupported");
+    } else {
+        ALOGW("Failed to check the support of boost hint, ret %d", ret);
+    }
+    return ret;
+}
+
+int32_t BiometricsFingerprint::sendAuthenticatedBoostHint() {
+    int32_t ret = isBoostHintSupported();
+    if (ret != android::NO_ERROR) {
+        return ret;
+    }
+    ret = sendPowerHalExtBoost(kBoostHint, kBoostDurationMs);
+    return ret;
 }
 
 BiometricsFingerprint::~BiometricsFingerprint() {
@@ -434,6 +540,10 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t* msg) {
                                            msg->data.authenticated.finger.gid, token)
                          .isOk()) {
                     ALOGE("failed to invoke fingerprint onAuthenticated callback");
+                } else {
+                    if (thisPtr->sendAuthenticatedBoostHint() != android::NO_ERROR) {
+                        ALOGE("failed to send authenticated boost");
+                    }
                 }
             } else {
                 // Not a recognized fingerprint
