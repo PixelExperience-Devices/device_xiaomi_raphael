@@ -15,3 +15,6 @@ allow system_app apk_data_file:file { ioctl };
 allow system_app incremental_prop:file { read open };
 
 allow system_app sysfs_msm_subsys:dir { search };
+
+# Battery Health
+r_dir_file(system_app, sysfs_battery_supply);
