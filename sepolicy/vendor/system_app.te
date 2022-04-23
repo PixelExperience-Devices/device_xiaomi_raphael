@@ -11,3 +11,6 @@ allow system_app incremental_prop:file { getattr open read };
 
 allow system_app sysfs_msm_subsys:dir { search };
 allow system_app zygote:unix_stream_socket getopt;
+
+# Battery Health
+r_dir_file(system_app, sysfs_battery_supply);
