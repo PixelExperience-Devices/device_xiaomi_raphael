@@ -328,6 +328,10 @@ PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail.vendor
 
+# Mlipay
+PRODUCT_PACKAGES += \
+    vendor.xiaomi.hardware.mlipay@1.1.vendor
+
 # Native Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
