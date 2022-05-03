@@ -271,6 +271,10 @@ PRODUCT_PACKAGES += \
     f2fs_io \
     check_f2fs
 
+# IFAA manager
+PRODUCT_PACKAGES += \
+    IFAAService
+
 # IPACM
 $(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
 
