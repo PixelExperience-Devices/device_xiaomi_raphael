@@ -560,6 +560,18 @@
       "Node": "TASchedtunePreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "Flipendo",
+      "Node": "CPUBigPlusClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2016000"
+    },
+    {
+      "PowerHint": "Flipendo",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2016000"
     }
   ]
 }
