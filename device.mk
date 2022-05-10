@@ -338,7 +338,8 @@ PRODUCT_COPY_FILES += \
 
 # Net
 PRODUCT_PACKAGES += \
-    android.system.net.netd@1.1.vendor
+    android.system.net.netd@1.1.vendor \
+    vendor.xiaomi.hardware.mtdservice@1.0.vendor
 
 # Neural Networks
 PRODUCT_PACKAGES += \
