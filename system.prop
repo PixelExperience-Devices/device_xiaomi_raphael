@@ -48,10 +48,6 @@ ro.telephony.default_network=22,22
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
-# SSR
-persist.vendor.ssr.enable_ramdumps=1
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
 # Transcoding related property.
 debug.media.transcoding.codec_max_operating_rate_720P=240
 debug.media.transcoding.codec_max_operating_rate_1080P=120
