@@ -615,8 +615,6 @@ system_ext/lib64/vendor.qti.diaghal@1.0.so|1ac2da1470f3e94ec339c3860ddf617b86d65
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|74ec0d8e2ef3d7e3b0a730da9b97237921778ac4
 vendor/bin/dpmQmiMgr|61a421804559b0e461439c19088acc01b871982a
 vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
-vendor/lib/com.qualcomm.qti.dpm.api@1.0.so|8e97eba901841227ae7029f535a747fdefd6c369
-vendor/lib/libdpmqmihal.so|843d7bd2dee10e67531deeedc8cbda480c71679f
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|d9f1aa7f93b928f42499d613d20ccbc60f279097
 vendor/lib64/libdpmqmihal.so|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
