@@ -51,6 +51,9 @@ ro.nfc.port=I2C
 persist.radio.dynamic_sar=false
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
+# Thermal
+vendor.thermal.config=thermal_info_config.json
+
 # Time
 persist.timed.enable=true
 
