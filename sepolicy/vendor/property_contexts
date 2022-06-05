@@ -19,3 +19,6 @@ vendor.powerhal.            u:object_r:vendor_power_prop:s0
 
 # Sensors
 persist.sensor.sardisable   u:object_r:vendor_sensors_prop:s0
+
+# Thermal
+vendor.thermal.             u:object_r:vendor_thermal_prop:s0

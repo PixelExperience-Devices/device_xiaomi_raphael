@@ -1,6 +1,9 @@
 allow init adsprpcd_file:file mounton;
 allow init vendor_configs_file:file mounton;
 
+allow vendor_init thermal_link_device:dir r_dir_perms;
+allow vendor_init thermal_link_device:lnk_file r_file_perms;
+
 set_prop(vendor_init, vendor_power_prop)
 
 # Allow init to read and write to vendor_sysfs_graphics
