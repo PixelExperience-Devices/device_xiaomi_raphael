@@ -1,0 +1,16 @@
+on property:vendor.thermal.link_ready=1
+    # queue the trigger to start thermal-hal and continue execute
+    # per-device thermal setup "on property:vendor.thermal.link_ready=1"
+    trigger enable-thermal-hal
+
+on enable-thermal-hal
+    start vendor.thermal-hal-2-0
+
+service vendor.thermal-hal-2-0 /vendor/bin/hw/android.hardware.thermal@2.0-service.xiaomi
+    interface android.hardware.thermal@1.0::IThermal default
+    interface android.hardware.thermal@2.0::IThermal default
+    class hal
+    user system
+    group system
+    priority -20
+    disabled

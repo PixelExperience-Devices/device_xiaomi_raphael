@@ -448,6 +448,11 @@ PRODUCT_PACKAGES += \
     android.hardware.tetheroffload.config@1.0.vendor \
     android.hardware.tetheroffload.control@1.0.vendor
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.xiaomi \
+    thermal_symlinks
+
 # Touchscreen
 PRODUCT_PACKAGES += \
     libtinyxml2
