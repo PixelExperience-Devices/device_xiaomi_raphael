@@ -35,6 +35,9 @@ allow xiaomiparts_app system_data_file:dir search;
 
 allow xiaomiparts_app sysfs_leds:dir r_dir_perms;
 
+allow xiaomiparts_app sysfs_vibrator:dir search;
+allow xiaomiparts_app sysfs_vibrator:file rw_file_perms;
+
 allow xiaomiparts_app {
   cgroup
   sysfs_leds

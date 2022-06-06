@@ -70,6 +70,10 @@ on init
     write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us 20000
 
+    # Allow system to adjust haptic level directly
+    chown system system /sys/module/qti_haptics/parameters/vmax_mv_override
+    chmod 0664 /sys/module/qti_haptics/parameters/vmax_mv_override
+
 on early-fs
     start vold
 

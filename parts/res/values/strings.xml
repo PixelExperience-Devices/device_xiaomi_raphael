@@ -39,6 +39,14 @@
     <string name="popup_camera_calibrate_failed">Couldn\'t calibrate</string>
     <string name="popup_camera_calibrate_success">Calibrated successfully. You can open the front camera now.</string>
 
+    <!-- Haptic Level Settings -->
+    <string name="haptic_title">Haptic feedback</string>
+    <string name="haptic_warning">Setting-up haptic level too high may cause permanent hardware damage, use at your own risk</string>
+    <string name="haptic_summary">Customize vibration intensity</string>
+    <string name="haptic_level_title">Level</string>
+    <string name="haptic_level_summary">Amount of vibration intensity</string>
+    <string name="haptic_level_summary_incompatible">Feature not supported</string>
+
     <!-- Dirac settings -->
     <string name="dirac_enable">Use Mi Sound Enhancer</string>
     <string name="dirac_title">Mi Sound Enhancer</string>
