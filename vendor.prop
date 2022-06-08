@@ -114,6 +114,7 @@ debug.sf.earlyGl.sf.duration=13500000
 debug.sf.earlyGl.app.duration=21000000
 debug.sf.latch_unsignaled=1
 debug.sf.disable_client_composition_cache=1
+debug.sf.frame_rate_multiple_threshold=81
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=2
 ro.hardware.egl=adreno
