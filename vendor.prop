@@ -103,8 +103,6 @@ vendor.hw.fm.init=0
 vendor.gatekeeper.disable_spu=true
 
 # Graphics
-debug.egl.hw=0
-debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 debug.sdm.support_writeback=0
 debug.sf.use_phase_offsets_as_durations=1
@@ -114,8 +112,8 @@ debug.sf.early.sf.duration=16000000
 debug.sf.early.app.duration=16500000
 debug.sf.earlyGl.sf.duration=13500000
 debug.sf.earlyGl.app.duration=21000000
-debug.sf.hw=0
 debug.sf.latch_unsignaled=1
+debug.sf.disable_client_composition_cache=1
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=2
 ro.hardware.egl=adreno
