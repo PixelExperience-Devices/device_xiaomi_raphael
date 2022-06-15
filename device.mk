@@ -388,6 +388,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# Quick Tap
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.columbus.model=tap7cls_coral.tflite
+
 # Thermal HAL
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.xiaomi_raphael \
