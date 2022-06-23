@@ -380,6 +380,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libqti-perfd-client
 
+# Pixel Wallpapers (2021)
+PRODUCT_PACKAGES += \
+    PixelWallpapers2021
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr \
