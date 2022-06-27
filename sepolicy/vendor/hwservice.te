@@ -4,4 +4,3 @@ type hal_nxpnfc_hwservice, hwservice_manager_type;
 type hal_nxpese_hwservice, hwservice_manager_type;
 type nxpnfc_hwservice, hwservice_manager_type;
 type nxpese_hwservice, hwservice_manager_type;
-type hal_dms_hwservice, hwservice_manager_type;

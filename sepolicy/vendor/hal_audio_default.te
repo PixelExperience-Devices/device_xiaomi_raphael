@@ -3,7 +3,3 @@ set_prop(hal_audio_default, vendor_audio_prop)
 allow hal_audio_default audio_socket:sock_file rw_file_perms;
 allow hal_audio_default default_prop:file { getattr map open read };
 allow hal_audio_default system_suspend_hwservice:hwservice_manager find;
-
-# Dolby
-allow hal_audio_default hal_dms_default:binder { transfer call };
-allow hal_audio_default hal_dms_hwservice:hwservice_manager find;

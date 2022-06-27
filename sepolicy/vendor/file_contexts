@@ -14,9 +14,6 @@
 /dev/elliptic(.*)?                                              u:object_r:ultrasound_device:s0
 /dev/goodix_fp                                                  u:object_r:fingerprint_device:s0
 
-# Dolby
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@1\.0-service                     u:object_r:hal_dms_default_exec:s0
-
 # Executable
 /vendor/bin/init\.insmod\.sh                                    u:object_r:init-insmod-sh_exec:s0
 

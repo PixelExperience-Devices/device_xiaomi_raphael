@@ -43,6 +43,15 @@ on init
     chmod 0660 /dev/drv8846_dev
     chmod 0660 /dev/akm09970
 
+on init && property:ro.boot.hwc=GLOBAL
+    setprop ro.boot.product.hardware.sku raphael
+
+on init && property:ro.boot.hwc=CN
+    setprop ro.boot.product.hardware.sku raphael
+
+on property:ro.boot.product.hardware.sku=raphael
+    enable vendor.nfc_hal_service
+
 on property:sys.boot_completed=1
     setprop vendor.powerhal.init 1
 
@@ -83,3 +92,11 @@ service nv_mac /vendor/bin/nv_mac
     user system
     group system inet net_admin wifi net_raw
     oneshot
+
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+    override
+    class hal
+    user nfc
+    group nfc
+    task_profiles ServiceCapacityLow
+    disabled

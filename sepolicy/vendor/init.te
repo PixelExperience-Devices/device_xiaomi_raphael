@@ -15,10 +15,6 @@ allow init same_process_hal_file:file execute;
 allow init per_boot_file:file ioctl;
 allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };
 
-# Dolby
-allow init vendor_data_file:file lock;
-allow init hal_audio_default:binder call;
-
 # Allow init to read and write to sysfs_vibrator
 allow init sysfs_vibrator:dir search;
 allow init sysfs_vibrator:file rw_file_perms;

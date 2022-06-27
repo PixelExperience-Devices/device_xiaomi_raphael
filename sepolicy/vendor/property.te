@@ -1,6 +1,3 @@
-# Dolby
-vendor_internal_prop(vendor_dolby_loglevel_prop);
-
 # Insmod
 vendor_internal_prop(vendor_device_prop)
 
