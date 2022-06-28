@@ -350,11 +350,18 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-evolution
-
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlay \
+    FaceUnlockServiceOverlay \
+    FrameworksResRaphael \
+    SettingsResRaphael \
+    SystemUIResRaphael \
+    TelephonyResCommon \
+    TetheringConfigOverlay \
+    WifiResCommon \
+    WifiResRaphael
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -411,7 +418,6 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlay \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
@@ -492,15 +498,12 @@ PRODUCT_PACKAGES += \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
     libwpa_client \
-    TetheringConfigOverlay \
     vendor.qti.hardware.wifi.hostapd@1.0.vendor \
     vendor.qti.hardware.wifi.hostapd@1.1.vendor \
     vendor.qti.hardware.wifi.hostapd@1.2.vendor \
     vendor.qti.hardware.wifi.supplicant@2.0.vendor \
     vendor.qti.hardware.wifi.supplicant@2.1.vendor \
     vendor.qti.hardware.wifi.supplicant@2.2.vendor \
-    WifiOverlay \
-    WifiResCommon \
     wpa_supplicant \
     wpa_supplicant.conf
 
