@@ -104,7 +104,7 @@ on property:vendor.setup.power=1
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
     # Enable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
+    write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 1
 
     # Enable idle state listener
     write /sys/class/drm/card0/device/idle_encoder_mask 1
