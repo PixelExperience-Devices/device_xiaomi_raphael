@@ -313,7 +313,7 @@
     },
     {
       "Name": "F2fsRecessModeEnable",
-      "Path": "/sys/fs/f2fs/sda31/gc_urgent",
+      "Path": "/dev/sys/fs/by-name/userdata/gc_urgent",
       "Values": [
         "2",
         "0"
