@@ -65,6 +65,7 @@ vendor.qcom.bluetooth.soc=cherokee
 # Camera
 camera.disable_zsl_mode=true
 persist.vendor.camera.logInfoMask=false
+persist.vendor.camera.perflock.enable=0
 
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
