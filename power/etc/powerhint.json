@@ -10,7 +10,8 @@
         "1036800",
         "1209600",
         "1382400",
-        "1555200"
+        "1555200",
+        "1708800"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -708,6 +709,12 @@
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 3600000,
       "Value": "2534400"
+    },
+    {
+      "PowerHint": "Flipendo",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1708800"
     },
     {
       "PowerHint": "Flipendo",
