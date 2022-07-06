@@ -33,11 +33,7 @@
     <string name="popup_camera_tip">Warning</string>
     <string name="popup_camera_takeback_failed_times_calibrate">Couldn\'t close front camera multiple times. Try calibrating the camera.</string>
     <string name="popup_camera_popup_failed_times_calibrate">Couldn\'t open front camera multiple times. Try calibrating the camera.</string>
-    <string name="popup_camera_calibrate_running">Front camera cannot be used during calibration.</string>
     <string name="popup_camera_calibrate_now">Calibrate</string>
     <string name="popup_camera_calibrate_failed">Couldn\'t calibrate</string>
     <string name="popup_camera_calibrate_success">Calibrated successfully. You can open the front camera now.</string>
-    <string name="stop_operate_camera_frequently">You\'re opening the front camera too frequently.</string>
-    <string name="takeback_camera_front_failed">Couldn\'t close front camera. Try again.</string>
-    <string name="popup_camera_front_failed">Couldn\'t open front camera. Try again.</string>
 </resources>
