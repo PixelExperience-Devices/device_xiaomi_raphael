@@ -74,6 +74,8 @@ public class PopupCameraService extends Service implements Handler.Callback {
     private int[] mSounds;
     private SoundPool mSoundPool;
 
+    private String[] mLightNodes;
+
     private IMotorCallback mMotorCallback = new IMotorCallback.Stub() {
         @Override
         public void onNotify(MotorEvent event) {
@@ -169,6 +171,8 @@ public class PopupCameraService extends Service implements Handler.Callback {
         for (int i = 0; i < soundNames.length; i++) {
             mSounds[i] = mSoundPool.load(Constants.POPUP_SOUND_PATH + soundNames[i], 1);
         }
+
+        mLightNodes = getResources().getStringArray(R.array.popupcamera_light_nodes);
 
         IMotor motor = getMotor();
         if (motor == null) {
@@ -317,20 +321,14 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     private void lightUp() {
         if (mPopupCameraPreferences.isLedAllowed()) {
-            FileUtils.writeLine(Constants.RED_LED_PATH, "1");
-            FileUtils.writeLine(Constants.GREEN_LED_PATH, "1");
-            FileUtils.writeLine(Constants.BLUE_LED_PATH, "1");
-            FileUtils.writeLine(Constants.RED_RIGHT_LED_PATH, "1");
-            FileUtils.writeLine(Constants.GREEN_RIGHT_LED_PATH, "1");
-            FileUtils.writeLine(Constants.BLUE_RIGHT_LED_PATH, "1");
+            for (String node : mLightNodes) {
+                FileUtils.writeLine(node, "1");
+            }
 
             mHandler.postDelayed(() -> {
-                FileUtils.writeLine(Constants.RED_LED_PATH, "0");
-                FileUtils.writeLine(Constants.GREEN_LED_PATH, "0");
-                FileUtils.writeLine(Constants.BLUE_LED_PATH, "0");
-                FileUtils.writeLine(Constants.RED_RIGHT_LED_PATH, "0");
-                FileUtils.writeLine(Constants.GREEN_RIGHT_LED_PATH, "0");
-                FileUtils.writeLine(Constants.BLUE_RIGHT_LED_PATH, "0");
+                for (String node : mLightNodes) {
+                    FileUtils.writeLine(node, "0");
+                }
             }, 2300);
         }
     }

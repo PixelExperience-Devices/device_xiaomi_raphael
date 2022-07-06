@@ -50,4 +50,14 @@
         <item>8</item>
         <item>10</item>
     </string-array>
+
+    <!-- Popup camera light nodes -->
+    <string-array name="popupcamera_light_nodes" translatable="false">
+        <item>/sys/class/leds/red/breath</item>
+        <item>/sys/class/leds/green/breath</item>
+        <item>/sys/class/leds/blue/breath</item>
+        <item>/sys/class/leds/red-right/breath</item>
+        <item>/sys/class/leds/green-right/breath</item>
+        <item>/sys/class/leds/blue-right/breath</item>
+    </string-array>
 </resources>
