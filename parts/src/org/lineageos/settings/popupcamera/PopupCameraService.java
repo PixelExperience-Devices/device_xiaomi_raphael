@@ -40,7 +40,6 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import org.lineageos.settings.R;
-import org.lineageos.settings.sensors.ProximitySensor;
 import org.lineageos.settings.sensors.SensorsUtils;
 import org.lineageos.settings.utils.FileUtils;
 
@@ -69,7 +68,6 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     private SensorManager mSensorManager;
     private Sensor mFreeFallSensor;
-    private ProximitySensor mProximitySensor;
 
     private int[] mSounds;
     private SoundPool mSoundPool;
@@ -154,7 +152,6 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
         mSensorManager = getSystemService(SensorManager.class);
         mFreeFallSensor = SensorsUtils.getSensor(mSensorManager, "xiaomi.sensor.free_fall");
-        mProximitySensor = new ProximitySensor(this);
 
         mPopupCameraPreferences = new PopupCameraPreferences(this);
 
@@ -195,11 +192,6 @@ public class PopupCameraService extends Service implements Handler.Callback {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (DEBUG)
             Log.d(TAG, "Starting service");
-        IMotor motor = getMotor();
-        if (motor == null) {
-            return START_STICKY;
-        }
-        mProximitySensor.enable();
         return START_STICKY;
     }
 
@@ -207,11 +199,6 @@ public class PopupCameraService extends Service implements Handler.Callback {
     public void onDestroy() {
         if (DEBUG)
             Log.d(TAG, "Destroying service");
-        IMotor motor = getMotor();
-        if (motor == null) {
-            return;
-        }
-        mProximitySensor.disable();
         super.onDestroy();
     }
 
@@ -265,7 +252,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     private void updateMotor(String cameraState) {
         IMotor motor = getMotor();
-        if (motor == null || mProximitySensor.getSawNear()) {
+        if (motor == null) {
             return;
         }
         final Runnable r = () -> {
