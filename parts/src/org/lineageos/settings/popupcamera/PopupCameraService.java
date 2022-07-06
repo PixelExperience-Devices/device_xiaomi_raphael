@@ -184,7 +184,6 @@ public class PopupCameraService extends Service implements Handler.Callback {
         try {
             int status = motor.getMotorStatus();
             if (status == Constants.MOTOR_STATUS_POPUP_OK ||
-                    status == Constants.MOTOR_STATUS_POPUP_JAMMED ||
                     status == Constants.MOTOR_STATUS_TAKEBACK_JAMMED) {
                 motor.takebackMotor(1);
                 Thread.sleep(1200);
@@ -268,14 +267,15 @@ public class PopupCameraService extends Service implements Handler.Callback {
                 if (DEBUG)
                     Log.d(TAG, "updateMotor: status=" + status);
                 if (cameraState.equals(Constants.OPEN_CAMERA_STATE) &&
-                        motor.getMotorStatus() == Constants.MOTOR_STATUS_TAKEBACK_OK) {
+                        (status == Constants.MOTOR_STATUS_TAKEBACK_OK ||
+                         status == Constants.MOTOR_STATUS_CALIB_OK)) {
                     lightUp();
                     playSoundEffect(Constants.OPEN_CAMERA_STATE);
                     motor.popupMotor(1);
                     mSensorManager.registerListener(mFreeFallListener, mFreeFallSensor,
                             SensorManager.SENSOR_DELAY_NORMAL);
                 } else if (cameraState.equals(Constants.CLOSE_CAMERA_STATE) &&
-                        motor.getMotorStatus() == Constants.MOTOR_STATUS_POPUP_OK) {
+                        status == Constants.MOTOR_STATUS_POPUP_OK) {
                     lightUp();
                     playSoundEffect(Constants.CLOSE_CAMERA_STATE);
                     motor.takebackMotor(1);
@@ -290,7 +290,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
                     }
                     return;
                 }
-            } catch (RemoteException e) {
+            } catch (Exception e) {
                 // Do nothing
             }
             mHandler.postDelayed(() -> mMotorBusy = false, 1200);
