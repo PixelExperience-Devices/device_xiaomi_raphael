@@ -1315,27 +1315,10 @@ vendor/bin/ssr_setup
 
 # Thermal
 vendor/bin/thermal-engine
-vendor/bin/thermal_factory
-vendor/etc/init/init_thermal-engine.rc
+
+# ThermalClient
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
-
-# Thermal (Xiaomi)
-vendor/bin/mi_thermald
-vendor/etc/init/init.mi_thermald.rc
-vendor/etc/thermal-arvr.conf
-vendor/etc/thermal-camera.conf
-vendor/etc/thermal-chg-only.conf
-vendor/etc/thermal-class0.conf
-vendor/etc/thermal-engine.conf
-vendor/etc/thermal-extreme.conf
-vendor/etc/thermal-map.conf
-vendor/etc/thermal-nolimits.conf
-vendor/etc/thermal-normal.conf
-vendor/etc/thermal-phone.conf
-vendor/etc/thermal-tgame.conf
-vendor/etc/thermal-youtobe.conf
-vendor/etc/thermald-devices.conf
 
 # Time Services - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 -vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
