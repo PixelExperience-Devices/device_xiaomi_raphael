@@ -30,7 +30,11 @@ allow xiaomiparts_app default_prop:file read;
 allow xiaomiparts_app system_app_data_file:dir create_dir_perms;
 allow xiaomiparts_app system_app_data_file:{ file lnk_file } create_file_perms;
 allow xiaomiparts_app content_capture_service:service_manager { find };
+allow xiaomiparts_app device_policy_service:service_manager { find };
+allow xiaomiparts_app device_state_service:service_manager { find };
 allow xiaomiparts_app game_service:service_manager { find };
+allow xiaomiparts_app netstats_service:service_manager { find };
+allow xiaomiparts_app wallpaper_service:service_manager { find };
 
 allow xiaomiparts_app system_data_file:dir search;
 
