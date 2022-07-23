@@ -11,6 +11,7 @@ persist.radio.imei              u:object_r:deviceid_prop:s0
 persist.radio.meid              u:object_r:deviceid_prop:s0
 ro.ril.oem.imei                 u:object_r:deviceid_prop:s0
 ro.ril.oem.meid                 u:object_r:deviceid_prop:s0
+ro.vendor.oem.                  u:object_r:deviceid_prop:s0
 
 # MIUI
 ro.cust.test                    u:object_r:exported_system_prop:s0
