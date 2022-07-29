@@ -138,10 +138,6 @@ PRODUCT_PACKAGES += \
     libavservices_minijail_32 \
     libavservices_minijail.vendor
 
-# ConfigStore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true \
