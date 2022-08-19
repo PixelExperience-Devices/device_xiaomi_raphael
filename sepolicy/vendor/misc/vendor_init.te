@@ -9,7 +9,6 @@ allow vendor_init {
 }:file w_file_perms;
 
 allow vendor_init block_device:lnk_file { setattr };
-allow vendor_init default_prop:file { read };
 allow vendor_init input_device:chr_file { create setattr unlink rw_file_perms };
 allow vendor_init persist_debug_prop:file { read };
 allow vendor_init vendor_camera_prop:property_service set;
