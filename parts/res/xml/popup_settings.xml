@@ -1,35 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/popup_title">
+    android:title="@string/popup_settings_title">
+
     <SwitchPreference
         android:defaultValue="true"
-        android:icon="@drawable/ic_popup_light"
         android:key="popup_led_effect"
         android:summary="@string/popup_led_summary"
         android:title="@string/popup_led_title" />
 
-    <SwitchPreference
-        android:key="always_on_camera_dialog"
-        android:icon="@drawable/ic_always_camera_dialog"
-        android:title="@string/always_on_camera_dialog_title"
-        android:summaryOff="@string/always_on_camera_dialog_summary_off"
-        android:summaryOn="@string/always_on_camera_dialog_summary_on"
-        android:persistent="false" />
-
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/popupcamera_effects_entries"
         android:entryValues="@array/popupcamera_effects_values"
-        android:icon="@drawable/ic_popup_sound"
         android:key="popup_sound_effect"
         android:summary="%s"
         android:title="@string/popup_sound_title" />
-
-    <Preference
-        android:key="motor_calibration"
-        android:title="@string/popup_calibration_title"
-        android:summary="@string/popup_calibration_summary"
-        android:icon="@drawable/ic_popup_calibration" />
 
 </PreferenceScreen>
