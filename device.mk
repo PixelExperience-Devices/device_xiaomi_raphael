@@ -81,6 +81,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_raphael/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_raphael/com.nxp.mifare.xml
 
+# Adaptive Suspend
+PRODUCT_PROPERTY_OVERRIDES += \
+    suspend.short_suspend_threshold_millis=2000 \
+    suspend.short_suspend_backoff_enabled=true \
+    suspend.max_sleep_time_millis=40000
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong
