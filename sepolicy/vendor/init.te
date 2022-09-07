@@ -21,3 +21,7 @@ allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };
 # Allow init to read and write to sysfs_vibrator
 allow init sysfs_vibrator:dir search;
 allow init sysfs_vibrator:file rw_file_perms;
+
+# /proc/last_kmsg
+allow init proc_last_kmsg:file r_file_perms;
+allow init proc_last_kmsg:file setattr;
