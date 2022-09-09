@@ -16,7 +16,7 @@ ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
-vendor.audio_hal.period_size=240
+vendor.audio_hal.period_size=192
 vendor.audio.adm.buffering.ms=6
 vendor.audio.dolby.ds2.enabled=false
 vendor.audio.dolby.ds2.hardbypass=false
@@ -62,21 +62,28 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
-ro.surface_flinger.use_color_management=true
+debug.sf.hw=0
+debug.egl.hw=0
+debug.hwui.renderer=skiagl
+debug.renderengine.backend=skiaglthreaded
+debug.sf.latch_unsignaled=0
+persist.sys.sf.color_saturation=1.0
+persist.sys.sf.native_mode=0
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno
+ro.opengles.version=196610
 ro.vendor.display.sensortype=2
-vendor.display.comp_mask=0
-vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
-vendor.display.disable_decimation=1
-vendor.display.disable_excl_rect=0
-vendor.display.disable_excl_rect_partial_fb=1
-vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
+vendor.display.disable_inline_rotator=1
+vendor.display.disable_decimation=1
+vendor.display.enable_null_display=0
+vendor.display.disable_excl_rect=0
+vendor.display.comp_mask=0
+vendor.display.enable_optimize_refresh=1
 vendor.display.disable_ui_3d_tonemap=1
 vendor.display.enable_force_split=1
-vendor.display.enable_null_display=0
-vendor.display.enable_optimize_refresh=1
-vendor.display.qdcm.disable_factory_mode=1
-vendor.display.qdcm.mode_combine=1
+vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
+vendor.gralloc.disable_ubwc=0
 
 # DPM
 persist.vendor.dpm.feature=1
@@ -96,27 +103,6 @@ vendor.hw.fm.init=0
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
-# Graphics
-debug.renderengine.backend=skiaglthreaded
-debug.sdm.support_writeback=0
-debug.sf.use_phase_offsets_as_durations=1
-debug.sf.disable_client_composition_cache=1
-debug.sf.late.sf.duration=10500000
-debug.sf.late.app.duration=20500000
-debug.sf.early.sf.duration=16000000
-debug.sf.early.app.duration=16500000
-debug.sf.earlyGl.sf.duration=13500000
-debug.sf.earlyGl.app.duration=21000000
-debug.sf.latch_unsignaled=1
-debug.sf.disable_client_composition_cache=1
-debug.sf.frame_rate_multiple_threshold=81
-persist.sys.sf.color_saturation=1.0
-persist.sys.sf.native_mode=2
-ro.hardware.egl=adreno
-ro.hardware.vulkan=adreno
-ro.opengles.version=196610
-vendor.gralloc.disable_ubwc=0
-
 # IFAAService
 persist.vendor.sys.fp.udfps.location.X_Y=445,1931
 persist.vendor.sys.fp.udfps.size.width_height=190,190
@@ -135,7 +121,6 @@ media.stagefright.enable-player=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.thumbnail.prefer_hw_codecs=true
-mm.enable.smoothstreaming=true
 
 # Netflix
 ro.netflix.bsp_rev=Q855-16947-1
@@ -182,6 +167,15 @@ persist.sys.binary_xml=false
 # SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM8150
+
+# Surfaceflinger
+debug.sf.use_phase_offsets_as_durations=1
+debug.sf.late.sf.duration=10500000
+debug.sf.late.app.duration=20500000
+debug.sf.early.sf.duration=16000000
+debug.sf.early.app.duration=16500000
+debug.sf.earlyGl.sf.duration=13500000
+debug.sf.earlyGl.app.duration=21000000
 
 # WiFi Display
 persist.sys.wfd.virtual=0

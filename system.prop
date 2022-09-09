@@ -37,9 +37,8 @@ ro.telephony.default_network=22,22
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
-# Transcoding related property.
-debug.media.transcoding.codec_max_operating_rate_720P=240
-debug.media.transcoding.codec_max_operating_rate_1080P=120
-
 # Vendor
 ro.vendor.qti.va_aosp.support=1
+
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=false

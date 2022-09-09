@@ -8,8 +8,8 @@ vendor.camera.              u:object_r:vendor_camera_prop:s0
 gf.debug.                   u:object_r:vendor_fp_prop:s0
 persist.vendor.sys.fp.      u:object_r:vendor_fp_prop:s0
 
-# Insmod
-vendor.all.devices.ready    u:object_r:vendor_device_prop:s0
+# FM
+ro.vendor.fm.use_audio_session	u:object_r:exported_system_prop:s0
 
 # Mlipay
 persist.vendor.sys.pay.     u:object_r:vendor_tee_listener_prop:s0
@@ -19,6 +19,3 @@ vendor.powerhal.            u:object_r:vendor_power_prop:s0
 
 # Sensors
 persist.sensor.sardisable   u:object_r:vendor_sensors_prop:s0
-
-# Thermal
-vendor.thermal.             u:object_r:vendor_thermal_prop:s0

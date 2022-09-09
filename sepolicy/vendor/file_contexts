@@ -14,9 +14,6 @@
 /dev/elliptic(.*)?                                              u:object_r:ultrasound_device:s0
 /dev/goodix_fp                                                  u:object_r:fingerprint_device:s0
 
-# Executable
-/vendor/bin/init\.insmod\.sh                                    u:object_r:init-insmod-sh_exec:s0
-
 # Fingerprint
 /data/vendor/goodix(/.*)?                                       u:object_r:fingerprint_data_file:s0
 /data/vendor/fpc(/.*)?                                          u:object_r:fingerprint_data_file:s0
@@ -54,11 +51,6 @@
 # MAC
 /vendor/bin/nv_mac                                              u:object_r:vendor_wcnss_service_exec:s0
 /data/vendor/mac_addr(/.*)?                                     u:object_r:vendor_wifi_vendor_data_file:s0
-
-# Thermal
-/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.xiaomi_raphael                     u:object_r:hal_thermal_default_exec:s0
-/vendor/bin/thermal_symlinks                                                      u:object_r:init-thermal-symlinks-sh_exec:s0
-/dev/thermal(/.*)?                                                                u:object_r:thermal_link_device:s0
 
 # UFS
 /sys/devices/platform/soc/[a-f0-9]+.ufshc/clkgate_enable        u:object_r:vendor_sysfs_scsi_host:s0

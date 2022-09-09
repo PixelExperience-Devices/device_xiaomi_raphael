@@ -70,8 +70,6 @@ on early-init
     write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
 
 on init
-    # Loading kernel modules in background
-    start insmod_sh
 
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
@@ -83,19 +81,14 @@ on init
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
-on late-fs
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start vendor.hwcomposer-2-4
-    start vendor.configstore-hal
-    start vendor.qti.hardware.display.allocator
-
 on early-boot
-
-    # Wait for devices
-    wait_for_prop vendor.all.devices.ready 1
-
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+    # Allow subsystem (modem etc) debugging
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_cdsp/boot 1
+    write /sys/devices/virtual/npu/msm_npu/boot 1
+    write /sys/devices/virtual/cvp/cvp/boot 1
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
 
     chown system system /mnt/vendor/persist/data/pfm/licenses
@@ -649,13 +642,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     class core
     user root
     group root
-
-service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.cfg
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
 
 service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
