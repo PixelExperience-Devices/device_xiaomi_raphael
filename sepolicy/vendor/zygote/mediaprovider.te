@@ -1,0 +1,1 @@
+allow mediaprovider zygote:unix_stream_socket { getopt };
