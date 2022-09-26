@@ -4,7 +4,7 @@ genfscon sysfs /kernel/boot_cdsp/boot                                           
 # Display
 genfscon sysfs /devices/platform/soc/2c00000.qcom,kgsl-3d0                                          u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/idle_state                               u:object_r:vendor_sysfs_graphics:s0
-genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup        u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup        u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw                                       u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw                                       u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,cpu0-cpu-l3-lat                                       u:object_r:sysfs_msm_subsys:s0

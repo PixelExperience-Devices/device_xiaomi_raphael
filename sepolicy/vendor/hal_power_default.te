@@ -24,6 +24,7 @@ allow hal_power_default {
   input_device
   sysfs_fs_f2fs
   vendor_sysfs_devfreq
+  vendor_sysfs_graphics
 }:dir r_dir_perms;
 
 allow hal_power_default {
