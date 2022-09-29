@@ -25,4 +25,7 @@
 
     <!-- Smart Charging -->
     <bool name="config_supportSmartCharging">true</bool>
+
+    <!-- Whether build status should be shown or not. -->
+    <bool name="config_show_build_status">true</bool>
 </resources>
