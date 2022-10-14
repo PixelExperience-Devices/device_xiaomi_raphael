@@ -1,14 +1,20 @@
 [
   {
-    "remote": "pixel-devices",
     "repository": "kernel_xiaomi_raphael",
     "target_path": "kernel/xiaomi/raphael",
+    "remote": "pixel-devices",
     "branch": "twelve"
   },
   {
-    "remote": "pixel-devices-blobs",
     "repository": "vendor_xiaomi_raphael",
     "target_path": "vendor/xiaomi/raphael",
+    "remote": "pixel-devices-blobs",
+    "branch": "twelve"
+  },
+  {
+    "repository": "hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "remote": "pixel",
     "branch": "twelve"
   }
 ]

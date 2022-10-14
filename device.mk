@@ -34,7 +34,8 @@ $(call inherit-product, vendor/xiaomi/raphael/raphael-vendor.mk)
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/xiaomi
 
 # Hardware
 PRODUCT_COPY_FILES += \
