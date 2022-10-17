@@ -23,8 +23,8 @@
      when adapting to brighter or darker environments.  This parameter controls how quickly
      brightness changes occur in response to an observed change in light level that exceeds the
      hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">2000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
      <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
      For this time after the screen turns on, the Power Manager
@@ -577,19 +577,6 @@
 
     <!-- How long it takes for the HW to start illuminating after the illumination is requested. -->
     <integer name="config_udfps_illumination_transition_ms">0</integer>
-
-    <!-- Night display color temperature calibration -->
-    <string-array name="config_nightDisplayColorTemperatureCoefficients">
-        <!-- R a-coefficient --> <item>0.0</item>
-        <!-- R b-coefficient --> <item>0.0</item>
-        <!-- R y-intercept --> <item>1.0</item>
-        <!-- G a-coefficient --> <item>-0.000000014365268757</item>
-        <!-- G b-coefficient --> <item>0.000255092801250106</item>
-        <!-- G y-intercept --> <item>-0.064156942434907716</item>
-        <!-- B a-coefficient --> <item>-0.000000000910931179</item>
-        <!-- B b-coefficient --> <item>0.000207598323269139</item>
-        <!-- B y-intercept --> <item>-0.349361641294833436</item>
-    </string-array>
 
     <!-- Whether Hearing Aid profile is supported -->
     <bool name="config_hearing_aid_profile_supported">true</bool>
