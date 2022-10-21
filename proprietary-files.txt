@@ -759,15 +759,7 @@ vendor/bin/npu_launcher
 vendor/lib/libnpu.so
 vendor/lib64/libnpu.so
 
-# Media- from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
-system_ext/lib/libmmosal.so
-system_ext/lib/libmmparser_lite.so
-system_ext/lib/libmmrtpdecoder.so
-system_ext/lib/libmmrtpencoder.so
-system_ext/lib64/libmmosal.so
-system_ext/lib64/libmmparser_lite.so
-system_ext/lib64/libmmrtpdecoder.so
-system_ext/lib64/libmmrtpencoder.so
+# Media - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/bin/vppservice|0f77fd06c6438ded5e5704769db6cb1154d96cbe
 vendor/etc/configstore/vpp.configstore.xml|ed961545186c66fd9523f25866c74f2e11ee63d7
 vendor/etc/init/vppservice.rc|24c089e0e413cbb3fa6daaf0af4215870bdf1b8e
@@ -792,11 +784,8 @@ vendor/lib/libOmxSwVencMpeg4.so|a0737ffc63669f97cedd214aefed15dbbd2726d9
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so|53ed3791435eec281863c2cf1619d2a0ec7e51d1
 vendor/lib/libOmxWmaDec.so|2e099086fe38c1a3eed2fd46f42f12401f13c2b9
-vendor/lib/libFileMux_proprietary.so
 vendor/lib/libdsd2pcm.so|c5ab1afd7a5a23bf83d80b5ac74247c3dd2085af
 vendor/lib/libmm-color-convertor.so|904f9daeca6323b7d240c2f640a92852bac88146
-vendor/lib/libmmrtpdecoder_proprietary.so
-vendor/lib/libmmrtpencoder_proprietary.so
 vendor/lib/libmulawdec.so|89ebb1d9e77911f1abe37405016839d8436a9825
 vendor/lib/libstagefright_soft_qtiflacdec.so|4c18c66ef02de3bd39e1f30b3e1f96749a7805dc
 vendor/lib/libswvdec.so|470a275b120633d7a0d756a7d30a817b25d2e54e
