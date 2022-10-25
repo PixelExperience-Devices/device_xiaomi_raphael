@@ -466,6 +466,7 @@ vendor/etc/qdcm_calib_data_samsung_ea8076_fhd_cmd_dsi_panel.xml|466f515f4dce2e41
 # Display - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/lib64/libdisp-aba.so|44993853ff9d4340e856e6f53d802f10372442d3
 vendor/lib64/libdisplayqos.so|5548732c916e629f18f45ce257ce843b679a136a
+vendor/lib64/libhdr_tm.so|a222a7d838735c5ce73f06d4096fea3ca19611c8
 vendor/lib64/libqseed3.so|7f2a659fb9acd84d79c11dbd6901b816d5d1214f
 vendor/lib64/libsdedrm.so|351f4f9a64566097bd19601f18951ac8131a92b5
 vendor/lib64/libsdm-color.so|d24904d36d2cd5912755af5ac7e2fede47cd3eac
@@ -632,56 +633,53 @@ vendor/lib64/vendor.qti.gnss@4.0-service.so
 vendor/lib64/vendor.qti.gnss@4.0.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
-# Graphics (Adreno) (vendor) - from LA.UM.9.14.r1-20200-LAHAINA.QSSI13.0
+# Graphics (Adreno) - from LA.UM.9.14.r1-19300-LAHAINA.QSSI12.0
 vendor/gpu/kbc/sequence_manifest.bin|cc050a8058904871b3cfabec74521d42f0a61a1f
 vendor/gpu/kbc/unified_kbcs_32.bin|503228f87adc71131aa8134659b00dffe073e973
 vendor/gpu/kbc/unified_kbcs_64.bin|d63c26959dc02b2efc251953e99dc6e7c32e7f6e
 vendor/gpu/kbc/unified_ksqs.bin|8f77dc004796d58acb959e78f4994c5d6b90baef
 vendor/lib/egl/eglSubDriverAndroid.so|cac529f4cc2381fc8985caded98dc7236d0de43f
-vendor/lib/egl/libEGL_adreno.so|c841ec471e3d40b541862c1b0a1d16fd56463cfa
+vendor/lib/egl/libEGL_adreno.so|5cedb0d27065f43bff37d4b70cd98a27cc4e4aaf
 vendor/lib/egl/libGLESv1_CM_adreno.so|5ab7196d4c8ae861ff484cb6b1f4b5ac3c9738b4
-vendor/lib/egl/libGLESv2_adreno.so|82a74dc9dacd981a8974227048a87d1b3405ccbe
+vendor/lib/egl/libGLESv2_adreno.so|98e822d811c58a59108430c68d44f1d45dc57b9d
 vendor/lib/egl/libq3dtools_adreno.so|994551fb9b829caf80bb7a8f84b4b89cb3104ed9
-vendor/lib/egl/libq3dtools_esx.so|997559069f3246f908f8acc54147b5e763c04e12
+vendor/lib/egl/libq3dtools_esx.so|8209e53553f98deb4ca622cd78e7dc86cb1fb86f
 vendor/lib/libC2D2.so|1c89e545a5dabc94d27db32031594a792d91d6fd
-vendor/lib/libCB.so|ca8cbf62025f0df09c20d6c41a4654719fd9c60a
-vendor/lib/libOpenCL.so|d5642e23207996dbbc13273927127ecf04fced53
-vendor/lib/libVkLayer_q3dtools.so|19d40e4c5c6104e889acfff640ed9b68b02a8032
-vendor/lib/libadreno_app_profiles.so|eccf8e1bbf63d7524435f9bd30139b9a70cd935d
-vendor/lib/libadreno_utils.so|9e34c9d9a6859e682f9179d52e239d771423743c
+vendor/lib/libCB.so|230936cc02cd7330abd23beb6337302b320dc436
+vendor/lib/libOpenCL.so|f319002397d5089e4435fe19ad3916580fd6b731
+vendor/lib/libVkLayer_q3dtools.so|c7f57f12347240a32b996a01ff7ef8881e17fb5e
+vendor/lib/libadreno_app_profiles.so|a4002050fbb050b0939dfe8a75d5d99719265fc8
+vendor/lib/libadreno_utils.so|a6c9f87484c844e0c07c38ed9f2b9b4373555913
 vendor/lib/libc2d30_bltlib.so|5dce0e76e03b9cac4fc1f104524625a6f561fe91
-vendor/lib/libgpudataproducer.so|9eb0f507b3badccfb0e10e9e9fe9a8c7df231d8e
-vendor/lib/libgsl.so|1251cef304314c8a924f86df0757a895847bee80
+vendor/lib/libgpudataproducer.so|11fd6d18295c5b3b324cbda61dac242a5afa1f3d
+vendor/lib/libgsl.so|95eb515cc1ff810f7abc8e3588e0347c80cc42a4
 vendor/lib/libkcl.so|4de6a2a00aed99c2f180ae5cf3ec03a96b3be2d7
 vendor/lib/libkernelmanager.so|09e05782cae3b8c5910d069c9d79eb4e58f2801d
-vendor/lib/libllvm-glnext.so|a9a11644abb8bd8bdddf4db02b3e7777d8ddbb83
+vendor/lib/libllvm-glnext.so|f3b55b4f50a309b0e2e71513c8c0c439fb5943fa
 vendor/lib/libllvm-qcom.so|68bfbf4b6072af78106e7e96e252a664026015c0
 vendor/lib64/egl/eglSubDriverAndroid.so|ac9099723b30614cf7c61c667204a392959694db
-vendor/lib64/egl/libEGL_adreno.so|2fe7c58e7f040637f201cdfbfdaa8b8257daa514
+vendor/lib64/egl/libEGL_adreno.so|5bedfed4eee4e02bc8b655a205c549ca9fd47591
 vendor/lib64/egl/libGLESv1_CM_adreno.so|b9e14710b9c2be024e1fdf77d60266423e484047
-vendor/lib64/egl/libGLESv2_adreno.so|2aacde9712052563c4b998ea5ac57018db1e2220
+vendor/lib64/egl/libGLESv2_adreno.so|3a9210ef2b43a60c9ae9a2b28a5648cdb2ac4bd6
 vendor/lib64/egl/libq3dtools_adreno.so|172810bc218ab55fe95f628ab1c0d37833eb0021
-vendor/lib64/egl/libq3dtools_esx.so|abe73a7c9a90ad1c80d8ad8f5c942b902623e4f0
+vendor/lib64/egl/libq3dtools_esx.so|0556ed38bf6c1b9d377df2df90e72c6cb5ec59ba
 vendor/lib64/libC2D2.so|0b4aa67ef7e86df61a1bfd7dfd4680e0f0d7104c
-vendor/lib64/libCB.so|cb69d5aa6cccd485774c8aea499dcd5b708af1cf
-vendor/lib64/libOpenCL.so|76d6d5f9e89d896665fdd06cbede3e21c92c8068
-vendor/lib64/libVkLayer_q3dtools.so|0013a3267134a2a7a4005680e8f6c2dbcafaa898
-vendor/lib64/libadreno_app_profiles.so|afa234cba7947e2d49da3ab649f9b5555a6cac06
-vendor/lib64/libadreno_utils.so|db15cf1f9edafe62a36b1dbb79ad45e56220dcd4
+vendor/lib64/libCB.so|cb1311c529b70efa2fcc68dc25335d0380ad3c5e
+vendor/lib64/libOpenCL.so|ac283fe3cd39fd8dffb2cb30c8b30840dc879d45
+vendor/lib64/libVkLayer_q3dtools.so|c048c213c846ed4ca515fff93e4eb3c562a339e1
+vendor/lib64/libadreno_app_profiles.so|0021ad1052562da0d743fb60a949b8e3c5796e0f
+vendor/lib64/libadreno_utils.so|1a99cae3d8ed369914187a43f11f73a48567ba6a
 vendor/lib64/libc2d30_bltlib.so|da219e655056ca4a765ce3f6cf2b992d75088269
-vendor/lib64/libgpudataproducer.so|3c12f4ee9e9df7cdfb586f20009cc69a313b5199
-vendor/lib64/libgsl.so|c9f0c740054d1360c2e59af32725ed16f239155d
+vendor/lib64/libgpudataproducer.so|275762395cb6cc8823273d801db7237c452a357a
+vendor/lib64/libgsl.so|46b61ee782b69e16d4dded4753058af0139b60eb
 vendor/lib64/libkcl.so|505c6488d7c2c34ac6bcc578e6e90098553e5f4f
 vendor/lib64/libkernelmanager.so|6e34cfed1b61ef27ac3740cf477e1ed836695513
-vendor/lib64/libllvm-glnext.so|10ce1497960c732b8077cc1bd42e3d8dba96e943
+vendor/lib64/libllvm-glnext.so|bdcf919b75fa3f5d7d2b59192ccf59dc3a098ce7
 vendor/lib64/libllvm-qcom.so|01c37f8efc8362168666fc811082dbbee14fbcbd
 
-# Graphics (Vulkan) (vendor) - from LA.UM.9.14.r1-20200-LAHAINA.QSSI13.0
-vendor/lib/hw/vulkan.adreno.so|3c5fc46d3360688f198aa732bd265d655bbba1d5
-vendor/lib64/hw/vulkan.adreno.so|ef355a774941620917f1ba1f0b48c9193091aad4
-
-# Graphics (HDR) (vendor) - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
-vendor/lib64/libhdr_tm.so|a222a7d838735c5ce73f06d4096fea3ca19611c8
+# Graphics (Vulkan) - from LA.UM.9.14.r1-18900-LAHAINA.QSSI12.0
+vendor/lib/hw/vulkan.adreno.so|ca43eefab537c1ee8ec4bb9dbae06331f2bd872b
+vendor/lib64/hw/vulkan.adreno.so|3e981baca903027296ddccfc4b7fb73e4c190d90
 
 # Graphics Firmware
 vendor/firmware/a612_rgmu.bin
