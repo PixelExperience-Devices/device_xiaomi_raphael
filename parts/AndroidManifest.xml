@@ -91,7 +91,7 @@
 
         <activity
             android:name=".popupcamera.PopupCameraSettingsActivity"
-            android:label="@string/popup_title">
+            android:label="@string/popup_settings_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>

@@ -17,12 +17,12 @@
 <resources>
     <string-array name="popupcamera_effects_entries">
         <item>@string/action_none</item>
-        <item>@string/popup_sound_muqin</item>
-        <item>@string/popup_sound_yingyan</item>
-        <item>@string/popup_sound_mofa</item>
-        <item>@string/popup_sound_jijia</item>
-        <item>@string/popup_sound_chilun</item>
-        <item>@string/popup_sound_cangmen</item>
+        <item>@string/popup_title_muqin</item>
+        <item>@string/popup_title_yingyan</item>
+        <item>@string/popup_title_mofa</item>
+        <item>@string/popup_title_jijia</item>
+        <item>@string/popup_title_chilun</item>
+        <item>@string/popup_title_cangmen</item>
     </string-array>
 
     <string-array name="popupcamera_effects_names" translatable="false">
