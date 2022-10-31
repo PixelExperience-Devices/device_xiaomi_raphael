@@ -9,6 +9,7 @@ $(call inherit-product, vendor/xiaomi/raphael/raphael-vendor.mk)
 
 # Overlays
 PRODUCT_PACKAGES += \
+    ApertureOverlay \
     CarrierConfigOverlay \
     FaceUnlockServiceOverlay \
     FrameworksResRaphael \
@@ -147,7 +148,7 @@ PRODUCT_BOARD_PLATFORM := msmnile
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    GCamGOPrebuilt-V3 \
+    Aperture \
     libcamera2ndk_vendor \
     libdng_sdk.vendor \
     libgui_vendor \
