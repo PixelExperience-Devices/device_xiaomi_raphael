@@ -29,6 +29,10 @@ ro.nfc.port=I2C
 persist.radio.dynamic_sar=false
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
+# Telephony
+# Disable handling audio direction changes on IMS calls.
+ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
+
 # Thermal
 vendor.thermal.config=thermal_info_config.json
 
