@@ -135,6 +135,7 @@ media.stagefright.enable-player=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.thumbnail.prefer_hw_codecs=true
+mm.enable.smoothstreaming=true
 
 # Netflix
 ro.netflix.bsp_rev=Q855-16947-1
