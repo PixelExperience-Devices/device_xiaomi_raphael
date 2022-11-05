@@ -97,7 +97,7 @@ PRODUCT_PACKAGES += \
     audio.primary.default \
     audio.primary.msmnile \
     audio.r_submix.default \
-    audio.usbv2.default \
+    audio.usb.default \
     libaacwrapper \
     libaudiopreprocessing \
     libbatterylistener \
