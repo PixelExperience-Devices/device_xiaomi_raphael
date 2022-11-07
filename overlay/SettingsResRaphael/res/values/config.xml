@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Whether or not the device is capable of multiple levels of vibration intensity.
-         Note that this is different from whether it can control the vibration amplitude as some
-         devices will be able to vary their amplitude but do not possess enough dynamic range to
-         have distinct intensity levels -->
-    <bool name="config_vibration_supports_multiple_intensities">true</bool>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The number of vibration intensity levels supported by the device.
+
+         Note that this should correspond to the ability to vary the vibration amplitude, with
+         enough dynamic range to have at least as many distinct intensity levels as defined here.
+
+         Supported values are 1, 2, 3. If '1', the settings app will use a toggle for the settings,
+         otherwise a slider. If '3', the settings app maps intensities directly to the levels
+         supported by the Vibrator HAL APIs. If '2', then the levels will be mapped to
+         VIBRATION_INTENSITY_LOW and VIBRATION_INTENSITY_HIGH, which gives the most range for
+         scaling vibrations. The medium intensity will be skipped.
+
+         The default intensity values are configured at
+         frameworks/base/core/res/res/values/config.xml's config_default[type]VibrationIntensity.
+         Make sure that each default intensity value is consistent with the supported levels set
+         here. If this settings supports only 2 levels, for example, then the default intensity
+         should be either LOW (1) or HIGH (3).
+    -->
+    <integer name="config_vibration_supported_intensity_levels">3</integer>
 
     <!-- Whether to show a preference item for regulatory information in About phone -->
     <bool name="config_show_regulatory_info">true</bool>
