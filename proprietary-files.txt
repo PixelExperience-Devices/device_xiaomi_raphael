@@ -142,7 +142,7 @@ vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
-# Bluetooth (aptX) - from sunfish RQ1A.201205.008
+# Bluetooth (aptX) - from cheetah - TD1A.221105.001
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 
