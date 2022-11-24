@@ -22,6 +22,7 @@ allow xiaomiparts_app {
   storagestats_service
   surfaceflinger_service
   tethering_service
+  thermal_service
 }:service_manager find;
 
 allow xiaomiparts_app default_prop:file read;
