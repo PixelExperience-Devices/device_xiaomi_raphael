@@ -455,54 +455,9 @@
         <item>"/system/lib64/libhwui.so"</item>
         <item>"/system/lib64/libui.so"</item>
         <item>"/system/lib64/libvulkan.so"</item>
-        <item>"/system/system_ext/lib/libcomposerextn.qti.so"</item>
-        <item>"/system/system_ext/lib/libdolphin.so"</item>
-        <item>"/system/system_ext/lib/liblayerext.qti.so"</item>
-        <item>"/system/system_ext/lib/libpenguin.so"</item>
-        <item>"/system/system_ext/lib/libpenguin_impl.so"</item>
-        <item>"/system/system_ext/lib64/libcomposerextn.qti.so"</item>
-        <item>"/system/system_ext/lib64/libdolphin.so"</item>
-        <item>"/system/system_ext/lib64/liblayerext.qti.so"</item>
-        <item>"/system/system_ext/lib64/libpenguin.so"</item>
-        <item>"/system/system_ext/lib64/libpenguin_impl.so"</item>
         <item>"/system/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
-        <item>"/vendor/lib/libcamxexternalformatutils.so"</item>
-        <item>"/vendor/lib/libipebpsstriping170.so"</item>
-        <item>"/vendor/lib/libipebpsstriping.so"</item>
-        <item>"/vendor/lib/egl/eglSubDriverAndroid.so"</item>
-        <item>"/vendor/lib/egl/libEGL_adreno.so"</item>
-        <item>"/vendor/lib/egl/libGLESv1_CM_adreno.so"</item>
-        <item>"/vendor/lib/egl/libGLESv2_adreno.so"</item>
-        <item>"/vendor/lib/hw/vulkan.adreno.so"</item>
-        <item>"/vendor/lib/libCB.so"</item>
-        <item>"/vendor/lib/libOpenCL.so"</item>
-        <item>"/vendor/lib/libadreno_app_profiles.so"</item>
-        <item>"/vendor/lib/libadreno_utils.so"</item>
-        <item>"/vendor/lib/libgpudataproducer.so"</item>
-        <item>"/vendor/lib/libgsl.so"</item>
-        <item>"/vendor/lib/libkcl.so"</item>
-        <item>"/vendor/lib/libkernelmanager.so"</item>
-        <item>"/vendor/lib/libllvm-glnext.so"</item>
-        <item>"/vendor/lib/libllvm-qcom.so"</item>
-        <item>"/vendor/lib/libllvm-qgl.so"</item>
-        <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
-        <item>"/vendor/lib64/libipebpsstriping170.so"</item>
-        <item>"/vendor/lib64/libipebpsstriping.so"</item>
-        <item>"/vendor/lib64/egl/eglSubDriverAndroid.so"</item>
-        <item>"/vendor/lib64/egl/libEGL_adreno.so"</item>
-        <item>"/vendor/lib64/egl/libGLESv1_CM_adreno.so"</item>
         <item>"/vendor/lib64/egl/libGLESv2_adreno.so"</item>
-        <item>"/vendor/lib64/hw/vulkan.adreno.so"</item>
-        <item>"/vendor/lib64/libCB.so"</item>
-        <item>"/vendor/lib64/libOpenCL.so"</item>
-        <item>"/vendor/lib64/libadreno_app_profiles.so"</item>
-        <item>"/vendor/lib64/libadreno_utils.so"</item>
-        <item>"/vendor/lib64/libgpudataproducer.so"</item>
         <item>"/vendor/lib64/libgsl.so"</item>
-        <item>"/vendor/lib64/libkcl.so"</item>
-        <item>"/vendor/lib64/libkernelmanager.so"</item>
-        <item>"/vendor/lib64/libllvm-glnext.so"</item>
-        <item>"/vendor/lib64/libllvm-qcom.so"</item>
         <item>"/vendor/lib64/libllvm-qgl.so"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
