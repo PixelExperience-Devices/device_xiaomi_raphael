@@ -75,10 +75,10 @@ BOARD_HAVE_QCOM_FM := true
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     vendor/evolution/config/device_framework_matrix.xml
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/hidl/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/hidl/compatibility_matrix.xml
 ODM_MANIFEST_SKUS += raphael
-ODM_MANIFEST_RAPHAEL_FILES := $(DEVICE_PATH)/manifest_nfc.xml
+ODM_MANIFEST_RAPHAEL_FILES := $(DEVICE_PATH)/hidl/manifest_nfc.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
