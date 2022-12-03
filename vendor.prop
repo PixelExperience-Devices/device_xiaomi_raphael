@@ -18,8 +18,6 @@ vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
 vendor.audio.adm.buffering.ms=6
-vendor.audio.dolby.ds2.enabled=false
-vendor.audio.dolby.ds2.hardbypass=false
 vendor.audio.enable.mirrorlink=false
 vendor.audio.flac.sw.decoder.24bit=true
 vendor.audio.hal.boot.timeout.ms=20000
@@ -113,6 +111,12 @@ vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.gralloc.disable_ubwc=0
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
+
+# Dolby
+persist.vendor.audio_fx.current=dolby
+vendor.audio.dolby.ds2.enabled=true
+vendor.audio.dolby.ds2.hardbypass=true
+ro.vendor.dolby.dax.version=DAX3_3.6.0.12_r1
 
 # DPM
 persist.vendor.dpm.feature=1

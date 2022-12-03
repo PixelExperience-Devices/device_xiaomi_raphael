@@ -472,6 +472,8 @@
         <item>"/system/lib64/libui.so"</item>
         <item>"/system/lib64/libvulkan.so"</item>
         <item>"/system/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
+        <item>"/system_ext/priv-app/MotoDolbyDax3/MotoDolbyDax3.apk"</item>
+        <item>"/system_ext/priv-app/daxService/daxService.apk"</item>
         <item>"/vendor/lib64/egl/libGLESv2_adreno.so"</item>
         <item>"/vendor/lib64/libgsl.so"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>

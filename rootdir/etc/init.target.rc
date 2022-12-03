@@ -131,6 +131,10 @@ on post-fs-data
     # Haptics
     write /sys/class/leds/vibrator/vmax 28
 
+    # Dolby
+    mkdir /data/vendor/dolby 0770 media media
+    mkdir /data/vendor/multimedia 0775 system system
+
 on early-boot
     start vendor.sensors
 
