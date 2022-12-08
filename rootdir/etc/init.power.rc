@@ -115,6 +115,12 @@ on property:vendor.setup.power=1
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
+    # IRQ Tuning
+    # IRQ 8: msm_drm
+    # IRQ 518: kgsl-3d0
+    write /proc/irq/8/smp_affinity_list 2
+    write /proc/irq/518/smp_affinity_list 1
+
 on boot
 # Enable suspend to idle mode to reduce latency during suspend/resume
     write /sys/power/mem_sleep "s2idle"
