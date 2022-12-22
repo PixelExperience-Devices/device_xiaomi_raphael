@@ -157,7 +157,7 @@ PRODUCT_BOARD_PLATFORM := msmnile
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    GCamGOPrebuilt-V3 \
+    GCamGOPrebuilt-V2 \
     libcamera2ndk_vendor \
     libdng_sdk.vendor \
     libgui_vendor \
