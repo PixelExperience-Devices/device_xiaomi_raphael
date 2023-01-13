@@ -19,4 +19,7 @@
 
     <!-- Smart Charging -->
     <bool name="config_supportSmartCharging">true</bool>
+
+    <!-- Does the device support color inversion -->
+    <bool name="config_displayInversionAvailable">false</bool>
 </resources>
