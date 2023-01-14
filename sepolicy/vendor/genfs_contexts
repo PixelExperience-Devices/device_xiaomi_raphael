@@ -109,3 +109,7 @@ genfscon sysfs /devices/platform/soc/soc:qcom,smp2p-npu/wakeup                  
 genfscon sysfs /devices/platform/soc/soc:qcom,smp2p_sleepstate/wakeup                                                                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/vendor/vendor:extcon_usb1/wakeup                                                                                  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/diag/diag/wakeup                                                                                                   u:object_r:sysfs_wakeup:s0
+
+# UDFPS Sensor
+genfscon sysfs /devices/platform/goodix_ts.0/udfps_pressed u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/platform/goodix_ts.0/udfps_enabled u:object_r:vendor_sysfs_sensors:s0
