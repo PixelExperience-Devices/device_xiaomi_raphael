@@ -1,9 +1,0 @@
-<!-- drawable/arrow-decision_auto -->
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
-    android:width="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24"
-    android:tint="?android:attr/colorControlNormal">
-    <path android:fillColor="#000" android:pathData="M 13 7 L 11 7 L 11 9 L 13 9 L 13 7 Z M 13 11 L 11 11 L 11 17 L 13 17 L 13 11 Z M 17 1.01 L 7 1 C 5.9 1 5 1.9 5 3 L 5 21 C 5 22.1 5.9 23 7 23 L 17 23 C 18.1 23 19 22.1 19 21 L 19 3 C 19 1.9 18.1 1.01 17 1.01 Z M 17 19 L 7 19 L 7 5 L 17 5 L 17 19 Z" />
-</vector>
