@@ -164,6 +164,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
     android.hardware.drm@1.4-service.clearkey
 
+# Dynamic Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.raphael \
@@ -182,10 +187,6 @@ PRODUCT_PACKAGES += \
     sg_write_buffer \
     f2fs_io \
     check_f2fs
-
-# Fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -229,6 +230,8 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    fstab.qcom_ramdisk \
+    fstab.qcom \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
