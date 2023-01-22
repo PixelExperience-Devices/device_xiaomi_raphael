@@ -624,4 +624,7 @@
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
+
+    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
+    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
 </resources>

@@ -1138,7 +1138,6 @@ vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/config/vl53l1_tof_0.json
-vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
