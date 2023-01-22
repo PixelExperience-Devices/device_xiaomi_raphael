@@ -24,9 +24,6 @@
     -->
     <integer name="config_udfpsHbmType">0</integer>
 
-    <!-- Udfps vendor code -->
-    <integer name="config_udfpsVendorCode">22</integer>
-
     <!-- FPSInfoService Fps file path -->
     <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/card0/sde-crtc-0/measured_fps</string>
 
