@@ -54,4 +54,7 @@
         <item>org.lineageos.aperture.dev</item>
         <item>org.pixelexperience.faceunlock</item>
     </string-array>
+
+    <!-- Display color inversion availability -->
+    <bool name="config_displayInversionAvailable">false</bool>
 </resources>
