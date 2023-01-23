@@ -137,10 +137,12 @@ vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Bluetooth (aptX) - from cheetah - TD1A.221105.001
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
@@ -548,6 +550,11 @@ vendor/lib64/vendor.qti.esepowermanager@1.1.so|85224bd7e8b89f2b0e4370c14457a62cd
 # Fingerprint
 vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.msmnile.so
 vendor/lib64/libgf_hal.so
+
+# FM (system) - from LA.QSSI.12.0.r1-05800.02-qssi.0
+system_ext/lib64/fm_helium.so|dd0aa17b1b5d0cbce34d6d6343dc49883c5bfe73
+system_ext/lib64/libfm-hci.so|66993341bb7c9ea05ac7621e043bd3de86c06a8a
+-system_ext/lib64/vendor.qti.hardware.fm@1.0.so|e4bcec96323017d33e11739519481b1566939d85
 
 # Gatekeeper - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|2e33e885b92e413440511049025497945d6b8484
