@@ -110,6 +110,7 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
     mkdir /data/vendor/nnhal 0700 system system
+    mkdir /data/vendor/nfc 0770 nfc nfc
 
     # Haptics
     write /sys/class/leds/vibrator/vmax 28

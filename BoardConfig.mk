@@ -77,12 +77,15 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     vendor/evolution/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/hidl/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/hidl/compatibility_matrix.xml
-ODM_MANIFEST_SKUS += raphael
-ODM_MANIFEST_RAPHAEL_FILES := $(DEVICE_PATH)/hidl/manifest_nfc.xml
+ODM_MANIFEST_SKUS += nfc nfc_ese
+ODM_MANIFEST_NFC_FILES := $(DEVICE_PATH)/hidl/manifest_nfc.xml
+ODM_MANIFEST_NFC_ESE_FILES := \
+    $(DEVICE_PATH)/hidl/manifest_nfc.xml \
+    $(DEVICE_PATH)/hidl/manifest_ese.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
-TARGET_RECOVERY_DEVICE_MODULES := libinit_raphael
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_raphael
+TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_raphael
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000

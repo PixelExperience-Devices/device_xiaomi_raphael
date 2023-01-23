@@ -55,6 +55,9 @@
 /vendor/bin/nv_mac                                              u:object_r:vendor_wcnss_service_exec:s0
 /data/vendor/mac_addr(/.*)?                                     u:object_r:vendor_wifi_vendor_data_file:s0
 
+# NFC
+/vendor/bin/hw/android\.hardware\.nfc_snxxx@1\.2-service                u:object_r:hal_nfc_default_exec:s0
+
 # Thermal
 /vendor/bin/thermal_symlinks                                    u:object_r:init-thermal-symlinks-sh_exec:s0
 

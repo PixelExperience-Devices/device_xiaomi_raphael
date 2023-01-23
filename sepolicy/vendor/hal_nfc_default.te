@@ -1,8 +1,6 @@
 # Allow hal_nfc_default to add and find hal_nxpnfc_hwservice
-add_hwservice(hal_nfc_default, hal_nxpnfc_hwservice)
-add_hwservice(hal_nfc_default, hal_nxpese_hwservice)
-allow hal_nfc_default hal_nxpnfc_hwservice:hwservice_manager find;
-allow hal_nfc_default hal_nxpese_hwservice:hwservice_manager find;
+add_hwservice(hal_nfc_default, hal_nfc_hwservice)
+allow hal_nfc_default hal_nfc_hwservice:hwservice_manager find;
 
 # Data file accesses.
 allow hal_nfc_default vendor_nfc_vendor_data_file:dir create_dir_perms;
