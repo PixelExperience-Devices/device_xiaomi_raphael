@@ -206,7 +206,6 @@
 
          This resource should be set to "true" when a doze component has been specified
          to maximize power savings but not all devices support it.
-
          Refer to autosuspend.h for details.
     -->
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
@@ -288,9 +287,6 @@
 
     <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
-
-    <!-- Whether device supports double tap to wake -->
-    <bool name="config_supportDoubleTapWake">true</bool>
 
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->
@@ -627,4 +623,7 @@
 
     <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
     <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
+
+    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
+    <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
 </resources>

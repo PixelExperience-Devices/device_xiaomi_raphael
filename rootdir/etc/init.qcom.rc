@@ -240,6 +240,12 @@ on boot
     chown system system /sys/devices/platform/goodix_ts.0/udfps_enabled
     chmod 0660 /sys/devices/platform/goodix_ts.0/udfps_enabled
 
+    # Double Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/double_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/double_tap_pressed
+    chown system system /sys/devices/platform/goodix_ts.0/double_tap_enabled
+    chmod 0660 /sys/devices/platform/goodix_ts.0/double_tap_enabled
+
 on post-fs-data
     # msm specific files that need to be created on /data
     mkdir /data/vendor/misc 01771 system system
