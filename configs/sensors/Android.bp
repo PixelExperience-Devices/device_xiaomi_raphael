@@ -20,3 +20,20 @@ cc_library_shared {
     ],
     vendor: true,
 }
+
+cc_library_shared {
+    name: "sensors.raphael_double_tap",
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "double_tap_hal.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+    header_libs: [
+        "libhardware_headers",
+    ],
+    vendor: true,
+}

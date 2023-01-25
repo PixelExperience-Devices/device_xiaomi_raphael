@@ -465,12 +465,8 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl-xiaomi \
     android.hardware.sensors@1.0-service \
     android.hardware.sensors@2.0 \
-    android.hardware.sensors@2.1
-
-PRODUCT_PACKAGES += \
-    libsensorndkbridge
-
-PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.1 \
+    libsensorndkbridge \
     sensors.raphael_udfps \
     sensors.raphael_double_tap
 

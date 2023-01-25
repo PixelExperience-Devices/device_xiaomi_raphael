@@ -20,7 +20,6 @@
 /data/vendor/fpc(/.*)?                                          u:object_r:fingerprint_data_file:s0
 /data/vendor/fpdump(/.*)?                                       u:object_r:fingerprint_data_file:s0
 /sys/devices/virtual/touch/tp_dev/fod_status                    u:object_r:sysfs_fod:s0
-/sys/devices/virtual/touch/tp_dev/fp_state                      u:object_r:vendor_sysfs_sensors:s0
 
 # FPS Info
 /sys/class/drm/card0/sde-crtc-0/measured_fps                         u:object_r:vendor_sysfs_graphics:s0
