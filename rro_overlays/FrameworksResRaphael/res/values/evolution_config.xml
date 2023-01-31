@@ -55,6 +55,12 @@
         <item>org.pixelexperience.faceunlock</item>
     </string-array>
 
+    <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
+    <string-array name="config_cameraHFRPrivAppList" translatable="false">
+        <item>com.android.camera</item>
+        <item>org.lineageos.aperture</item>
+    </string-array>
+
     <!-- Display color inversion availability -->
     <bool name="config_displayInversionAvailable">false</bool>
 </resources>
