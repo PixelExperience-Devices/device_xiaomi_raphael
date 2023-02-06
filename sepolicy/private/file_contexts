@@ -1,0 +1,2 @@
+/data/user/0/com.android.camera(/.*)?                                   u:object_r:app_data_file:s0
+/vendor/lib64(/.*)?                                                     u:object_r:same_process_hal_file:s0
