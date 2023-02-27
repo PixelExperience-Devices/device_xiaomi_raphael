@@ -192,6 +192,20 @@ on property:sys.boot_completed=1
 
     setprop vendor.setup.power 1
 
+# Toggle glove_mode according to touch_sensitivity_mode
+on property:persist.vendor.touch_sensitivity_mode=0 && property:sys.boot_completed=1
+    write /sys/devices/platform/goodix_ts.0/game_mode "0 0 0 0"
+
+on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_completed=1
+    write /sys/devices/platform/goodix_ts.0/game_mode "1 2 2 0"
+
+# Route touch_sensitivity_mode to persist
+on property:debug.touch_sensitivity_mode=0
+    setprop persist.vendor.touch_sensitivity_mode 0
+
+on property:debug.touch_sensitivity_mode=1
+    setprop persist.vendor.touch_sensitivity_mode 1
+
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core

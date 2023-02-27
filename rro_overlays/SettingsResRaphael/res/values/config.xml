@@ -42,4 +42,7 @@
 
     <!-- Whether to show min/max refresh rate in display settings -->
     <bool name="config_show_refresh_rate_controls">true</bool>
+
+    <!-- Whether device supports increased touch sensitvity -->
+    <bool name="config_show_touch_sensitivity">true</bool>
 </resources>
