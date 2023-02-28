@@ -324,7 +324,7 @@ FingerprintAcquiredInfo BiometricsFingerprint::VendorAcquiredFilter(int32_t info
             if (info >= FINGERPRINT_ACQUIRED_VENDOR_BASE) {
                 // vendor specific code.
                 *vendorCode = info - FINGERPRINT_ACQUIRED_VENDOR_BASE;
-                return FingerprintAcquiredInfo::ACQUIRED_VENDOR;
+                return FingerprintAcquiredInfo::ACQUIRED_GOOD;
             }
     }
     ALOGE("Unknown acquiredmsg from fingerprint vendor library: %d", info);
