@@ -93,6 +93,7 @@ debug.sf.disable_client_composition_cache=1
 debug.sf.frame_rate_multiple_threshold=102
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=0
+persist.sys.sf.color_mode=0
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
