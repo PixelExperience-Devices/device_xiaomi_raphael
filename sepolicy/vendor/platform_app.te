@@ -15,3 +15,6 @@ get_prop(platform_app, vendor_audio_prop);
 
 allow platform_app sysfs_msm_subsys:dir { search };
 allow platform_app zygote:unix_stream_socket { getopt };
+
+allow platform_app default_android_hwservice:hwservice_manager { find };
+allow platform_app hal_power_service:service_manager { find };
