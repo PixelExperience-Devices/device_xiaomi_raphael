@@ -193,7 +193,7 @@ telephony.lteOnCdmaDevice=1
 persist.sys.binary_xml=false
 
 # SoC
-ro.soc.manufacturer=Qualcomm
+ro.soc.manufacturer=QTI
 ro.soc.model=SM8150
 
 # Surfaceflinger
