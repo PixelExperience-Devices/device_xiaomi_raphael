@@ -6,3 +6,6 @@ allow system_suspend sysfs_type:dir r_dir_perms;
 allow system_suspend sysfs:dir { open read };
 allow system_suspend sysfs:file { open getattr read };
 allow system_suspend sysfs_rtc:dir { open read };
+allow system_suspend sysfs_rtc:dir r_dir_perms;
+allow system_suspend sysfs_rtc:file rw_file_perms;
+dontaudit system_suspend sysfs:file { open read };
