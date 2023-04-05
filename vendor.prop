@@ -126,6 +126,9 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # FM
 vendor.hw.fm.init=0
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
