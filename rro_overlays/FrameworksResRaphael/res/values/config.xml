@@ -544,7 +544,7 @@
         <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
         <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
         <item>0</item> <!-- COLOR_MODE_DEFAULT    -->
-        <item>9</item> <!-- COLOR_MODE_DISPLAY_P3 -->
+        <item>0</item> <!-- COLOR_MODE_DEFAULT -->
     </integer-array>
 
     <!-- The default intensity level for alarm vibrations. See
