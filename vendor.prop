@@ -110,6 +110,8 @@ vendor.display.enable_force_split=1
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.gralloc.disable_ubwc=0
+vendor.display.qdcm.disable_factory_mode=1
+vendor.display.qdcm.mode_combine=1
 
 # DPM
 persist.vendor.dpm.feature=1
