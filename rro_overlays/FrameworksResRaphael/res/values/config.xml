@@ -85,26 +85,26 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>10.27811</item>    <!--  0 - 1  -->
-        <item>25.5265</item>    <!--  1 - 2  -->
-        <item>32.9902384256</item>    <!--  2 - 3  -->
-        <item>37.3278742039</item>    <!--  3 - 4  -->
-        <item>40.2339130994</item>    <!--  4 - 8  -->
-        <item>47.3775896947</item>    <!--  8 - 12  -->
-        <item>52.0773980991</item>    <!--  12 - 20  -->
-        <item>58.9500178659</item>    <!--  20 - 33  -->
-        <item>67.0727661023</item>    <!--  33 - 55  -->
-        <item>77.4795277377</item>    <!--  55 - 90  -->
-        <item>90.1649821044</item>    <!--  90 - 148  -->
-        <item>106.199488897</item>    <!--  148 - 245  -->
-        <item>126.920893691</item>    <!--  245 - 403  -->
-        <item>155.278937975</item>    <!--  403 - 665  -->
-        <item>192.014446343</item>    <!--  665 - 1097  -->
-        <item>238.225445161</item>    <!--  1097 - 1808  -->
-        <item>292.196984602</item>    <!--  1808 - 2981  -->
-        <item>355.964092728</item>    <!--  2981 - 5000  -->
-        <item>431.503962344</item>    <!--  5000 - 10000  -->
-        <item>546.6433233</item>    <!--  10000+  -->
+        <item>5.139055</item>       <!--  0 - 1  -->
+        <item>9.962018965</item>    <!--  1 - 2  -->
+        <item>18.34822964</item>    <!--  2 - 3  -->
+        <item>21.55068128</item>    <!--  3 - 4  -->
+        <item>24.0167788</item>     <!--  4 - 8  -->
+        <item>30.62162162</item>    <!--  8 - 12  -->
+        <item>35.09486396</item>    <!--  12 - 20  -->
+        <item>41.2249643</item>     <!--  20 - 33  -->
+        <item>47.6760716</item>     <!--  33 - 55  -->
+        <item>55.73002427</item>    <!--  55 - 90  -->
+        <item>66.24126116</item>    <!--  90 - 148  -->
+        <item>79.67614115</item>    <!--  148 - 245  -->
+        <item>98.04727274</item>    <!--  245 - 403  -->
+        <item>125.1221991</item>    <!--  403 - 665  -->
+        <item>161.6875093</item>    <!--  665 - 1097  -->
+        <item>208.4885553</item>    <!--  1097 - 1808  -->
+        <item>264.8221315</item>    <!--  1808 - 2981  -->
+        <item>327.8974352</item>    <!--  2981 - 5000  -->
+        <item>401.1676739</item>    <!--  5000 - 10000  -->
+        <item>494.0846144</item>    <!--  10000+  -->
     </array>
 	
     <!-- An array describing the screen's backlight values corresponding to the brightness
@@ -139,14 +139,16 @@
         <!-- b-coefficient --> <item>-0.955555555555554</item>
         <!-- y-intercept --> <item>1.000000000000000</item>
     </string-array>
-	
-    <!-- Minimum screen brightness allowed by the power manager. -->
+
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->	
     <integer name="config_screenBrightnessDim">6</integer>
 	
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">34</integer>
+    <integer name="config_screenBrightnessDoze">32</integer>
 
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
@@ -162,26 +164,20 @@
          backlight values -->
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
 	
-    <!-- Default screen brightness setting.
-         Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">98</integer>
-	
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
-
     <!-- Maximum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness above this level. -->
     <integer name="config_screenBrightnessSettingMaximum">255</integer>
 
     <!-- Minimum screen brightness setting allowed by power manager.
-        The user is forbidden from setting the brightness below this level.
-        Equivalent to 1/255. -->
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 0.0 to allow screen to go to minimal brightness.
+         The user is forbidden from setting the brightness below this level. -->
     <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
-         The user is forbidden from setting the brightness above this level.
-         This value is a fraction between 3.5% and 100%. -->
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 1.0 for maximum brightness range.
+         The user is forbidden from setting the brightness above this level. -->
     <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
 
     <!-- Default screen brightness setting.
