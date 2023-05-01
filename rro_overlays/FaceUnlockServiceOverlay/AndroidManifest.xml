@@ -5,6 +5,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:allowBackup="false"
     package="org.pixelexperience.faceunlock.overlay.raphael">
 
     <overlay
