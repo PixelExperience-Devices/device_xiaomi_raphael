@@ -1193,11 +1193,11 @@ vendor/bin/thermal-engine|01cb7dc998c39016b54089c18921ad7d65b3c675
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 
-# Time - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
--vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
-vendor/bin/time_daemon|17377813bbc330c23d2fee77be21fe24d8aa131e
+# Time - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
+-vendor/app/TimeService/TimeService.apk|92317b3b72586489456d37057b4c3c8e55863923
+vendor/bin/time_daemon|48401d7f85c87aa3e12ce7b4a969a50cbf59c293
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
-vendor/lib64/libtime_genoff.so|7b8bf7bf1eaa4df8f6613f4ece711a0797cd2e46
+vendor/lib64/libtime_genoff.so|8bb116ad297a5e4a94da2f10509509cb6e863a5f
 
 # Trusted User Interface - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|15378114c18fd1b1c8f9671f656396285ad1de48
