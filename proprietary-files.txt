@@ -461,7 +461,7 @@ vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so|12d4edcd85
 # Display-Calibration - from raphael V12.5.5.0.RFKCNXM (Patched)
 vendor/etc/qdcm_calib_data_samsung_ea8076_fhd_cmd_dsi_panel.xml|466f515f4dce2e4138f894946024937f1e953a8f
 
-# Display - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
+# Display - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
 vendor/lib64/libdisp-aba.so|44993853ff9d4340e856e6f53d802f10372442d3
 vendor/lib64/libdisplayqos.so|5548732c916e629f18f45ce257ce843b679a136a
 
