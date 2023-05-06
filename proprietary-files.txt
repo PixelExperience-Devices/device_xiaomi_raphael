@@ -852,9 +852,9 @@ vendor/lib64/unnhal-acc-hvx.so|d5123c50b9523190c71d90acc2635ff21595bd1a
 # NFC Firmware
 vendor/lib/libsn100u_fw.so
 
-# Peripheral manager - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
-vendor/bin/pm-proxy|0704192692efb4b79e8cb1a2252625ad24468805
-vendor/bin/pm-service|1a48e2a015181b351374b99053fb5dee8e2750ee
+# Peripheral manager - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
+vendor/bin/pm-proxy|c36785c811db9af0d6d938cdbc6b90dedaaf706e
+vendor/bin/pm-service|c3d1b2f6e7f731b1328afbcf8e344405744528e3
 vendor/lib64/libperipheral_client.so|9bfd41e276e16b8f7c6808f3d87531fc5be4cdd5
 vendor/lib64/libspcom.so|7cc4390e7caf520586c22cdb7219842fa5d6ed2c
 
