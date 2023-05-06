@@ -714,7 +714,7 @@ vendor/firmware/ipa_uc.b02
 vendor/firmware/ipa_uc.elf
 vendor/firmware/ipa_uc.mdt
 
-# IRQ balance - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
+# IRQ balance - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
 vendor/bin/msm_irqbalance|b075c2f4092c175950a2c26d19bf2013e2efd6d5
 vendor/etc/msm_irqbalance.conf|0141a3e34175f62a3ae1f0f44cca94cf7043f2de
 
