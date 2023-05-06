@@ -482,7 +482,7 @@ system_ext/lib64/libdpmtcm.so|a3c3717e8680ec9fc2694025ffa2d7359ac41973
 system_ext/lib64/vendor.qti.diaghal@1.0.so|d0e63f3676a43466122d3494f2c82472546c7b3f
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|9f988ff6a8c6676172d3d3740bd0b8616b7dc125
 
-# DPM (vendor) - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
+# DPM (vendor) - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
 vendor/bin/dpmQmiMgr|61a421804559b0e461439c19088acc01b871982a
 vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so|8e97eba901841227ae7029f535a747fdefd6c369
