@@ -536,12 +536,12 @@ vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 vendor/lib/liboemcrypto.so
 vendor/lib64/liboemcrypto.so
 
-# ESE - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
-vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|c6b5cf65cb4096abbf137f0c1f6674dce7d7db71
+# ESE - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
+vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|040212c2c39ca3f2090291dd3a7f49979e5003df
 vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc|3c024c7135ec3dd8658624509ee61396a74f1ede
-vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|c3f6b98fb88ce938d6141264e926bad0ed0c577e
-vendor/lib64/vendor.qti.esepowermanager@1.0.so|43257e4e68ea43c34a1acecda7fa524bf1ad53ad
-vendor/lib64/vendor.qti.esepowermanager@1.1.so|85224bd7e8b89f2b0e4370c14457a62cd99781c8
+vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|7b67b47030f00af1c2e207995eea05f05fb91b23
+vendor/lib64/vendor.qti.esepowermanager@1.0.so|6585b5976a98053fb4d2b51c32337ebe8960d427
+vendor/lib64/vendor.qti.esepowermanager@1.1.so|61d7c35edb403f8de4be2e483431cb26109ef0ae
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.msmnile.so
