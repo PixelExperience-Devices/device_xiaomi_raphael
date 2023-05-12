@@ -210,6 +210,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 
+# HBM
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display_id_4630946693002713985.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946693002713985.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
