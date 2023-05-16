@@ -115,9 +115,6 @@ TARGET_KERNEL_LLVM_BINUTILS := true
 TARGET_DISABLED_UBWC := true
 TARGET_USES_ION := true
 
-# MiuiCamera
--include vendor/xiaomi/miuicamera/BoardConfigAnx.mk
-
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
