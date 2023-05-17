@@ -37,4 +37,6 @@
             </point>
         </sdrHdrRatioMap>
     </highBrightnessMode>
+    <ambientLightHorizonLong>3000</ambientLightHorizonLong>
+    <ambientLightHorizonShort>1000</ambientLightHorizonShort>
 </displayConfiguration>
