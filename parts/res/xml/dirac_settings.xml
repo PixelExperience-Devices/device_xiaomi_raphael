@@ -19,9 +19,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/dirac_title">
 
-    <com.android.settingslib.widget.IllustrationPreference
-            android:key="dirac_logo"
-            app:lottie_rawRes="@drawable/dirac_logo"/>
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="dirac_logo"
+        android:layout="@layout/dirac_logo"
+        android:selectable="false" />
 
     <com.android.settingslib.widget.MainSwitchPreference
         android:defaultValue="false"
