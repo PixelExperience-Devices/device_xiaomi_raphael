@@ -192,9 +192,16 @@
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">true</bool>
 
+    <!-- Minimum color temperature, in Kelvin, supported by Night display. -->
+    <integer name="config_nightDisplayColorTemperatureMin">1600</integer>
+
     <!-- Maximum color temperature, in Kelvin, supported by Night display.
          Setting this to track config_displayWhiteBalanceColorTemperatureDefault (currently 6500K). -->
     <integer name="config_nightDisplayColorTemperatureMax">6500</integer>
+
+    <!-- Default color temperature, in Kelvin, to tint the screen when Night display is
+          activated. -->
+    <integer name="config_nightDisplayColorTemperatureDefault">2650</integer>
 
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
