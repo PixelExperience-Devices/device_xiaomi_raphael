@@ -145,6 +145,17 @@
       "ResetOnInit": true
     },
     {
+      "Name": "TAminclamp",
+      "Path": "/dev/cpuset/top-app/uclamp.min",
+      "Values": [
+        "50",
+        "10",
+        "0"
+      ],
+      "DefaultIndex": 1,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUBWHystTriggerCount",
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_trigger_count",
       "Values": [
@@ -344,6 +355,12 @@
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
       "Value": "2597"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "TAminclamp",
+      "Duration": 0,
+      "Value": "50"
     },
     {
       "PowerHint": "INTERACTION",
@@ -632,6 +649,12 @@
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
       "Value": "2016000"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "TAminclamp",
+      "Duration": 0,
+      "Value": "0"
     }
   ]
 }
