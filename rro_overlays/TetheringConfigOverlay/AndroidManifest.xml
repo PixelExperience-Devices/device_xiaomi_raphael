@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:allowBackup="false"
     package="com.android.networkstack.tethering.raphael">
 
+    <application android:allowBackup="false"/>
     <overlay
       android:targetPackage="com.android.networkstack.tethering"
       android:targetName="TetheringConfig"

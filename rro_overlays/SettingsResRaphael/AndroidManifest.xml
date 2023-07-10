@@ -5,9 +5,9 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:allowBackup="false"
     package="com.android.settings.overlay.raphael">
 
+    <application android:allowBackup="false"/>
     <overlay
         android:isStatic="true"
         android:priority="750"
