@@ -37,6 +37,10 @@ cc_binary {
         "libbinder_ndk",
     ],
     proprietary: true,
+    lto: {
+        thin: true,
+    },
+    whole_program_vtables: true,
 }
 
 cc_library_static {
@@ -48,4 +52,8 @@ cc_library_static {
     header_libs: [
         "generated_kernel_headers",
     ],
+    lto: {
+        thin: true,
+    },
+    whole_program_vtables: true,
 }
