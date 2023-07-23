@@ -44,6 +44,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/xiaomi
 
+# IFAA manager
+PRODUCT_PACKAGES += \
+    IFAAService
+
 # IncrementalFS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=yes
