@@ -87,7 +87,7 @@ dalvik.vm.dex2oat64.enabled=true
 # Display
 debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
-debug.sf.auto_latch_unsignaled=true
+debug.sf.latch_unsignaled=0
 debug.sf.enable_gl_backpressure=1
 debug.sf.disable_client_composition_cache=1
 debug.sf.frame_rate_multiple_threshold=102
