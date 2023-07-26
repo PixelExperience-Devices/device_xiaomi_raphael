@@ -664,20 +664,20 @@ vendor/lib64/libkernelmanager.so|6e34cfed1b61ef27ac3740cf477e1ed836695513
 vendor/lib64/libllvm-glnext.so|10ce1497960c732b8077cc1bd42e3d8dba96e943
 vendor/lib64/libllvm-qcom.so|01c37f8efc8362168666fc811082dbbee14fbcbd
 
-# Graphics (DRM) - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
-vendor/lib64/libsdedrm.so|7cf5f4e7e4dacae88e317d3397fdf25dabe45b65
+# Graphics (DRM) - from hanoip RRI31.Q1-42-24-4
+vendor/lib64/libsdedrm.so|bccd71afeb56529b457699bdd179d571830caa16
 
 # Graphics (HDR) - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
 vendor/lib64/libhdr_tm.so|a222a7d838735c5ce73f06d4096fea3ca19611c8
 
-# Graphics (SDM) - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
-vendor/lib64/libqseed3.so|7f2a659fb9acd84d79c11dbd6901b816d5d1214f
-vendor/lib64/libsdm-color.so|d0984c33dcbf84940676917e0c3584b0ccfeaf03
-vendor/lib64/libsdm-colormgr-algo.so|15f696a4575868e528360896f1e0098d531899c0
-vendor/lib64/libsdm-diag.so|8c038fda1addb5c9cb075d6ae1000698782ddd8b
-vendor/lib64/libsdm-disp-vndapis.so|60da199073d2b0881bf075190a644b332503f39c
-vendor/lib64/libsdmextension.so|e10d29f29b7a53b75369e58e8a165b2b86609f26
-vendor/lib64/libtinyxml2_1.so|ff32deb110acb02cb5def5f3404f9064c1276483
+# Graphics (SDM) -  from hanoip RRI31.Q1-42-24-4
+vendor/lib64/libqseed3.so|1395834daf3c6cd07acbdbc44110decb3be362c2
+vendor/lib64/libsdm-color.so|e82ee94b86f9c59044017ab527261a7aacbd6083
+vendor/lib64/libsdm-colormgr-algo.so|11b65733d87ff65633a5fe8f4207dde12391625c
+vendor/lib64/libsdm-diag.so|55dafc05ba68666f10412a534f7122d7f45bf403
+vendor/lib64/libsdm-disp-vndapis.so|9ab6725a5efba29b77d1d6ab33e10e3ff3296960
+vendor/lib64/libsdmextension.so|c1425aae0475207054351c2bf16c18350ccf7570
+vendor/lib64/libtinyxml2_1.so|92101861d95cbdf9625d192d0b2295baa5960b68
 
 # Graphics Firmware
 vendor/firmware/a612_rgmu.bin
