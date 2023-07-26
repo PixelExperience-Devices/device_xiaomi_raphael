@@ -373,7 +373,6 @@ vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
-vendor/lib/libfastcrc.so
 vendor/lib/libsysmon_cdsp_skel.so
 vendor/lib64/libcdfw.so
 vendor/lib64/libcdfw_remote_api.so
@@ -714,6 +713,10 @@ vendor/bin/npu_launcher
 vendor/lib/libnpu.so
 vendor/lib64/libnpu.so
 
+# Media
+vendor/lib/libqcodec2.so
+vendor/lib64/libqcodec2.so
+
 # Media - from LA.UM.9.1.r1-12900.02-SMxxx0.QSSI12.0
 vendor/bin/vppservice|99524e6e27bf4f8c4b5c5234f887413623cfdb0f
 vendor/etc/configstore/vpp.configstore.xml|ed961545186c66fd9523f25866c74f2e11ee63d7
@@ -722,7 +725,6 @@ vendor/lib/libAlacSwDec.so|cb41b0945e57b349e6aa476cdac4315ee13a2def
 vendor/lib/libApeSwDec.so|ce425ef9372ed6635e313422b3578f77b90ff526
 vendor/lib/libFlacSwDec.so|6b17d0965c9f8bddab3ffd59e7bb16e92bb68d85
 vendor/lib/libI420colorconvert.so|09a63a93d9cf2f78e31cb996a617071572e4f3db
-vendor/lib/libMpeg4SwEncoder.so|ed6478056d874c784dd649b172e7f0bb3188ba9f
 vendor/lib/libOmxAacDec.so|c3d19eb5668973a6d7b64133d1b607a384167875
 vendor/lib/libOmxAlacDec.so|17fbc925be0efdcfeb3473081016ba0203d6fea5
 vendor/lib/libOmxAlacDecSw.so|be917abb87f621c8d721a03ed42016ae12bdbf8a
@@ -734,8 +736,6 @@ vendor/lib/libOmxDsdDec.so|93832f5a8e016a0cd419fca916f29a7987d4af9e
 vendor/lib/libOmxEvrcDec.so|e26f066a89944ee36450c5325b45e5529de60882
 vendor/lib/libOmxG711Dec.so|7e310d958e5a68caeacef44a48acf0be5497beb6
 vendor/lib/libOmxQcelp13Dec.so|ec0650fee64998b47cfed806cda26f0eb8fd85a8
-vendor/lib/libOmxSwVdec.so|490d51df165e9f59a3bdf09c1fb08e79b1857309
-vendor/lib/libOmxSwVencMpeg4.so|d52be5900bb742bdf7202d580e788083153d8160
 vendor/lib/libOmxVideoDSMode.so|22dfbf532097386c411ab479aa177ed0b098b0cb
 vendor/lib/libOmxVpp.so|ff50ac05e0b97a6a1a018164cfd1e4d601fc170c
 vendor/lib/libOmxWmaDec.so|09ea4d8b190fbfcc61698c46f46c97b0f45fcdfc
@@ -743,21 +743,16 @@ vendor/lib/libdsd2pcm.so|c5ab1afd7a5a23bf83d80b5ac74247c3dd2085af
 vendor/lib/libmm-color-convertor.so|904f9daeca6323b7d240c2f640a92852bac88146
 vendor/lib/libmulawdec.so|89ebb1d9e77911f1abe37405016839d8436a9825
 vendor/lib/libstagefright_soft_qtiflacdec.so|d7a6b0b4942f223d82370f6da54be53cd54de89c
-vendor/lib/libswvdec.so|443380c7092d69f47ff204549a7670a1573cd922
 vendor/lib/libvppclient.so|ad6b390270d9dab83f5501e30d7b05f0a0120882
 vendor/lib/libvpphcp.so|91bfde32023ba6c65d80a4ec56c33bbc972f1251
 vendor/lib/libvpphvx.so|32f90b9809ea221f0856f0a3563511cf54d7e9f8
 vendor/lib/libvppimmotion.so|d3be671eb77d539cd6668df9b6ac4f1ed23a7232
 vendor/lib/libvpplibrary.so|5798fbc1d7ae747c04448e9db17d67b9759123c2
 vendor/lib/libvpptestutils.so|4652a35c291d6f734fdd97e531f4cdf6520d91d4
-vendor/lib/vendor.qti.hardware.vpp@1.1.so|3e0467d0c30bb6cccab12d2e67dacc5ea852b3df
-vendor/lib/vendor.qti.hardware.vpp@1.2.so|d1226cfbeee864b7cac52bcee37fdf4524892fd6
-vendor/lib/vendor.qti.hardware.vpp@1.3.so|6ff4979c9632ce9f244aeba7a0804332328f3fa9
 vendor/lib64/libAlacSwDec.so|e520eafd5dd9ee29456b60f4668ea94394a61a63
 vendor/lib64/libApeSwDec.so|76d3cc02ca1c3cdc3c71e57dc6e53027d2bf3d37
 vendor/lib64/libFlacSwDec.so|c16096dee817ba98a5a7b79ae358ae0db27fe237
 vendor/lib64/libI420colorconvert.so|ea24367de946f2c2a7f81b78c0a805edf8fd2d64
-vendor/lib64/libMpeg4SwEncoder.so|17a2e12c6bb2184a73c54174f1ec14a2ccff4b11
 vendor/lib64/libOmxAacDec.so|4e419724fb940a1fb93b018028dbf3ae6bd9e6ea
 vendor/lib64/libOmxAlacDec.so|9182e31c172ca4794cfccc557e497b4e43bd08ef
 vendor/lib64/libOmxAlacDecSw.so|b4170d63362517866eaac0e8ac286f60aeac9257
@@ -768,23 +763,17 @@ vendor/lib64/libOmxApeDecSw.so|f70889abc2d8beafa92d71d98a33d0e109b662f5
 vendor/lib64/libOmxEvrcDec.so|c46237c40fc9ca24109d55dd82c64137768d68c5
 vendor/lib64/libOmxG711Dec.so|e321b72ebf4cf36b3e7b7ff33a3e00870cd3a461
 vendor/lib64/libOmxQcelp13Dec.so|1e428b6dbd8a3f010c1f5fa208a14c362a502cf6
-vendor/lib64/libOmxSwVdec.so|83924a8119c8b26c0a4cc245a877e56929a152b1
-vendor/lib64/libOmxSwVencMpeg4.so|89a23c40a1dfb991f3a8e3fe3996f93dbbacefab
 vendor/lib64/libOmxVpp.so|23ae4cd2860131786e3b34ed380eb81fd849cf6c
 vendor/lib64/libOmxWmaDec.so|46e5cc33f54a863f499c73302b679cb81fead0c7
 vendor/lib64/libmm-color-convertor.so|ade617dc02ec472e68755568d6295ab328aa97be
 vendor/lib64/libmulawdec.so|9a21d843c7bd2a516e0f1ce375855b767947b314
 vendor/lib64/libstagefright_soft_qtiflacdec.so|8531b262078659ec4f63f39a69c24605d4a0cd90
-vendor/lib64/libswvdec.so|439db421835705020c8c9ad02e5385922d917747
 vendor/lib64/libvppclient.so|d21711ec814b89213c4a014fc266606dfcd671b3
 vendor/lib64/libvpphcp.so|6a2580bde806136a150b12cd67b287c8f6709f85
 vendor/lib64/libvpphvx.so|449c9d5448081aed1191c0478cd1e236eabf2a26
 vendor/lib64/libvppimmotion.so|b3df461f2e142868d6254fc244affecbbd8d9912
 vendor/lib64/libvpplibrary.so|cbb3a78b0b49a07944fb4f3b0daf83e8511ddc59
 vendor/lib64/libvpptestutils.so|8891e9400cd6d79430b68b9a4996b3d62d281de4
-vendor/lib64/vendor.qti.hardware.vpp@1.1.so|e336f4a3d0a50ee985639db6a8a70ec9817144ee
-vendor/lib64/vendor.qti.hardware.vpp@1.2.so|7ae61a9c75d4a17f0aad5969ce1a27cd5b0552ae
-vendor/lib64/vendor.qti.hardware.vpp@1.3.so|85a4e2ca843525db5c76486dbee4c5c7a672ee8d
 
 # Mlipay
 vendor/bin/mlipayd@1.1
