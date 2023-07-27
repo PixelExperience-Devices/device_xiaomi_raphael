@@ -26,6 +26,8 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="30"/>
@@ -49,9 +51,18 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:replace="android:authorities"/>
 
+        <service android:name=".doze.DozeService"
+                 android:permission="XiaomiDozeService">
+        </service>
+
         <service android:name=".popupcamera.PopupCameraService"
                  android:permission="PopupCameraService">
         </service>
+
+        <activity
+            android:name=".doze.DozeSettingsActivity"
+            android:label="@string/ambient_display_title">
+        </activity>
 
         <activity
             android:name=".haptic.HapticLevelActivity"

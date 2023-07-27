@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.haptic.HapticUtils;
 import org.lineageos.settings.popupcamera.PopupCameraUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
@@ -34,6 +35,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        DozeUtils.checkDozeService(context);
         HapticUtils.restoreLevel(context);
         PopupCameraUtils.startService(context);
         RefreshUtils.initialize(context);
