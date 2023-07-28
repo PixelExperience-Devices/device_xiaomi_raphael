@@ -648,4 +648,90 @@
 			<instance>default</instance>
 		</interface>
 	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.nxp.hardware.nfc</name>
+		<version>1.0-2</version>
+		<interface>
+			<name>INqNfc</name>
+			<instance>default</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.cvp</name>
+		<version>1.0</version>
+		<interface>
+			<name>ICvp</name>
+			<instance>cvphalservice</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.radio.lpa</name>
+		<version>1.0-2</version>
+		<interface>
+			<name>IUimLpa</name>
+			<instance>UimLpa0</instance>
+			<instance>UimLpa1</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.radio.qtiradio</name>
+		<version>2.0-7</version>
+		<interface>
+			<name>IQtiRadio</name>
+			<instance>slot1</instance>
+			<instance>slot2</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.scve.objecttracker</name>
+		<version>1.0</version>
+		<interface>
+			<name>IObjectTracker</name>
+			<instance>objectTracker</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.scve.panorama</name>
+		<version>1.0</version>
+		<interface>
+			<name>IPanoramaStitching</name>
+			<instance>panoStitching</instance>
+		</interface>
+		<interface>
+			<name>IPanoramaTracking</name>
+			<instance>panoTracking</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.sensorscalibrate</name>
+		<version>1.0</version>
+		<interface>
+			<name>ISensorsCalibrate</name>
+			<instance>default</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.hardware.wifi.wifilearner</name>
+		<version>1.0</version>
+		<interface>
+			<name>IWifiStats</name>
+			<instance>wifiStats</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.power.pasrmanager</name>
+		<version>1.0</version>
+		<interface>
+			<name>IPasrManager</name>
+			<instance>default</instance>
+		</interface>
+	</hal>
+	<hal format="hidl" optional="true">
+		<name>vendor.qti.qspmhal</name>
+		<version>1.0</version>
+		<interface>
+			<name>IQspmhal</name>
+			<instance>default</instance>
+		</interface>
+	</hal>
 </compatibility-matrix>
