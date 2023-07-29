@@ -1,3 +1,0 @@
-allow init vendor_data_file:file lock;
-allow init hal_audio_default:binder call;
-allow init platform_app:binder call;
