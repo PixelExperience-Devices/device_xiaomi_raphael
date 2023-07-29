@@ -475,6 +475,7 @@
         <item>"/system_ext/priv-app/MotoDolbyDax3/MotoDolbyDax3.apk"</item>
         <item>"/system_ext/priv-app/daxService/daxService.apk"</item>
         <item>"/vendor/lib64/egl/libGLESv2_adreno.so"</item>
+        <item>"/vendor/lib64/hw/fingerprint.goodix_fod.msmnile.so"</item>
         <item>"/vendor/lib64/libgsl.so"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
