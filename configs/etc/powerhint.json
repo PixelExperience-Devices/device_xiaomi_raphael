@@ -146,7 +146,7 @@
     },
     {
       "Name": "TAminclamp",
-      "Path": "/dev/cpuset/top-app/uclamp.min",
+      "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
       "Values": [
         "50",
         "10",
