@@ -111,12 +111,12 @@ genfscon sysfs /devices/platform/vendor/vendor:extcon_usb1/wakeup               
 genfscon sysfs /devices/virtual/diag/diag/wakeup                                                                                                   u:object_r:sysfs_wakeup:s0
 
 # UDFPS Sensor
-genfscon sysfs /devices/platform/goodix_ts.0/udfps_pressed											   u:object_r:vendor_sysfs_sensors:s0
-genfscon sysfs /devices/platform/goodix_ts.0/udfps_enabled											   u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/platform/goodix_ts.0/udfps_pressed u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/platform/goodix_ts.0/udfps_enabled u:object_r:vendor_sysfs_sensors:s0
 
 # Double Tap Sensor
-genfscon sysfs /devices/platform/goodix_ts.0/double_tap_pressed											   u:object_r:vendor_sysfs_sensors:s0
-genfscon sysfs /devices/platform/goodix_ts.0/double_tap_enabled											   u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/platform/goodix_ts.0/double_tap_pressed u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/platform/goodix_ts.0/double_tap_enabled u:object_r:vendor_sysfs_sensors:s0
 
 # Extcon sysfs
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,usb-pdphy@1700/extcon                 u:object_r:sysfs_extcon:s0

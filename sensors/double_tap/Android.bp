@@ -5,24 +5,7 @@
 //
 
 cc_library_shared {
-    name: "sensors.raphael_udfps",
-    defaults: ["hidl_defaults"],
-    srcs: [
-        "udfps_hal.cpp",
-    ],
-    shared_libs: [
-        "libcutils",
-        "liblog",
-        "libutils",
-    ],
-    header_libs: [
-        "libhardware_headers",
-    ],
-    vendor: true,
-}
-
-cc_library_shared {
-    name: "sensors.raphael_double_tap",
+    name: "sensors.double_tap",
     defaults: ["hidl_defaults"],
     srcs: [
         "double_tap_hal.cpp",

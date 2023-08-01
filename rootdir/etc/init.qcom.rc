@@ -168,7 +168,6 @@ on boot
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
 
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     setprop net.tcp.2g_init_rwnd 10
@@ -233,6 +232,18 @@ on boot
     enable vendor.dataadpl
 
     setprop init.svc.console stopped
+
+    # UDFPS Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/udfps_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/udfps_pressed
+    chown system system /sys/devices/platform/goodix_ts.0/udfps_enabled
+    chmod 0660 /sys/devices/platform/goodix_ts.0/udfps_enabled
+
+    # Double Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/double_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/double_tap_pressed
+    chown system system /sys/devices/platform/goodix_ts.0/double_tap_enabled
+    chmod 0660 /sys/devices/platform/goodix_ts.0/double_tap_enabled
 
 on post-fs-data
     # msm specific files that need to be created on /data

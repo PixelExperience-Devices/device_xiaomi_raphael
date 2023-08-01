@@ -482,8 +482,8 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0 \
     android.hardware.sensors@2.1 \
     libsensorndkbridge \
-    sensors.raphael_udfps \
-    sensors.raphael_double_tap
+    sensors.udfps-custom \
+    sensors.double_tap
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf

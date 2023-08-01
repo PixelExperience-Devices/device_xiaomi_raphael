@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "sensors.raphael_udfps"
+#define LOG_TAG "sensors.double_tap"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -16,11 +16,11 @@
 #include <string.h>
 #include <utils/SystemClock.h>
 
-static const char *udfps_pressed_path = "/sys/devices/platform/goodix_ts.0/udfps_pressed";
-static const char *udfps_enabled_path = "/sys/devices/platform/goodix_ts.0/udfps_enabled";
+static const char *double_tap_pressed_path = "/sys/devices/platform/goodix_ts.0/double_tap_pressed";
+static const char *double_tap_enabled_path = "/sys/devices/platform/goodix_ts.0/double_tap_enabled";
 
-static struct sensor_t udfps_sensor = {
-        .name = "UDFPS Sensor",
+static struct sensor_t double_tap_sensor = {
+        .name = "dt2w Sensor",
         .vendor = "The LineageOS Project",
         .version = 1,
         .handle = 0,
@@ -31,19 +31,19 @@ static struct sensor_t udfps_sensor = {
         .minDelay = -1,
         .fifoReservedEventCount = 0,
         .fifoMaxEventCount = 0,
-        .stringType = "org.lineageos.sensor.udfps",
+        .stringType = "org.lineageos.sensor.double_tap",
         .requiredPermission = "",
         .maxDelay = 0,
         .flags = SENSOR_FLAG_ONE_SHOT_MODE | SENSOR_FLAG_WAKE_UP,
         .reserved = {},
 };
 
-struct udfps_context_t {
+struct double_tap_context_t {
     sensors_poll_device_1_t device;
     int fd, fd_enable;
 };
 
-static int udfps_read_line(int fd, char* buf, size_t len) {
+static int double_tap_read_line(int fd, char* buf, size_t len) {
     int rc;
 
     rc = lseek(fd, 0, SEEK_SET);
@@ -61,15 +61,15 @@ static int udfps_read_line(int fd, char* buf, size_t len) {
     return rc;
 }
 
-static int udfps_read_state(int fd) {
+static int double_tap_read_state(int fd) {
     int rc, state = 0;
     char buf[64];
 
-    rc = udfps_read_line(fd, buf, sizeof(buf));
+    rc = double_tap_read_line(fd, buf, sizeof(buf));
     if (rc > 0) {
         rc = sscanf(buf, "%d", &state);
         if (rc != 1) {
-            ALOGE("Failed to parse udfps_pressed: %d", rc);
+            ALOGE("Failed to parse double_tap_pressed: %d", rc);
             state = 0;
         }
     }
@@ -77,7 +77,7 @@ static int udfps_read_state(int fd) {
     return state;
 }
 
-static int udfps_wait_event(int fd, int timeout) {
+static int double_tap_wait_event(int fd, int timeout) {
     struct pollfd fds = {
             .fd = fd,
             .events = POLLERR | POLLPRI,
@@ -92,16 +92,16 @@ static int udfps_wait_event(int fd, int timeout) {
     return rc;
 }
 
-static void udfps_flush_events(int fd) {
+static void double_tap_flush_events(int fd) {
     char buf[64];
 
-    while (udfps_wait_event(fd, 0) > 0) {
-        udfps_read_line(fd, buf, sizeof(buf));
+    while (double_tap_wait_event(fd, 0) > 0) {
+        double_tap_read_line(fd, buf, sizeof(buf));
     }
 }
 
-static int udfps_close(struct hw_device_t* dev) {
-    udfps_context_t* ctx = reinterpret_cast<udfps_context_t*>(dev);
+static int double_tap_close(struct hw_device_t* dev) {
+    double_tap_context_t* ctx = reinterpret_cast<double_tap_context_t*>(dev);
 
     if (ctx) {
         close(ctx->fd);
@@ -112,8 +112,8 @@ static int udfps_close(struct hw_device_t* dev) {
     return 0;
 }
 
-static int udfps_activate(struct sensors_poll_device_t* dev, int handle, int enabled) {
-    udfps_context_t* ctx = reinterpret_cast<udfps_context_t*>(dev);
+static int double_tap_activate(struct sensors_poll_device_t* dev, int handle, int enabled) {
+    double_tap_context_t* ctx = reinterpret_cast<double_tap_context_t*>(dev);
 
     if (!ctx || handle) {
         return -EINVAL;
@@ -122,13 +122,13 @@ static int udfps_activate(struct sensors_poll_device_t* dev, int handle, int ena
     write(ctx->fd_enable, enabled ? "1" : "0", 1);
 
     // Flush any pending events
-    if (enabled) udfps_flush_events(ctx->fd);
+    if (enabled) double_tap_flush_events(ctx->fd);
 
     return 0;
 }
 
-static int udfps_setDelay(struct sensors_poll_device_t* dev, int handle, int64_t /* ns */) {
-    udfps_context_t* ctx = reinterpret_cast<udfps_context_t*>(dev);
+static int double_tap_setDelay(struct sensors_poll_device_t* dev, int handle, int64_t /* ns */) {
+    double_tap_context_t* ctx = reinterpret_cast<double_tap_context_t*>(dev);
 
     if (!ctx || handle) {
         return -EINVAL;
@@ -137,84 +137,84 @@ static int udfps_setDelay(struct sensors_poll_device_t* dev, int handle, int64_t
     return 0;
 }
 
-static int udfps_poll(struct sensors_poll_device_t* dev, sensors_event_t* data, int /* count */) {
-    udfps_context_t* ctx = reinterpret_cast<udfps_context_t*>(dev);
+static int double_tap_poll(struct sensors_poll_device_t* dev, sensors_event_t* data, int /* count */) {
+    double_tap_context_t* ctx = reinterpret_cast<double_tap_context_t*>(dev);
 
     if (!ctx) {
         return -EINVAL;
     }
 
-    int fod_state = 0;
+    int double_tap_state = 0;
 
     do {
-        int rc = udfps_wait_event(ctx->fd, -1);
+        int rc = double_tap_wait_event(ctx->fd, -1);
         if (rc < 0) {
-            ALOGE("Failed to poll udfps_pressed: %d", -errno);
+            ALOGE("Failed to poll double_tap_pressed: %d", -errno);
             return -errno;
         } else if (rc > 0) {
-            fod_state = udfps_read_state(ctx->fd);
+            double_tap_state = double_tap_read_state(ctx->fd);
         }
-    } while (!fod_state);
+    } while (!double_tap_state);
 
     memset(data, 0, sizeof(sensors_event_t));
     data->version = sizeof(sensors_event_t);
-    data->sensor = udfps_sensor.handle;
-    data->type = udfps_sensor.type;
+    data->sensor = double_tap_sensor.handle;
+    data->type = double_tap_sensor.type;
     data->timestamp = ::android::elapsedRealtimeNano();
 
     return 1;
 }
 
-static int udfps_batch(struct sensors_poll_device_1* /* dev */, int /* handle */, int /* flags */,
+static int double_tap_batch(struct sensors_poll_device_1* /* dev */, int /* handle */, int /* flags */,
                        int64_t /* period_ns */, int64_t /* max_ns */) {
     return 0;
 }
 
-static int udfps_flush(struct sensors_poll_device_1* /* dev */, int /* handle */) {
+static int double_tap_flush(struct sensors_poll_device_1* /* dev */, int /* handle */) {
     return -EINVAL;
 }
 
 static int open_sensors(const struct hw_module_t* module, const char* /* name */,
                         struct hw_device_t** device) {
-    udfps_context_t* ctx = new udfps_context_t();
+    double_tap_context_t* ctx = new double_tap_context_t();
 
-    memset(ctx, 0, sizeof(udfps_context_t));
+    memset(ctx, 0, sizeof(double_tap_context_t));
     ctx->device.common.tag = HARDWARE_DEVICE_TAG;
     ctx->device.common.version = SENSORS_DEVICE_API_VERSION_1_3;
     ctx->device.common.module = const_cast<hw_module_t*>(module);
-    ctx->device.common.close = udfps_close;
-    ctx->device.activate = udfps_activate;
-    ctx->device.setDelay = udfps_setDelay;
-    ctx->device.poll = udfps_poll;
-    ctx->device.batch = udfps_batch;
-    ctx->device.flush = udfps_flush;
+    ctx->device.common.close = double_tap_close;
+    ctx->device.activate = double_tap_activate;
+    ctx->device.setDelay = double_tap_setDelay;
+    ctx->device.poll = double_tap_poll;
+    ctx->device.batch = double_tap_batch;
+    ctx->device.flush = double_tap_flush;
 
     int retries = 0;
 
     while (retries < 5) {
         sleep(1);
         retries++;
-        ctx->fd = open(udfps_pressed_path, O_RDONLY);
+        ctx->fd = open(double_tap_pressed_path, O_RDONLY);
         if (ctx->fd >= 0) {
-            ALOGI("Success open udfps_pressed state after %d retries", retries);
+            ALOGI("Success open double_tap_pressed state after %d retries", retries);
             break;
         }
     }
 
     if (ctx->fd < 0) {
-        ALOGE("Failed to open udfps_pressed state after %d retries: %d", retries, -errno);
+        ALOGE("Failed to open double_tap_pressed state after %d retries: %d", retries, -errno);
         delete ctx;
 
         return -ENODEV;
     }
 
-    ctx->fd_enable = open(udfps_enabled_path, O_WRONLY);
+    ctx->fd_enable = open(double_tap_enabled_path, O_WRONLY);
     if (ctx->fd_enable < 0) {
-        ALOGE("Failed to open udfps_enable: %d", -errno);
+        ALOGE("Failed to open double_tap_enable: %d", -errno);
         delete ctx;
         return -ENODEV;
     } else {
-        ALOGI("Success open udfps_enable");
+        ALOGI("Success open double_tap_enable");
     }
 
     *device = &ctx->device.common;
@@ -222,17 +222,17 @@ static int open_sensors(const struct hw_module_t* module, const char* /* name */
     return 0;
 }
 
-static struct hw_module_methods_t udfps_module_methods = {
+static struct hw_module_methods_t double_tap_module_methods = {
         .open = open_sensors,
 };
 
-static int udfps_get_sensors_list(struct sensors_module_t*, struct sensor_t const** list) {
-    *list = &udfps_sensor;
+static int double_tap_get_sensors_list(struct sensors_module_t*, struct sensor_t const** list) {
+    *list = &double_tap_sensor;
 
     return 1;
 }
 
-static int udfps_set_operation_mode(unsigned int mode) {
+static int double_tap_set_operation_mode(unsigned int mode) {
     return !mode ? 0 : -EINVAL;
 }
 
@@ -241,11 +241,11 @@ struct sensors_module_t HAL_MODULE_INFO_SYM = {
                    .version_major = 1,
                    .version_minor = 0,
                    .id = SENSORS_HARDWARE_MODULE_ID,
-                   .name = "UDFPS Sensor module",
+                   .name = "dt2w Sensor module",
                    .author = "Ivan Vecera",
-                   .methods = &udfps_module_methods,
+                   .methods = &double_tap_module_methods,
                    .dso = NULL,
                    .reserved = {0}},
-        .get_sensors_list = udfps_get_sensors_list,
-        .set_operation_mode = udfps_set_operation_mode,
+        .get_sensors_list = double_tap_get_sensors_list,
+        .set_operation_mode = double_tap_set_operation_mode,
 };
