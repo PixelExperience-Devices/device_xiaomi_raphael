@@ -91,6 +91,7 @@ TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_raphael
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE += console=null
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
