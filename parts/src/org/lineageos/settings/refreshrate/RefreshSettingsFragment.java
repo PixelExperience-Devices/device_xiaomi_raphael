@@ -57,6 +57,8 @@ public class RefreshSettingsFragment extends PreferenceFragment
     private ApplicationsState mApplicationsState;
     private ApplicationsState.Session mSession;
     private ActivityFilter mActivityFilter;
+    private Map<String, ApplicationsState.AppEntry> mEntryMap =
+            new HashMap<String, ApplicationsState.AppEntry>();
 
     private RefreshUtils mRefreshUtils;
     private RecyclerView mAppsRecyclerView;
@@ -180,6 +182,10 @@ public class RefreshSettingsFragment extends PreferenceFragment
         }
 
         mAllPackagesAdapter.setEntries(entries, sections, positions);
+        mEntryMap.clear();
+        for (ApplicationsState.AppEntry e : entries) {
+            mEntryMap.put(e.info.packageName, e);
+        }
     }
 
     private void rebuild() {
@@ -307,7 +313,6 @@ public class RefreshSettingsFragment extends PreferenceFragment
             holder.mode.setSelection(packageState, false);
             holder.mode.setTag(entry);
             holder.stateIcon.setImageResource(getStateDrawable(packageState));
-            holder.stateIcon.setOnClickListener(v -> holder.mode.performClick());
         }
 
         private void setEntries(List<ApplicationsState.AppEntry> entries,
