@@ -25,7 +25,6 @@ import android.util.Log;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.haptic.HapticUtils;
 import org.lineageos.settings.popupcamera.PopupCameraUtils;
-import org.lineageos.settings.refreshrate.RefreshUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -38,6 +37,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.checkDozeService(context);
         HapticUtils.restoreLevel(context);
         PopupCameraUtils.startService(context);
-        RefreshUtils.startService(context);
     }
 }
