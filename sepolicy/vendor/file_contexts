@@ -32,9 +32,6 @@
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.motor@1\.0-service                                         u:object_r:hal_motor_default_exec:s0
 /vendor/bin/mlipayd@1\.1                                                                            u:object_r:hal_mlipay_default_exec:s0
 
-# Haptic
-/sys/module/qti_haptics/parameters/vmax_mv_override                                                     u:object_r:sysfs_vibrator:s0
-
 # HBM
 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm           u:object_r:vendor_sysfs_hbm:s0
 
