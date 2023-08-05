@@ -1,4 +1,3 @@
-hal_attribute_lineage(dms)
 hal_attribute_lineage(mlipay)
 hal_attribute_lineage(motor)
 hal_attribute(misys)
