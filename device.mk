@@ -385,7 +385,8 @@ TARGET_COMMON_QTI_COMPONENTS += \
     adreno \
     av \
     gps \
-    media
+    media \
+    vibrator
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -502,13 +503,6 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
-
-PRODUCT_COPY_FILES += \
-    vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # VNDK
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
