@@ -31,19 +31,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.qcom.usb.rc",
-    src: "init.qcom.usb.rc",
-    vendor: true,
-    sub_dir: "init/hw",
-}
-
-sh_binary {
-    name: "init.qcom.usb.sh",
-    src: "init.qcom.usb.sh",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.recovery.qcom.rc",
     src: "init.recovery.qcom.rc",
     sub_dir: "init",
