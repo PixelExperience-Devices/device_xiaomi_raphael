@@ -81,9 +81,6 @@ persist.vendor.camera.perflock.enable=0
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
 
-# Dalvik dex2oat
-dalvik.vm.dex2oat64.enabled=true
-
 # Display
 debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
@@ -197,10 +194,6 @@ telephony.lteOnCdmaDevice=1
 
 # System
 persist.sys.binary_xml=false
-
-# SoC
-ro.soc.manufacturer=QTI
-ro.soc.model=SM8150
 
 # Surfaceflinger
 debug.sf.enable_advanced_sf_phase_offset=1

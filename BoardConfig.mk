@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/raphael
+QCOM_COMMON_PATH := device/qcom/common
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
@@ -67,9 +68,6 @@ TARGET_USES_GRALLOC4 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_VULKAN := true
 
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-
 # Fingerprint
 TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY := 338
 TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.xiaomi_raphael
@@ -79,10 +77,7 @@ TARGET_USES_FOD_ZPOS := true
 BOARD_HAVE_QCOM_FM := true
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    vendor/aosp/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/hidl/manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/hidl/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/hidl/framework_compatibility_matrix.xml
 ODM_MANIFEST_SKUS += nfc nfc_ese
 ODM_MANIFEST_NFC_FILES := $(DEVICE_PATH)/hidl/manifest_nfc.xml
@@ -110,7 +105,6 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
 
 # Media
 TARGET_DISABLED_UBWC := true
-TARGET_USES_ION := true
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -132,14 +126,15 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
 BOARD_VENDOR := xiaomi
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := msmnile
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# QCOM/COMMON
+include $(QCOM_COMMON_PATH)/BoardConfigQcom.mk
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
