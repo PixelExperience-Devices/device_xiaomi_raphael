@@ -867,9 +867,6 @@ vendor/lib/hw/sound_trigger.primary.msmnile.so
 vendor/lib64/hw/sound_trigger.primary.msmnile.so
 
 # Media
-system_ext/lib/libmmosal.so
-system_ext/lib/libmmparser_lite.so
-system_ext/lib64/libmmosal.so
 vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/lib/libqcodec2.so
