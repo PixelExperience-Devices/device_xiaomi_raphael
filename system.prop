@@ -69,15 +69,11 @@ media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-scan=true
-media.stagefright.thumbnail.prefer_hw_codecs=true
 media.aac_51_output_enabled=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 mmp.enable.3g2=true
 persist.mm.enable.prefetch=true
 mm.enable.smoothstreaming=true
-
-# Netflix custom property
-ro.netflix.bsp_rev=Q855-16947-1
 
 # NFC
 ro.nfc.port=I2C
