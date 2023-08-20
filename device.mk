@@ -94,10 +94,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
 
-# Board
-PRODUCT_USES_QCOM_HARDWARE := true
-PRODUCT_BOARD_PLATFORM := msmnile
-
 # Camera
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.motor@1.0.vendor \
@@ -219,16 +215,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health.storage@1.0-service
 
-# HIDL
-PRODUCT_PACKAGES += \
-    libhidltransport.vendor \
-    libhwbinder.vendor
-
-# Hotword Enrollment
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/permissions/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml \
-    $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
-
 # Init
 PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
@@ -348,16 +334,17 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor \
-    android.hardware.power-service-qti \
     android.hardware.power.stats@1.0-service.mock
 
 # QTI
 PRODUCT_PACKAGES += \
-    libjson \
-    libqti_vndfwk_detect \
-    libqti_vndfwk_detect.vendor \
-    libvndfwk_detect_jni.qti \
-    libvndfwk_detect_jni.qti.vendor
+    libjson
+
+# qcom/common tree
+$(call inherit-product, device/qcom/common/common.mk)
+TARGET_BOARD_PLATFORM := msmnile
+TARGET_USE_SM8150_HALS := true
+TARGET_EXCLUDE_QCOM_SEPOLICY := true
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/product_privapp-permissions-qti.xml \

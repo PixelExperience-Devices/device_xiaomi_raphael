@@ -18,6 +18,7 @@
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/raphael
+QCOM_COMMON_PATH := device/qcom/common
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -74,16 +75,12 @@ TARGET_USES_GRALLOC4 := true
 TARGET_USES_HWC2 := true
 TARGET_DISABLED_UBWC := true
 TARGET_SCREEN_DENSITY := 440
-TARGET_USES_ION := true
 TARGET_USES_QCOM_DISPLAY_BSP := true
 TARGET_USES_QTI_MAPPER_2_0 := true
 TARGET_USES_QTI_MAPPER_EXTENSIONS_1_1 := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
-
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # FM
 BOARD_HAVE_QCOM_FM := true
@@ -99,9 +96,6 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := \
 
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/vintf/manifest.xml
-
-DEVICE_MATRIX_FILE := \
-    $(DEVICE_PATH)/vintf/compatibility_matrix.xml
 
 ODM_MANIFEST_FILES += \
     $(DEVICE_PATH)/vintf/manifest-qva.xml
@@ -174,9 +168,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-# Platform
-TARGET_BOARD_PLATFORM := msmnile
-
 # Power
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
@@ -186,8 +177,8 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
-# QCOM
-BOARD_USES_QCOM_HARDWARE := true
+# QCOM/COMMON
+include $(QCOM_COMMON_PATH)/BoardConfigQcom.mk
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true

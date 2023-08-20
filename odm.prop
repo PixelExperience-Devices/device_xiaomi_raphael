@@ -1,5 +1,4 @@
 # Audio
-ro.vendor.qti.va_odm.support=1
 vendor.audio.feature.a2dp_offload.enable=true
 vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.anc_headset.enable=true
