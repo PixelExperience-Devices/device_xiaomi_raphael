@@ -222,10 +222,6 @@ sys.vendor.shutdown.waittime=500
 # Target specific Netflix custom property
 ro.netflix.bsp_rev=Q855-16947-1
 
-# USB
-vendor.usb.diag.func.name=diag
-vendor.usb.use_ffs_mtp=0
-
 # WiFi
 wifi.aware.interface=wifi-aware0
 
