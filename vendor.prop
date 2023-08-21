@@ -196,9 +196,6 @@ ro.vendor.se.type=eSE,HCE,UICC
 # PASR
 vendor.power.pasr.enabled=true
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # RIL
 persist.vendor.qti.telephony.vt_cam_interface=2
 persist.vendor.radio.add_power_save=1
