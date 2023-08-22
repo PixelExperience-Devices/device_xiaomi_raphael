@@ -51,8 +51,14 @@ public class PopupCameraSettingsFragment extends PreferenceFragment
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (MOTOR_CALIBRATION_KEY.equals(preference.getKey())) {
-            MotorCalibrationWarningDialog fragment = new MotorCalibrationWarningDialog();
-            fragment.show(getFragmentManager(), "motor_calibration_warning_dialog");
+            SharedPreferences prefs = getActivity().getSharedPreferences(
+                    MOTOR_CALIBRATION_KEY, Activity.MODE_PRIVATE);
+            if (!prefs.getBoolean("popup_calibration_warning_hidden", false)) {
+                MotorCalibrationWarningDialog fragment = new MotorCalibrationWarningDialog();
+                fragment.show(getFragmentManager(), "motor_calibration_warning_dialog");
+            } else {
+                mPopupCameraService.calibrateMotor();
+            }
             return true;
         }
         return false;
@@ -61,9 +67,25 @@ public class PopupCameraSettingsFragment extends PreferenceFragment
     private class MotorCalibrationWarningDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            View view = getActivity().getLayoutInflater().inflate(
+                    R.layout.popup_calibration_warning, null);
+            CheckBox hideDialog = (CheckBox) view.findViewById(R.id.popup_calibration_warning_hide);
+
+            hideDialog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                    getActivity()
+                            .getSharedPreferences(MOTOR_CALIBRATION_KEY, Activity.MODE_PRIVATE)
+                            .edit()
+                            .putBoolean("popup_calibration_warning_hidden", isChecked)
+                            .commit();
+                }
+            });
+
             return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.popup_calibration_warning_title)
                     .setMessage(R.string.popup_calibration_warning_text)
+                    .setView(view)
                     .setPositiveButton(R.string.popup_camera_calibrate_now,
                             (dialog, which) -> {
                                 mPopupCameraService.calibrateMotor();
