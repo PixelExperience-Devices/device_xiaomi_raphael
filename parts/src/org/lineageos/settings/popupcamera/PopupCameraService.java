@@ -173,6 +173,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
             synchronized (mLock) {
                 if (status == Constants.MOTOR_STATUS_CALIB_OK
                         || status == Constants.MOTOR_STATUS_CALIB_ERROR) {
+                    mMotorCalibrating = false;
                     showCalibrationResult(status);
                 } else if (status == Constants.MOTOR_STATUS_PRESSED) {
                     updateMotor(Constants.CLOSE_CAMERA_STATE);
@@ -185,26 +186,16 @@ public class PopupCameraService extends Service implements Handler.Callback {
         }
     }
 
-    protected void calibrateMotor() {
+    private void calibrateMotor() {
         synchronized (mLock) {
-            if (mMotorCalibrating)
+            if (mMotorCalibrating || mMotor == null)
                 return;
-            if (mMotor == null) {
-                try {
-                    mMotor = IMotor.getService();
-                } catch (RemoteException e) {
-                    // Do nothing
-                }
-                if (mMotor == null)
-                    return;
-            }
             try {
                 mMotorCalibrating = true;
                 mMotor.calibration();
             } catch (RemoteException e) {
                 // Do nothing
             }
-            mHandler.postDelayed(() -> mMotorCalibrating = false, 7000);
         }
     }
 
