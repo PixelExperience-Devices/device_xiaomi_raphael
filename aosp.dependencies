@@ -6,6 +6,12 @@
       "branch":"thirteen"
    },
    {
+      "remote":"pixel-devices",
+      "repository":"kernel_xiaomi_raphael",
+      "target_path":"kernel/xiaomi/raphael",
+      "branch":"thirteen"
+   },
+   {
       "remote":"pixel",
       "repository":"hardware_xiaomi",
       "target_path":"hardware/xiaomi",
