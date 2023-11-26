@@ -12,6 +12,12 @@
       "branch":"thirteen"
    },
    {
+      "remote":"pixel-devices-blobs",
+      "repository":"vendor_xiaomi_raphael",
+      "target_path":"vendor/xiaomi/raphael",
+      "branch":"thirteen"
+   },
+   {
       "remote":"pixel",
       "repository":"hardware_xiaomi",
       "target_path":"hardware/xiaomi",
