@@ -1,0 +1,20 @@
+[
+   {
+      "remote":"pixel-devices-blobs",
+      "repository":"vendor_xiaomi_raphael",
+      "target_path":"vendor/xiaomi/raphael",
+      "branch":"fourteen-wip"
+   },
+   {
+      "remote":"pixel",
+      "repository":"hardware_xiaomi",
+      "target_path":"hardware/xiaomi",
+      "branch":"fourteen"
+   },
+   {
+      "repository": "kernel_xiaomi_raphael",
+      "target_path": "kernel/xiaomi/raphael",
+      "remote": "pixel-devices",
+      "branch": "fourteen-wip"
+   }
+]
