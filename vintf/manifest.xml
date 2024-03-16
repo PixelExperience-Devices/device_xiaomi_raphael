@@ -20,37 +20,14 @@
         <fqname>@2.0::IBluetoothAudioProvidersFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.biometrics.fingerprint</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.3::IBiometricsFingerprint/default</fqname>
-        </hal>
-    <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
         <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.drm</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ICryptoFactory/default</fqname>
-        <fqname>@1.0::IDrmFactory/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IGatekeeper/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IGnss/gnss_vendor</fqname>
-        <fqname>@1.1::IGnss/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IGnss/gnss_vendor</fqname>
-        <fqname>@2.0::IGnss/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
@@ -146,21 +123,6 @@
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
         <fqname>@2.2::IFactory/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::ILocHidlGnss/gnss_vendor</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@2.1::ILocHidlGnss/gnss_vendor</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.gnss</name>
-        <transport>hwbinder</transport>
-        <fqname>@3.0::ILocHidlGnss/gnss_vendor</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.alarm</name>
@@ -339,11 +301,6 @@
         <name>vendor.qti.power.pasrmanager</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IPasrManager/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.xiaomi.hardware.fingerprintextension</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IXiaomiFingerprint/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.xiaomi.hardware.motor</name>
